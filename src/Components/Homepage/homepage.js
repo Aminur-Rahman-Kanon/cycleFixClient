@@ -16,7 +16,7 @@ const Homepage = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0);
 
     useEffect(() => {
-        Aos.init({duration: '2000', once: true});
+        Aos.init({duration: '1500', once: true});
         
         fetch('https://cyclefixserver.onrender.com/testimonial', {
             method: 'POST',
@@ -77,7 +77,7 @@ const Homepage = () => {
                         <h2 className={styles.headerContainer1H2}>Accessories</h2>
                         <h2 className={styles.headerContainer1H2}>Service</h2>
                     </div>
-                    <div data-aos="zoom-in-up" className={styles.headerContainer1Btn}>
+                    <div className={styles.headerContainer1Btn}>
                         <p className={styles.bookingBtnP}>Book A Service</p>
                         <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.screwDriver}/>
                     </div>
