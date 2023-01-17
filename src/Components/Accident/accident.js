@@ -4,6 +4,7 @@ import { faCheck, faSignature, faEnvelope, faAt, faPhone } from '@fortawesome/fr
 import cams from '../../Assets/cams.jpg';
 import mechanic from '../../Assets/mechanic.jpg';
 import Spinner from '../Others/Spinner/spinner';
+import Aos from 'aos';
 import styles from './accident.module.css';
 
 let target = null;
@@ -27,6 +28,10 @@ const Accident = () => {
     const [spinner, setSpinner] = useState(false);
 
     const [submitStatus, setSubmitStatus] = useState(null);
+
+    useEffect(() => {
+        Aos.init({ duration: '2000', once: true });
+    }, [])
 
     useEffect(() => {
         switch (target) {
@@ -77,7 +82,7 @@ const Accident = () => {
         
         setSpinner(true);
 
-        fetch('http://localhost:8000/submit-query', {
+        fetch('https://cyclefixserver.onrender.com/submit-query', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'

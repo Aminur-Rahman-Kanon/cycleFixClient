@@ -187,7 +187,6 @@
     position: relative;
     width: 100%;
     margin: 50px auto;
-    padding: 10px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
@@ -377,7 +376,32 @@
     }
 }
 
+@media (max-width: 768px) {
+    .whatWeDoServices {
+        width: 90%;
+    }
+    .camsMain {
+        margin: 50px auto;
+    }
+    .camsImgContainer {
+        padding: 0px;
+    }
+
+    .whatWeDoMain {
+        margin: 50px auto;
+    }
+}
+
+
 @media (max-width: 452px) {
+    .whatWeDoMain {
+        margin: 25px auto;
+    }
+
+    .whatWeDoServices {
+        width: 100%;
+    }
+
     .accidentIntroBg {
         height: 1000px;
     }
@@ -388,6 +412,10 @@
 
     .accidentIntroContainerBtn {
         width: 100%;
+    }
+
+    .camsInquiryMain {
+        margin: 25px auto;
     }
 
     .camsLink {

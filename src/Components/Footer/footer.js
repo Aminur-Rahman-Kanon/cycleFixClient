@@ -58,7 +58,7 @@ const footer = () => {
                                 </a>
                             </li>
                             <li className={styles.openingTimesContainer}>
-                                <p>Opening Times</p>
+                                <h3>Opening Times</h3>
                                 <ul className={styles.openingTimes}>
                                     <li className={styles.openingTime}>Monday - Friday: 8AM - 8PM</li>
                                     <li className={styles.openingTime}>Saturday: 9AM - 6PM</li>
