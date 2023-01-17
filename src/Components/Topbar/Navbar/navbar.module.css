@@ -1,0 +1,45 @@
+.navbarMain {
+    width: 90%;
+}
+
+.navbarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.navbarItem {
+    list-style: none;
+}
+
+.navItem {
+    text-decoration: none;
+    color: lightgray;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.navItem:hover {
+    color: #7db2ed;
+}
+
+.navActive {
+    text-decoration: none;
+    color: #7db2ed;
+    margin: 10px;
+}
+
+@media (max-width: 1060px) {
+    .navbarContainer {
+        flex-flow: column;
+    }
+
+    .navbarItem {
+        margin: 10px;
+    }
+
+    .navItem {
+        color: rgb(167, 166, 166);
+    }
+}

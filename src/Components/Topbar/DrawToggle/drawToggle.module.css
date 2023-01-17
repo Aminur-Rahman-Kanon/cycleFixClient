@@ -1,0 +1,23 @@
+.drawToggleMain {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: none;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.drawToggleBar {
+    height: 2px;
+    width: 30px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #7db2ed;
+}
+
+@media (max-width: 1060px) {
+    .drawToggleMain {
+        display: flex;
+    }
+}

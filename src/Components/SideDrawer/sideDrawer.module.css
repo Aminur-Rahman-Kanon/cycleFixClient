@@ -1,0 +1,30 @@
+.sideDrawerOn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+}
+
+.sideDrawerOff {
+    display: none;
+}
+
+.sideDrawerLogo {
+    width: 150px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 550px) {
+    .sideDrawerOn {
+        width: 270px;
+    }
+}

@@ -1,0 +1,23 @@
+.spinnerMain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(83, 83, 83, 0.637);
+    color: #7db2ed;
+    z-index: 100;
+}
+
+.spinnerP {
+    color: white;
+    font-size: 18px;
+    margin: 15px 5px 5px 5px;
+    letter-spacing: 1px;
+}

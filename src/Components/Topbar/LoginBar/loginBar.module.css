@@ -1,0 +1,43 @@
+.loginBarMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBarItems {
+    width: 70px;
+    color: lightgray;
+    cursor: pointer;
+}
+
+.loginBarItems:hover {
+    color: #7db2ed;
+}
+
+.loginBarIcon {
+    font-size: 20px;
+}
+
+.loginBarItemsP {
+    margin: 10px;
+}
+
+.active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.inActive {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (max-width: 1060px) {
+    .loginBarMain {
+        margin: 20px;
+    }
+
+    .loginBarItems {
+        color: rgb(167, 166, 166);
+    }
+}

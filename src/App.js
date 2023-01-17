@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Homepage from './Components/Homepage/homepage';
+import Topbar from './Components/Topbar/topbar';
+import SideDrawer from './Components/SideDrawer/sideDrawer';
+import Backdrop from './Components/Backdrop/backdrop';
+import Footer from './Components/Footer/footer';
+import Accident from './Components/Accident/accident';
+import { connect } from 'react-redux';
 
-function App() {
+function App(props) {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Backdrop />
+      <Topbar />
+      <SideDrawer />
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path="/cycling-accident" element={<Accident />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    backdrop: state.backdrop
+  }
+}
+
+export default connect( mapStateToProps ) (App);
