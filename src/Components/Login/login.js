@@ -95,7 +95,7 @@ const Login = () => {
 
                     <div className={ passwordValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
                         <FontAwesomeIcon icon={faLock} className={ passwordValidation ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`} />
-                        <input type="text"
+                        <input type="password"
                             className={styles.loginInput}
                             placeholder="Password"
                             onChange={(e) => {

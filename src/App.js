@@ -7,6 +7,7 @@ import SideDrawer from './Components/SideDrawer/sideDrawer';
 import Backdrop from './Components/Backdrop/backdrop';
 import Footer from './Components/Footer/footer';
 import Login from './Components/Login/login';
+import Registration from './Components/Registration/registration';
 import Accident from './Components/Accident/accident';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path="/cycling-accident" element={<Accident />} />
         <Route path='/login' element={<Login />}/>
+        <Route path="/register" element={<Registration />} />
       </Routes>
       <Footer />
     </div>
