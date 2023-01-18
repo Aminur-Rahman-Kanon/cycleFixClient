@@ -1,9 +1,7 @@
 import React from "react";
 import styles from './drawToggle.module.css';
-import { connect } from 'react-redux';
-import actionTypes from "../../../Reducer/actionTypes";
 
-const DrawToggle = (props) => {
+const drawToggle = (props) => {
 
     return (
         <div className={styles.drawToggleMain} onClick={() => props.toggleSidedrawer()}>
@@ -14,10 +12,4 @@ const DrawToggle = (props) => {
     )
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        toggleSidedrawer: () => dispatch({ type: actionTypes.TOOGLE_SIDEDRAWER })
-    }
-}
-
-export default connect (null, mapDispatchToProps) (DrawToggle);
+export default drawToggle;

@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import styles from './navbar.module.css';
-import { connect } from 'react-redux';
 
 const Navbar = (props) => {
 
@@ -20,10 +19,5 @@ const Navbar = (props) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        sidedrawer: state.sideDrawer
-    }
-}
 
-export default connect (mapStateToProps) (Navbar);
+export default Navbar;

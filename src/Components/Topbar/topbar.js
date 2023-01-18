@@ -5,7 +5,7 @@ import LoginBar from "./LoginBar/loginBar";
 import DrawToggle from "./DrawToggle/drawToggle";
 import styles from './topbar.module.css';
 
-const Topbar = () => {
+const Topbar = (props) => {
 
     return (
         <div className={styles.topbarMain}>
@@ -14,7 +14,7 @@ const Topbar = () => {
                 <Navbar />
                 <LoginBar />
             </div>
-            <DrawToggle />
+            <DrawToggle toggleSidedrawer={ props.toggleSideDrawer }/>
         </div>
     )
 }

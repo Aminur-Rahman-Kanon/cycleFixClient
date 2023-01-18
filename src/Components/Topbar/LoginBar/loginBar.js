@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './loginBar.module.css';
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const LoginBar = (props) => {
@@ -26,10 +25,5 @@ const LoginBar = (props) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        sideDrawer: state.sideDrawer
-    }
-}
 
-export default connect ( mapStateToProps ) (LoginBar);
+export default LoginBar;

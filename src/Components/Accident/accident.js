@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSignature, faEnvelope, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import cams from '../../Assets/cams.jpg';
 import mechanic from '../../Assets/mechanic.jpg';
 import Spinner from '../Others/Spinner/spinner';
 import Aos from 'aos';
+import Modal from '../Others/Modal/modal';
+import Backdrop from '../Backdrop/backdrop';
 import styles from './accident.module.css';
 
 let target = null;
 
 const Accident = () => {
+
+    const formRef = useRef();
 
     const [name, setName] = useState('');
     const [nameValidation, setnameValidation] = useState(true);
@@ -29,9 +33,25 @@ const Accident = () => {
 
     const [submitStatus, setSubmitStatus] = useState(null);
 
+    const [modal, setModal] = useState(false);
+
+    const [backdrop, setBackdrop] = useState(false);
+
     useEffect(() => {
         Aos.init({ duration: '2000', once: true });
     }, [])
+
+    useEffect(() => {
+        if (backdrop){
+            document.body.style.overflow = 'hidden';
+            // window.scrollTo(0, 1000);
+            document.body.style.position = 'sticky';
+        }
+        else {
+            document.body.style.overflow = 'auto';
+            document.body.style.position = 'unset';
+        }
+    }, [backdrop])
 
     useEffect(() => {
         switch (target) {
@@ -82,7 +102,7 @@ const Accident = () => {
         
         setSpinner(true);
 
-        fetch('https://cyclefixserver.onrender.com/submit-query', {
+        fetch('http://localhost:8000/submit-query', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -91,31 +111,52 @@ const Accident = () => {
                 name, email, message, phoneNumber
             })
         }).then(res => res.json()).then(data => {
-            setSubmitStatus(data.status);
+            console.log(data.status);
             setSpinner(false);
+            setSubmitStatus(data.status);
+            setBackdrop(true);
+            setModal(true);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            setSpinner(false);
+            setSubmitStatus('failed');
+            setBackdrop(true);
+            setModal(true);
+        });
+    }
+
+    const handleBackdrop = () => {
+        setModal(false);
+        setBackdrop(false);
     }
 
     let submitMsg = null;
 
-    if (submitMsg === 'success') {
+    if (submitStatus === 'success') {
         submitMsg = <div className={styles.submitMsgMain}>
-            <h1 className={styles.submitMsgH1}>Thank you</h1>
-            <h2 className={styles.submitMsgH2}>Your query has been sent successfully</h2>
-            <button className={styles.submitMsgBtn}>You are welcome</button>
+            <h2 className={styles.submitMsgH1}>Thank you</h2>
+            <p className={styles.submitMsgH2}>Your query has been sent successfully</p>
+            <button className={styles.submitMsgBtn} onClick={() => window.location.reload()}>
+                You are welcome !
+            </button>
         </div>
     }
     else {
         submitMsg = <div className={styles.submitMsgMain}>
-            <h1 className={styles.submitMsgH1}>Something went wrong</h1>
-            <h2 className={styles.submitMsgH1}>Please try again</h2>
-            <button className={styles.submitMsgBtn}>Lets try again</button>
+            <h2 className={styles.submitMsgH2}>Something went wrong</h2>
+            <p className={styles.submitMsgP}>Please try again</p>
+            <button className={styles.submitMsgBtn} onClick={ handleBackdrop }>
+                Lets try again
+            </button>
         </div>
     }
 
 
     return (
+        <>
+
+        <Backdrop backdrop={backdrop} />
+
         <div className={styles.accidentMain}>
             <div className={styles.accidentIntroMain}>
                 <div className={styles.accidentIntroBg}>
@@ -125,7 +166,7 @@ const Accident = () => {
                 <div className={styles.accidentIntroContainer}>
                     <h1 className={styles.accidentIntroContainerH1}>Had a cycling accident that wasn’t your fault?</h1>
                     <p className={styles.accidentIntroContainerP}>If you have had a cycling accident and you believe you have a valid claim, knowing how to proceed can be difficult. To help you, we have teamed up with CAMS (Cycling Accident Management Services), a specialist cycling road traffic accident company that offer a best-in-class service to get you back on your bike as soon as possible. Best of all you do not need to be insured to use this service and their costs are recovered from the drivers insurance company.</p>
-                    <button className={styles.accidentIntroContainerBtn}>Enqury Now</button>
+                    <button className={styles.accidentIntroContainerBtn} onClick={() => formRef.current.scrollIntoView(true)}>Enqury Now</button>
                 </div>
             </div>
 
@@ -177,7 +218,11 @@ const Accident = () => {
                 </div>
             </div>
 
-            <div className={styles.camsInquiryMain}>
+            <div className={styles.camsInquiryMain} id="camsInquiry">
+                <Modal switch={modal}>
+                    {submitMsg}
+                </Modal>
+                
                 <Spinner switch={spinner} />
                 <div className={styles.camsInquiryHeader}>
                     <h1 className={styles.camsInquiryH1}>CAMS Inquiry</h1>
@@ -187,7 +232,7 @@ const Accident = () => {
 
                 </div>
 
-                <div className={styles.camsInquiryFormContainer}>
+                <div className={styles.camsInquiryFormContainer} ref={formRef}>
                     <form className={styles.camsInquiryForm}>
                         <div className={nameValidation ? styles.camsInquiryFormInputContainer : `${styles.camsInquiryFormInputContainer} ${styles.wrongInput}`}>
                             <FontAwesomeIcon icon={faSignature} className={nameValidation ? styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}`} />
@@ -242,6 +287,7 @@ const Accident = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
