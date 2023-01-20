@@ -94,7 +94,7 @@ const Login = () => {
 
         setSpinner(true);
 
-        fetch('https://cyclefixserver.onrender.com/login', {
+        fetch('http://localhost:8000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -168,12 +168,12 @@ const Login = () => {
                     </button>
 
                     <div className={styles.loginAdditional}>
-                        <Link to="#" className={styles.loginAdditionalLink}>Create Account</Link>
+                        <Link to="/register" className={styles.loginAdditionalLink}>Create Account</Link>
                         <Link to="#" className={styles.loginAdditionalLink}>Forgot Password</Link>
                     </div>
-
-                    <div id="google-btn" className={styles.googleBtn}>
-
+                    
+                    <div className={styles.googleBtnContainer}>
+                        <div id="google-btn" className={styles.googleBtn}></div>
                     </div>
                 </form>
             </div>

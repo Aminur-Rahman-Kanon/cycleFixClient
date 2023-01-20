@@ -18,7 +18,7 @@ const Homepage = () => {
     useEffect(() => {
         Aos.init({duration: '1500', once: true});
         
-        fetch('https://cyclefixserver.onrender.com/testimonial', {
+        fetch('http://localhost:8000/testimonial', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

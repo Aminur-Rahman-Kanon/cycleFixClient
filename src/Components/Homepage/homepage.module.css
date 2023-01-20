@@ -96,7 +96,7 @@
 
 .headerContainer2 {
     width: 100%;
-    margin: 50px auto;
+    margin: 80px auto;
     padding: 20px;
     box-sizing: border-box;
     display: flex;
@@ -312,7 +312,7 @@
 
 .testimonialCard {
     width: 250px;
-    height: 210px;
+    height: 225px;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -340,11 +340,15 @@
 
 
 .testimonialBtn {
-    height: 56px;
+    height: 55px;
+    width: 55px;
     background-color: transparent;
     color: #8ebcf0;
     border: 1px solid transparent;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonialBtn:disabled {

@@ -10,6 +10,7 @@ import Login from './Components/Login/login';
 import Registration from './Components/Registration/registration';
 import Accident from './Components/Accident/accident';
 import DefaultRoute from './Components/Others/DefaultRoute/defaultRoute';
+import WorkshopPriceList from './Components/WorkshopPriceList/workshopPriceList';
 
 export const LoggedInUsers = createContext(null);
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/cycling-accident" element={<Accident />} />
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/login' element={<Login />}/> }
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/register' element={<Registration />}/> }
+          <Route path='/workshop-price-list' element={<WorkshopPriceList /> }/>
           <Route path='*' element={<DefaultRoute />}/>
         </Routes>
         <Footer />
