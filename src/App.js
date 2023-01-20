@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './Components/Homepage/homepage';
@@ -9,11 +9,22 @@ import Footer from './Components/Footer/footer';
 import Login from './Components/Login/login';
 import Registration from './Components/Registration/registration';
 import Accident from './Components/Accident/accident';
+import DefaultRoute from './Components/Others/DefaultRoute/defaultRoute';
+
+export const LoggedInUsers = createContext(null);
 
 function App() {
 
   const [sideDrawer, setSideDrawer] = useState(false);
   const [backdrop, setBackdrop] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  if (!loggedInUser){
+    if (sessionStorage.key(0) === 'loggedInUser'){
+      const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+      setLoggedInUser(user);
+    }
+  }
 
   const closeSideDrawer = () => {
     setBackdrop(false);
@@ -27,16 +38,19 @@ function App() {
 
   return (
     <div className="App" style={backdrop ? {overflow: 'hidden', position: 'fixed'} : {overflow: 'auto', position: 'unset'}}>
-      <Backdrop backdrop={backdrop} toggleBackdrop={ closeSideDrawer } />
-      <Topbar toggleSideDrawer={ openSideDrawer }/>
-      <SideDrawer sideDrawer={sideDrawer}/>
-      <Routes>
-        <Route path='/' element={<Homepage />} />
-        <Route path="/cycling-accident" element={<Accident />} />
-        <Route path='/login' element={<Login />}/>
-        <Route path="/register" element={<Registration />} />
-      </Routes>
-      <Footer />
+      <LoggedInUsers.Provider value={ loggedInUser }>
+        <Backdrop backdrop={backdrop} toggleBackdrop={ closeSideDrawer } />
+        <Topbar toggleSideDrawer={ openSideDrawer } />
+        <SideDrawer sideDrawer={sideDrawer}/>
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+          <Route path="/cycling-accident" element={<Accident />} />
+          {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/login' element={<Login />}/> }
+          {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/register' element={<Registration />}/> }
+          <Route path='*' element={<DefaultRoute />}/>
+        </Routes>
+        <Footer />
+      </LoggedInUsers.Provider>
     </div>
   );
 }

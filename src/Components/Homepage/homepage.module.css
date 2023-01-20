@@ -129,7 +129,7 @@
 
 .headerContainer2P {
     text-align: left;
-    font-size: 17px;
+    font-size: 15px;
     letter-spacing: 1px;
 }
 
@@ -426,7 +426,7 @@
 
     .headerContainer2Part2 {
         width: 100%;
-        padding: 10px;
+        padding: 15px;
         box-sizing: border-box;
     }
 
@@ -524,6 +524,10 @@
 
     .testimonialBackground {
         height: 1200px;
+    }
+
+    .headerContainer2Img {
+        height: 350px;
     }
 }
 

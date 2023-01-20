@@ -102,7 +102,7 @@ const Accident = () => {
         
         setSpinner(true);
 
-        fetch('http://localhost:8000/submit-query', {
+        fetch('https://cyclefixserver.onrender.com/submit-query', {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'

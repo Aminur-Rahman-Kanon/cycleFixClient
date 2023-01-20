@@ -38,9 +38,10 @@
 }
 
 .loginInputContainer {
+    position: relative;
     width: 350px;
     height: 40px;
-    margin: 15px;
+    margin: 20px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -69,7 +70,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: white
+    color: white;
 }
 
 .loginInput::placeholder {
@@ -114,6 +115,15 @@
 .loginAdditionalLink:hover {
     color: #7db2ed;
     font-weight: bolder;
+}
+
+.errorMsg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 40%);
+    width: 100%;
+    color: white;
 }
 
 @media (max-width: 768px) {

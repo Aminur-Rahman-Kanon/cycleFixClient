@@ -6,6 +6,7 @@
 
 .loginBarItems {
     width: 70px;
+    margin: 5px 0;
     color: lightgray;
     cursor: pointer;
 }
@@ -25,6 +26,7 @@
 .active {
     text-decoration: none;
     color: inherit;
+    color: #7db2ed
 }
 
 .inActive {
@@ -32,12 +34,56 @@
     color: inherit;
 }
 
+.profileMain {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: #ffffff2e;
+}
+
+.avatar {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+.logoutContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.logoutBtn {
+    height: 30px;
+    width: 65px;
+    margin-top: 5px;
+    background-color: transparent;
+    border: 1px solid #8bd1ff;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #8bd1ff;
+}
+
+.logoutBtn:hover {
+    background-color: #8bd1ff;
+    color: white;
+}
 @media (max-width: 1060px) {
     .loginBarMain {
-        margin: 20px;
+        margin: 10px;
     }
 
     .loginBarItems {
         color: rgb(167, 166, 166);
+    }
+
+    .profileMain {
+        flex-flow: column;
+        background-color: unset;
     }
 }

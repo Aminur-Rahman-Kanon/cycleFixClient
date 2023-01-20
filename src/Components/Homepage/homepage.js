@@ -33,32 +33,28 @@ const Homepage = () => {
     const itemToView = 3;
     const totalPage = Math.ceil(testimonial.length / itemToView);
 
-    console.log(totalPage);
-
     const calculateStars = (count) => {
         const addStar = 5 - count;
 
         const calculateStar = Array.from(Array(count).keys()).map(star => {
-            return <FontAwesomeIcon icon={faStar}/>
+            return <FontAwesomeIcon key={star} icon={faStar}/>
         });
 
-        const finalCalculation = Array.from(Array(addStar).keys()).map(star => {
-            return <FontAwesomeIcon icon={faStar} style={{color: 'lightgray'}}/>
+        const finalCalculation = Array.from(Array(addStar).keys()).map((star, index) => {
+            return <FontAwesomeIcon key={star + 6} icon={faStar} style={{color: 'lightgray'}}/>
         })
-        console.log(finalCalculation);
 
         return calculateStar.concat(finalCalculation);
     }
 
     if (testimonial !== null) {
         displayRatings = testimonial.slice(testimonialIndex*itemToView, (testimonialIndex*itemToView) + itemToView).map(ratings => {
-            return <div className={styles.testimonialCard}>
+            return <div key={ratings.comment} className={styles.testimonialCard}>
             <p>{ratings.comment}</p>       
             <div className={styles.testimonialStars}>
                 <h2>{ratings.name}</h2>
-                {Number(ratings.rating) === 5 ? Array.from(Array(Number(ratings.rating)).keys()).map(star => {
-                    console.log(typeof ratings.rating)
-                    return <FontAwesomeIcon icon={faStar} className={styles.testimonialStar}/>
+                {Number(ratings.rating) === 5 ? Array.from(Array(Number(ratings.rating)).keys()).map((star, index) => {
+                    return <FontAwesomeIcon key={index + 12} icon={faStar} className={styles.testimonialStar}/>
                 })
                 : calculateStars(Number(ratings.rating))
                 }
@@ -95,6 +91,7 @@ const Homepage = () => {
                     <p className={styles.headerContainer2P}>Are you in need of urgent bike repairs in the London area? If so, then you should choose Cycle Fix for your local bicycle repair shop.
                        At Cycle Fix we aim to service and repair your bike quickly so you can get right back to cycling. “Walk in, ride out” is the motto of our bike repair shop. We will do all we can to ensure your bike returns to you in perfect working order.
                        No matter how complex the repair job, our passionate team have the engineering know-how to find the best solution. We are proud of our service to the community as your local bike shop.
+                       Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. We service all types of bikes and we also pride ourselves in engineering solutions for your complex bike repair problems.
                     </p>
                 </div>
             </div>

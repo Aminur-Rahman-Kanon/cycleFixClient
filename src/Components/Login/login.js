@@ -5,13 +5,15 @@ import styles from './login.module.css';
 import { Link } from 'react-router-dom';
 import Modal from '../Others/Modal/modal';
 import Backdrop from '../Backdrop/backdrop';
+import Spinner from '../Others/Spinner/spinner';
+import jwtDecode from 'jwt-decode';
 
 let target = null;
 
 const Login = () => {
 
-    const [username, setusername] = useState('')
-    const [usernameValidation, setusernameValidation] = useState(true);
+    const [email, setemail] = useState('');
+    const [emailValidation, setemailValidation] = useState(true);
 
     const [password, setPassword] = useState('');
     const [passwordValidation, setPasswordValidation] = useState(true);
@@ -24,12 +26,31 @@ const Login = () => {
 
     const [error, setError] = useState(false);
 
-    console.log(finalValidation);
+    const [errorMsg, setErrorMsg] = useState('');
+
+    const [spinner, setSpinner] = useState(false);
+
+    useEffect(() => {
+        /* global google */
+        google.accounts.id.initialize({
+            client_id: "257327674926-u5bnbok1l36c70662j162rk5044krqsu.apps.googleusercontent.com",
+            callback: handleGoogleLogin
+        })
+
+        google.accounts.id.renderButton(
+            document.getElementById('google-btn'),
+            {
+                theme: 'outline', size: 'large'
+            }
+        );
+
+        google.accounts.id.prompt();
+    }, [])
 
     useEffect(() => {
         switch(target){
-            case 'username':
-                username.length > 0 ? setusernameValidation(true) : setusernameValidation(false);
+            case 'email':
+                email.length > 0 ? setemailValidation(true) : setemailValidation(false);
                 break;
 
             case 'password':
@@ -39,16 +60,16 @@ const Login = () => {
             default:
                 break;
         }
-    }, [ username, password ])
+    }, [ email, password ])
 
     useEffect(() => {
-        if ( ( username && usernameValidation) && ( password && passwordValidation ) ){
+        if ( ( email && emailValidation) && ( password && passwordValidation ) ){
             setFinalValidation(true);
         }
         else {
             setFinalValidation(false);
         }
-    }, [ username, password ])
+    }, [ email, password ])
 
     const closeError = () => {
         setModal(false);
@@ -67,6 +88,40 @@ const Login = () => {
             </button>
         </div>
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        setSpinner(true);
+
+        fetch('https://cyclefixserver.onrender.com/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email, password
+            })
+        }).then(res => res.json()).then(data => {
+            setSpinner(false);
+
+            if (data.status === 'success'){
+                sessionStorage.setItem('loggedInUser', JSON.stringify(data.data));
+                window.location.assign('/');
+            }
+            else {
+                setErrorMsg(data.status);
+            }
+        }).catch(err => setError(true));
+    }
+
+    const handleGoogleLogin = (response) => {
+        const user = jwtDecode(response.credential);
+        console.log(user);
+        sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+        window.location.assign('/');
+    }
+
     
     return (
         <>
@@ -74,6 +129,7 @@ const Login = () => {
         <Modal switch={modal}>
             {displayMsg}
         </Modal>
+        <Spinner switch={ spinner } />
         <div className={styles.loginMain}>
             <div className={styles.loginBg}>
 
@@ -82,15 +138,16 @@ const Login = () => {
             <div className={styles.loginContainer}>
                 <form className={styles.loginForm}>
                     <h1 className={styles.loginH1}>Login</h1>
-                    <div className={ usernameValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
-                        <FontAwesomeIcon icon={faUser} className={usernameValidation ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`}/>
+                    <div className={ emailValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
+                        <FontAwesomeIcon icon={faUser} className={emailValidation ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`}/>
                         <input type="text"
                             className={styles.loginInput}
-                            placeholder="username"
+                            placeholder="email"
                             onChange={(e) => {
-                                setusername(e.target.value);
-                                target = 'username'
+                                setemail(e.target.value);
+                                target = 'email'
                             }}/>
+                        <p className={styles.errorMsg} style={errorMsg === 'user not found' ? {display: 'block'} : {display: 'none'}} >User not found</p>
                     </div>
 
                     <div className={ passwordValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
@@ -102,15 +159,21 @@ const Login = () => {
                                 setPassword(e.target.value);
                                 target = 'password';
                             }} />
+                        <p className={styles.errorMsg} style={errorMsg === 'bad password' ? {display: 'block'} : {display: 'none'}}>Password doesn't match</p>
                     </div>
 
-                    <button className={finalValidation ? styles.loginBtn : `${styles.loginBtn} ${styles.loginBtnDisable}`} disabled={!finalValidation}>
+                    <button className={finalValidation ? styles.loginBtn : `${styles.loginBtn} ${styles.loginBtnDisable}`} disabled={!finalValidation}
+                            onClick={ handleSubmit }>
                         Login
                     </button>
 
                     <div className={styles.loginAdditional}>
                         <Link to="#" className={styles.loginAdditionalLink}>Create Account</Link>
                         <Link to="#" className={styles.loginAdditionalLink}>Forgot Password</Link>
+                    </div>
+
+                    <div id="google-btn" className={styles.googleBtn}>
+
                     </div>
                 </form>
             </div>
