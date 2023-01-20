@@ -114,7 +114,7 @@ const Registration = () => {
     const formHandleSubmit = (e) => {
         e.preventDefault();
         setSpinner(true);
-        fetch('http://localhost:8000/sign-up', {
+        fetch('https://cyclefixserver.onrender.com/sign-up', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

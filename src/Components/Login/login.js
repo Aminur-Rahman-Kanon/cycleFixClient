@@ -94,7 +94,7 @@ const Login = () => {
 
         setSpinner(true);
 
-        fetch('http://localhost:8000/login', {
+        fetch('https://cyclefixserver.onrender.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
