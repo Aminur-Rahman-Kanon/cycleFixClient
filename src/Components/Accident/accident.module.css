@@ -286,6 +286,7 @@
 }
 
 .camsInquiryFormMsgInput {
+    position: relative;
     width: 100%;
     height: 90%;
     margin: 10px;

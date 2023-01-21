@@ -10,7 +10,7 @@ const priceList = [
         price: '80',
         list: ['Frame & forks checked ', 'Wheels trued', 'Nuts & bolts are checked and tightened', 
                'Tyres are inflated to the correct pressure', 'Components de-greased', 'Brake service', 'Hubs servicd',
-                'Headset && BB serviced/replaced', 'Clean & Polish', 'Bar tape fitting']
+                'Headset & BB serviced/replaced', 'Clean & Polish', 'Bar tape fitting']
     },
     {
         h2: 'Full Service',

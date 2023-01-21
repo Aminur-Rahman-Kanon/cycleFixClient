@@ -183,6 +183,63 @@
     font-weight: bold;
 }
 
+.individualPriceMain {
+    width: 100%;
+    margin: 50px auto;
+    padding: 50px 0;
+    background: linear-gradient(100deg, #626060, #1c1c1c);
+}
+
+.individualHeader {
+    color: #9bc2ee;
+    letter-spacing: 2px;
+}
+
+.individualPriceTableMain {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.individualPriceColumn {
+    width: 350px;
+}
+
+.individualPriceRow {
+    margin: 25px;
+    text-align: left;
+}
+
+.individualPriceRow > h3 {
+    letter-spacing: 1px;
+    color: #7db2ed;
+}
+
+.individualPrices {
+    color: white;
+}
+
+.notListedJob {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.notListedJobP {
+    color: white;
+    font-size: 18px;
+}
+
+.contact {
+    text-decoration: none;
+    color: #9bc2ee;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
 @keyframes bubble {
     0% {
         transform: scale(1);
@@ -240,6 +297,19 @@
     .priceListsContainer2 {
         width: 100%;
         margin: 35px auto;
+    }
+
+    .individualPriceTableMain {
+        flex-flow: column;
+        align-items: center;
+    }
+    .individualPriceColumn {
+        width: 95%;
+        margin: 0px auto;
+    }
+    .individualPriceRow {
+        width: 100%;
+        margin: 15px auto;
     }
 }
 
