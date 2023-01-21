@@ -10,7 +10,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(83, 83, 83, 0.637);
+    background-color: #464646f2;
     color: #7db2ed;
     z-index: 100;
 }

@@ -9,22 +9,29 @@ import p1 from '../../Assets/p1.jpg';
 import p2 from '../../Assets/p2.jpeg';
 import p3 from '../../Assets/p3.jpg';
 import styles from './homepage.module.css';
+import Spinner from '../Others/Spinner/spinner';
 
 const Homepage = () => {
 
     const [testimonial, setTestimonial] = useState([]);
+    
     const [testimonialIndex, setTestimonialIndex] = useState(0);
+    
+    const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
         Aos.init({duration: '1500', once: true});
+        setSpinner(true);
         
         fetch('https://cyclefixserver.onrender.com/testimonial', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(res => res.json()).then(data => setTestimonial(data.data))
-        .catch(err => console.log(err))
+        }).then(res => res.json()).then(data => {
+            setTestimonial(data.data);
+            setSpinner(false);
+        }).catch(err => console.log(err))
         
     }, [])
 
@@ -159,6 +166,7 @@ const Homepage = () => {
             </div>
 
             <div className={styles.testimonialMain}>
+                <Spinner switch={spinner} />
                 <div className={styles.testimonialBackground}>
 
                 </div>
