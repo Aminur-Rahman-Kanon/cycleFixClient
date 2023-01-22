@@ -1,0 +1,268 @@
+.contactBgMain {
+    width: 100%;
+}
+
+.contactBgContainer {
+    width: 100%;
+}
+
+.contactBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../Assets/cycleFix.jpg');
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.5);
+}
+
+.contactQuery {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: rgb(250, 250, 250);
+}
+
+.contactQueryH1 {
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+
+.contactFormMain {
+    position: relative;
+    width: 100%;
+    height: 720px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    background-image: url('../../Assets/contact.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.contactForm {
+    width: 100%;
+    height: 720px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #4e4e4ea6;
+}
+
+.contactFormH1 {
+    margin-bottom: 50px;
+    letter-spacing: 5px;
+}
+
+.contactFormHeaderItems {
+    width: 320px;
+}
+
+.contactFormHeader {
+    margin-bottom: 30px;
+}
+
+.contactFormHeaderItem {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.contactFormHeaderP {
+    text-align: left;
+    margin-left: 5px;
+}
+
+.contactFormHeaderItemIcon {
+    width: 15px;
+    margin: 15px;
+    padding: 20px;
+    background-color: #e69b10;
+    color: white;
+    border-radius: 10px;
+}
+
+.contactFormHeaderMain {
+    width: 100%;
+    /* padding: 15px; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contactFormHeaderContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactFormHeaderItemContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addressIcon {
+    font-size: 20px;
+    color: #f6cd81;
+    margin: 10px;
+}
+
+.contactFormContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formMain {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formInputContainer {
+    width: 350px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.formInputContainer.wrongInput {
+    background-color: #ff000056;
+    border: 1px solid #ff000056;
+}
+
+.formTextAreaContainer {
+    width: 350px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.formInput {
+    height: 30px;
+    width: 280px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+.formInputTextarea {
+    width: 280px;
+    padding-top: 15px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.formInput::placeholder, .formInputTextarea::placeholder {
+    color: lightgray;
+}
+
+.formBtn {
+    height: 40px;
+    width: 200px;
+    margin: 15px;
+    background-color: #e69b10;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.formBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.formBtn:hover {
+    background-color: #e29300;
+
+}
+
+.displayMsgMain {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #737785;
+    color: #d3d3d3;
+    letter-spacing: 1px;
+}
+
+.displayMsgBtn {
+    height: 40px;
+    width: 200px;
+    background-color: #7db2ed;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: white;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.displayMsgBtn:hover {
+    background-color: #74a9e3;
+}
+
+@media (max-width: 902px) {
+    .contactFormMain {
+        height: 1200px;
+    }
+
+    .contactForm {
+        height: 1200px;
+    }
+    .contactFormHeaderMain {
+        flex-flow: column;
+    }
+    .contactFormHeaderContainer, .contactFormContainer {
+        width: 100%;
+    }
+
+    .formInputContainer, .formTextAreaContainer {
+        width: 70%;
+    }
+    .formInput, .formInputTextarea {
+        width: 85%;
+    }
+}
+
+@media (max-width: 550px) {
+    .formInputContainer, .formTextAreaContainer {
+        width: 95%;
+    }
+}

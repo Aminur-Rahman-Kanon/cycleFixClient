@@ -3,8 +3,9 @@ import styles from './workshopPriceList.module.css';
 import { priceList } from '../../Data/data';
 import clipboard from '../../Assets/clipboard.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleDown, faScrewdriverWrench, faMagnifyingGlass, faSterlingSign } from '@fortawesome/free-solid-svg-icons';
+import { faScrewdriverWrench, faMagnifyingGlass, faSterlingSign } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import DownArrow from '../Others/DownArrow/downArrow';
 import Aos from 'aos';
 
 const WorkshopPriceList = () => {
@@ -60,12 +61,8 @@ const WorkshopPriceList = () => {
                 <div className={styles.workshopHeaderContainer}>
                     <h2>Cycle Fix Workshop Price List</h2>
                     <p className={styles.headerContainerP}>Here at Cycle Fix London our experienced mechanics are keen to help get you back on the road. We specialise in on-the-spot repairs as well as servicing for all makes and models of bicycle. Below you will find our workshop price list for all repairs and servicing. Please note these costs are for labour only unless otherwise stated.</p>
-                    <div className={styles.downArrowContainer}>
-                        <h3>Check the price list below</h3>
-                        <div className={styles.downArrowMain} onClick={() => arrowRef.current.scrollIntoView(true)}>
-                            <FontAwesomeIcon icon={faCircleDown} className={styles.downArrow}/>
-                        </div>
-                    </div>
+                    <DownArrow clickHandler={() => arrowRef.current.scrollIntoView(true)}
+                    h3="Check the prices below"/>
                 </div>
             </div>
 

@@ -11,6 +11,9 @@ import Registration from './Components/Registration/registration';
 import Accident from './Components/Accident/accident';
 import DefaultRoute from './Components/Others/DefaultRoute/defaultRoute';
 import WorkshopPriceList from './Components/WorkshopPriceList/workshopPriceList';
+import Xiaomi from './Components/Xiaomi/xiaomi';
+import CourtesyBike from './Components/CourtesyBike/courtesyBike';
+import Contact from './Components/Contact/contact';
 
 export const LoggedInUsers = createContext(null);
 
@@ -50,6 +53,9 @@ function App() {
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/register' element={<Registration />}/> }
           <Route path='/workshop-price-list' element={<WorkshopPriceList /> }/>
           <Route path='*' element={<DefaultRoute />}/>
+          <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />
+          <Route path='courtesy-bike' element={<CourtesyBike />} />
+          <Route path='/contact' element={ <Contact /> } />
         </Routes>
         <Footer />
       </LoggedInUsers.Provider>

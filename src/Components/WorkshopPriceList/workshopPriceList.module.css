@@ -27,27 +27,6 @@
     width: 50%;
 }
 
-.downArrowContainer{
-    width: 100%;
-    min-height: 110px;
-    margin: 30px auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.downArrowMain {
-    min-height: 110px;
-    cursor: pointer;
-}
-
-.downArrow {
-    font-size: 35px;
-    color: #dfdfdf;
-    animation: bubble 2s ease-out infinite;
-}
-
 .priceListMainContainer {
     width: 100%;
     margin: 50px auto;

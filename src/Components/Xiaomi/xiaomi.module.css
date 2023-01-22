@@ -1,0 +1,166 @@
+.xiaomiMain {
+    width: 100%;
+}
+
+.xiaomiContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.xiaomiBg {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(119deg, #242323, #0000004d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.xiaomiBgImg {
+    width: 40%;
+}
+
+.xiaomiDetails {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: #f6cd81;
+}
+
+.xiaomiDetailsP {
+    color: white;
+    text-align: left;
+}
+
+.xiaomiRepairContainer {
+    width: 100%;
+    margin: 80px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.xiaomiRepairContainer > p {
+    text-align: left;
+}
+
+.xiaomiRepairH1 {
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    color: #9e260e;
+}
+
+.repairListMain {
+    width: 100%;
+    margin: 20px auto;
+    padding: 50px 0;
+    background: linear-gradient(211deg, black, #898686);
+}
+
+.repairListContainer {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.repairListMainH1 {
+    color: #c7e1ff;
+    margin: 30px;
+}
+
+.listCard {
+    width: 250px;
+    margin: 15px;
+    padding: 5px;
+    border: 1px solid rgb(145, 145, 145);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9a9a9b0;
+}
+
+.listCardDetails {
+    height: 120px;
+}
+
+.listIcon {
+    font-size: 30px;
+    margin: 10px;
+    color: #c7e1ff;
+}
+
+.listH3 {
+    color: white;
+}
+.priceContainer {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poundSign {
+    font-size: 28px;
+    color: #c7e1ff;
+}
+
+.priceP {
+    font-size: 31px;
+    font-weight: bold;
+    margin: 0;
+    color: #c7e1ff;
+}
+
+.bookNowBtn {
+    height: 40px;
+    width: 95%;
+    margin: 10px auto;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #a5cfff;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.bookNowBtn:hover {
+    background-color: #8abdf8;
+}
+
+.noteMain {
+    width: 100%;
+    margin: 35px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: #2584f0;
+}
+
+@media (max-width: 613px) {
+    .xiaomiRepairContainer {
+        margin: 50px auto;
+    }
+    .listCard {
+        width: 100%;
+        margin: 15px 5px;
+    }
+}

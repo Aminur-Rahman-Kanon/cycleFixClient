@@ -1,0 +1,33 @@
+.downArrowContainer{
+    width: 100%;
+    min-height: 110px;
+    margin: 30px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.downArrowMain {
+    margin-top: 25px;
+    min-height: 110px;
+    cursor: pointer;
+}
+
+.downArrow {
+    font-size: 35px;
+    color: #dfdfdf;
+    animation: bubble 2s ease-out infinite;
+}
+
+@keyframes bubble {
+    0% {
+        transform: scale(1);
+        color: #dfdfdf;
+    }
+
+    100% {
+        transform: scale(1.5);
+        color: white;
+    }
+}
