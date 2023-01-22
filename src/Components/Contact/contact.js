@@ -76,7 +76,7 @@ const Contact = () => {
         e.preventDefault();
         setSpinner(true);
 
-        fetch('http://localhost:8000/contact-query', {
+        fetch('https://cyclefixserver.onrender.com/contact-query', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
