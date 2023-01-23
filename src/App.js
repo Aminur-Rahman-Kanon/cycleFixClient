@@ -14,6 +14,7 @@ import WorkshopPriceList from './Components/WorkshopPriceList/workshopPriceList'
 import Xiaomi from './Components/Xiaomi/xiaomi';
 import CourtesyBike from './Components/CourtesyBike/courtesyBike';
 import Contact from './Components/Contact/contact';
+import CalenderEL from './Components/Calender/calender';
 
 export const LoggedInUsers = createContext(null);
 
@@ -56,6 +57,7 @@ function App() {
           <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />
           <Route path='courtesy-bike' element={<CourtesyBike />} />
           <Route path='/contact' element={ <Contact /> } />
+          <Route path='/calender' element={<CalenderEL />} />
         </Routes>
         <Footer />
       </LoggedInUsers.Provider>
