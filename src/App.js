@@ -15,6 +15,7 @@ import Xiaomi from './Components/Xiaomi/xiaomi';
 import CourtesyBike from './Components/CourtesyBike/courtesyBike';
 import Contact from './Components/Contact/contact';
 import CalenderEL from './Components/Calender/calender';
+import BookAservice from './Components/BookAservice/bookAservice';
 
 export const LoggedInUsers = createContext(null);
 
@@ -57,7 +58,8 @@ function App() {
           <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />
           <Route path='courtesy-bike' element={<CourtesyBike />} />
           <Route path='/contact' element={ <Contact /> } />
-          <Route path='/calender' element={<CalenderEL />} />
+          <Route path='/book-service/:serviceId/select-time-pool' element={<CalenderEL />} />
+          <Route path='/book-service' element={<BookAservice />}/>
         </Routes>
         <Footer />
       </LoggedInUsers.Provider>

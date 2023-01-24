@@ -1,26 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
+
 .calendar-main {
     width: 100%;
-    height: 900px;
     background-image: url('../../Assets/calender.jpg');
     background-position: center;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calender-main-container {
+    width: 100%;
+    margin: 160px auto;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
 }
 
-.calender-header {
-    color: rgb(241, 241, 241);
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-}
-
 .calender-container {
     width: 700px;
+    /* margin: 80px auto; */
     padding: 50px;
     box-sizing: border-box;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(255 255 255 / 16%);
@@ -83,6 +88,7 @@ abbr {
 }
 
 .react-calendar__month-view__days {
+    height: 215px;
     margin: 10px;
 }
 
@@ -96,6 +102,10 @@ abbr {
     cursor: pointer;
 }
 
+.react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
+    display: none;
+}
+
 .react-calendar__tile:hover {
     background-color: rgba(255, 255, 255, 0.377);
 }
@@ -107,9 +117,121 @@ abbr {
     cursor: default;
 }
 
+.clock-main {
+    width: 80%;
+    padding: 40px;
+    margin: 150px auto;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.192);
+    border-radius: 12px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    animation: clockOn 1.2s ease-out forwards
+}
+
+@keyframes clockOn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.clock-main-off {
+    display: none;
+}
+
+.calender-main-h1 {
+    letter-spacing: 2px;
+    color: lightgray;
+    margin: 5px 0px 30px 0px;
+}
+
+.clock-container {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-cards {
+    width: 220px;
+    margin: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(143, 141, 141);
+    border-radius: 10px;
+    background-color: grey;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 2px;
+}
+
+.time-card-h2 {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.select-time-link {
+    height: 40px;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.select-time-link:hover {
+    background-color: #64a2e9;
+}
+
+.select-time-link:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.select-time-link:disabled:hover {
+    background-color: #7db2ed;
+}
+
+@media (max-width: 850px) {
+    .clock-main {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .clock-container {
+        width: 100%;
+    }
+
+    .time-cards {
+        width: 170px;
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
 @media (max-width: 768px) {
     .calender-container {
         width: 90%;
+    }
+    .react-calendar__navigation__label {
+        font-size: 30px;
     }
 }
 
@@ -120,6 +242,20 @@ abbr {
 
     .react-calendar__navigation__arrow {
         margin: 5px;
+    }
+
+    .time-cards {
+        width: 135px;
+    }
+
+    .time-card-h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 450px) {
+    .time-cards {
+        width: 100%;
     }
 }
 

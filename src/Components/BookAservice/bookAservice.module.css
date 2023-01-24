@@ -1,0 +1,253 @@
+.bookServiceMain {
+    width: 100%;
+}
+
+.bookServiceHeader {
+    position: relative;
+    width: 100%;
+    height: 800px;
+}
+
+.bookServiceBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../Assets/service.jpg');
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.5);
+}
+
+.bookServiceBgContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(240, 238, 238);
+}
+
+.bookServiceContainer {
+    width: 100%;
+    height: 100vh;
+}
+
+.chooseServiceMain {
+    width: 100%;
+    margin: 80px auto;
+}
+
+.chooseServiceH1 {
+    letter-spacing: 2px;
+    color: #579ceb;
+}
+
+.chooseServiceContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chooseServicesCardsMain {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chooseServicesCards {
+    width: 90%;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 12px 1px #bacee5;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 30px 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.chooseServicesCard {
+    width: 650px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.chooseServicesImg {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.chooseServicesInfoContainer {
+    width: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.chooseServicesInfo {
+    text-align: left;
+}
+
+.service {
+    text-align: left;
+    width: 75%;
+}
+
+
+.chooseServicesIncludedMain {
+    width: 100%;
+    margin: 20px;
+}
+
+.chooseServicesIcon {
+    width: 30px;
+    padding: 10px;
+    background-color: #6ba9f0;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px 12px 2px #7db2ed;
+}
+
+.chooseServicesIcon:hover {
+    background-color: #579ceb;
+}
+
+.chooseServicesPriceContainer {
+    width: 350px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.chooseServicesIncluded {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(209, 207, 207);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    animation: open 0.3s ease-out forwards;
+}
+
+.chooseServicesIncluded.chooseServicesIncludedOff {
+    display: none;
+}
+
+@keyframes open {
+    0% {
+        transform:scale(0);
+    }
+
+    100% {
+        transform:scale(1);
+    }
+}
+
+.chooseService {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #1282ff;
+}
+
+.chooseServiceIcon {
+    width: 30px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    margin: 10px;
+}
+
+.collapseIconContainer {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 70%);
+}
+
+
+.selectLink {
+    text-decoration: none;
+    width: 250px;
+    height: 45px;
+    border: 1px solid #7db2ed;
+    border-radius: 10px;
+    background-color: #7db2ed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectLink:hover {
+    background-color: #6aa5e9;
+}
+
+.price {
+    letter-spacing: 1px;
+    font-size: 35px;
+    color: #e63946;
+}
+
+@media (max-width: 950px) {
+    .chooseServicesCards {
+        width: 100%;
+        flex-flow: column;
+        padding: 20px;
+    }
+
+    .chooseServicesCard {
+        width: 100%;
+    }
+
+    .chooseServicesImgContainer {
+        width: 100%;
+    }
+
+    .chooseServicesImg {
+        width: 100%;
+    }
+
+    .chooseServicesInfoContainer {
+        width: 100%;
+    }
+
+    .chooseServicesInfo {
+        text-align: center;
+    }
+
+    .chooseServicesPriceContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .selectLink {
+        width: 100%;
+    }
+}

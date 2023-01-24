@@ -7,7 +7,7 @@ const downArrow = ({ clickHandler, h3 }) => {
 
     return (
         <div className={styles.downArrowContainer}>
-            <h3>{h3}</h3>
+            <h2>{h3}</h2>
             <div className={styles.downArrowMain} onClick={ clickHandler }>
                 <FontAwesomeIcon icon={faCircleDown} className={styles.downArrow}/>
             </div>

@@ -80,7 +80,7 @@ const Homepage = () => {
                         <h2 className={styles.headerContainer1H2}>Accessories</h2>
                         <h2 className={styles.headerContainer1H2}>Service</h2>
                     </div>
-                    <div className={styles.headerContainer1Btn}>
+                    <div className={styles.headerContainer1Btn} onClick={() => window.location.assign('/book-service')}>
                         <p className={styles.bookingBtnP}>Book A Service</p>
                         <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.screwDriver}/>
                     </div>
