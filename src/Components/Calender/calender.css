@@ -1,13 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
 
 .calendar-main {
+    position: relative;
     width: 100%;
     background-image: url('../../Assets/calender.jpg');
     background-position: center;
     background-size: cover;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
+}
+
+.go-back-btn-container {
+    position: fixed;
+    top: 200px;
+    left: 5px;
+    z-index: 300;
+    width: 50px;
+    height: 50px;
+    background-color: #7db2ed;
+    color: white;
+    display: flex;
+    border: 1px solid #7db2ed;
+    border-radius: 50%;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.go-back-btn-container:hover {
+    background-color: white;
+    color: #7db2ed;
+}
+
+.go-back-arrow {
+    font-size: 30px;
+    color: inherit;
 }
 
 .calender-main-container {
@@ -21,7 +51,6 @@
 
 .calender-container {
     width: 700px;
-    /* margin: 80px auto; */
     padding: 50px;
     box-sizing: border-box;
     display: flex;
@@ -72,7 +101,6 @@
     letter-spacing: 2px;
 }
 
-
 .react-calendar__viewContainer {
     margin-top: 50px;
 }
@@ -88,7 +116,7 @@ abbr {
 }
 
 .react-calendar__month-view__days {
-    height: 215px;
+    min-height: 220px;
     margin: 10px;
 }
 
@@ -102,12 +130,18 @@ abbr {
     cursor: pointer;
 }
 
+.react-calendar__tile--now {
+    background-color: #7db2ed;
+    color: white;
+}
+
 .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
     display: none;
 }
 
 .react-calendar__tile:hover {
-    background-color: rgba(255, 255, 255, 0.377);
+    background-color: #7db2ed;
+    color: white;
 }
 
 .react-calendar__tile:disabled, .react-calendar__month-view__days__day--neighboringMonth {
@@ -182,6 +216,32 @@ abbr {
     margin: 5px;
 }
 
+.time-card-available {
+    width: 105px;
+    border: 1px solid green;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.time-card-booked {
+    width: 105px;
+    border: 1px solid #971212;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #971212;
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
 .select-time-link {
     height: 40px;
     width: 100%;
@@ -209,21 +269,154 @@ abbr {
     background-color: #7db2ed;
 }
 
-@media (max-width: 850px) {
-    .clock-main {
-        width: 95%;
-        padding: 15px;
-    }
+.details-form-main {
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
 
-    .clock-container {
-        width: 100%;
-    }
+.details-form-main-off {
+    display: none;
+}
 
-    .time-cards {
-        width: 170px;
-        margin: 10px;
-        padding: 10px;
-    }
+.details-form-container {
+    width: 70%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+.input-container {
+    width: 400px;
+    height: 60px;
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.textarea-container {
+    width: 400px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.form-textarea {
+    width: 300px;
+    padding-top: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.form-textarea::placeholder {
+    color: lightgray;
+}
+
+.input-container-icon {
+    width: 30px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+}
+
+.form-input {
+    width: 300px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: lightgray;
+}
+
+.input-container-select-main {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-div {
+    position: relative;
+    width: 400px;
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container-select {
+    width: 390px;
+    height: 30px;
+    margin: 10px auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    appearance: none;
+    z-index: 100;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+.input-container-select-p {
+    width: 400px;
+    text-align: left;
+}
+
+.select-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 0;
+}
+
+option {
+    color: white;
+    font-size: 15px;
+    background-color: #222;
+}
+
+.input-form-btn-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.input-form-btn {
+    height: 40px;
+    width: 250px;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
 }
 
 @media (max-width: 768px) {
@@ -232,6 +425,39 @@ abbr {
     }
     .react-calendar__navigation__label {
         font-size: 30px;
+    }
+
+    .clock-main {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .clock-container {
+        width: 100%;
+    }
+
+    .time-cards {
+        width: 90%;
+    }
+
+    .details-form-container {
+        width: 95%;
+    }
+
+    .input-container, .textarea-container, .select-div {
+        width: 100%;
+    }
+
+    .form-input, .form-textarea {
+        width: 85%;
+    }
+
+    .input-container-select, .input-container-select-p {
+        width: 98%;
+    }
+
+    .input-form-btn {
+        width: 90%;
     }
 }
 
@@ -242,20 +468,6 @@ abbr {
 
     .react-calendar__navigation__arrow {
         margin: 5px;
-    }
-
-    .time-cards {
-        width: 135px;
-    }
-
-    .time-card-h2 {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 450px) {
-    .time-cards {
-        width: 100%;
     }
 }
 
