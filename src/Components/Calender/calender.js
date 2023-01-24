@@ -63,7 +63,7 @@ const CalenderEL = () => {
 
     return (
         <div className='calendar-main'>
-            <div className="go-back-btn-container" onClick={ backBtnHandler }>
+            <div className="go-back-btn-container" onClick={ backBtnHandler } style={!selectedDate && !selectedTime ? {display: 'none'} : {display:'flex'}}>
                 <FontAwesomeIcon icon={faCircleLeft} className="go-back-arrow"/>
             </div>
             <div data-aos = "zoom-in-down" className="calender-main-container" style={selectedDate ? {display: 'none'} : {display: 'flex'}}>
