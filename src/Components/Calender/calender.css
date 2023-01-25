@@ -135,6 +135,12 @@ abbr {
     color: white;
 }
 
+.react-calendar__navigation__prev-button, .react-calendar__navigation__next-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
     display: none;
 }
@@ -469,6 +475,10 @@ option {
 
 .booking-information-details {
     text-align: left;
+}
+
+.booking-information-details-h2 {
+    color: #9ccafd;
 }
 
 .user-input-form {

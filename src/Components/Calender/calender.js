@@ -6,10 +6,11 @@ import Aos from "aos";
 import 'react-clock/dist/Clock.css';
 import { timePool } from "../../Data/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesDown, faBicycle, faPalette, faQuestion, faCircleLeft, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Assets/logo.png'
 
 const CalenderEL = () => {
+
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
 
@@ -17,7 +18,7 @@ const CalenderEL = () => {
     const [model, setModel] = useState('');
     const [color, setColor] = useState('');
     const [issue, setIssue] = useState('');
-    const [additionalCost, setAdditionalCost] = useState('');
+    const [additionalCost, setAdditionalCost] = useState('0');
     const [detailsFormFinalValidation, setDetailsFormFinalValidation] = useState(true);
     const [disappearDetailsForm, setDisappearDetailsForm] = useState(false);
 
@@ -74,6 +75,10 @@ const CalenderEL = () => {
         }
     }, [firstName, lastName, emailValidity, phone])
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [selectedDate, selectedTime, disappearDetailsForm])
+
     const timeTable = timePool.map(times => {
         return <div key={times.time} className="time-cards">
             <h2 style={{color: 'lightgray'}} className="time-card-h2">Time: {times.time}.00</h2>
@@ -96,12 +101,12 @@ const CalenderEL = () => {
         }
         else if (selectedDate && selectedTime && !disappearDetailsForm) {
             setSelectedTime('');
+
         }
         else if (selectedDate && selectedTime && disappearDetailsForm){
             setDisappearDetailsForm(false);
         }
     }
-
 
     return (
         <div className='calendar-main'>
@@ -116,6 +121,7 @@ const CalenderEL = () => {
                                 className='react-calender'
                                 nextAriaLabel="Go to next month"
                                 prevAriaLabel="Go to prev month"
+                                showNeighboringMonth={false}
                                 onClickDay={(value) => {
                                     setSelectedDate(value.toDateString());
                                     setInitDate(value);
