@@ -24,7 +24,7 @@ const BookAservice = () => {
 
                 <div className={styles.chooseServicesInfoContainer}>
                     <div className={styles.chooseServicesInfo}>
-                        <h2>{item.h2}</h2>
+                        <h2 style={{textAlign: 'center'}}>{item.h2}</h2>
                         <p>{item.p}</p>
                     </div>
                     <div className={styles.chooseServicesIncludedMain}>

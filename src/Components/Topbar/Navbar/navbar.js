@@ -6,8 +6,6 @@ const Navbar = () => {
 
     const location = useLocation().pathname;
 
-    console.log(location);
-
     return (
         <div className={styles.navbarMain}>
             <ul className={styles.navbarContainer}>

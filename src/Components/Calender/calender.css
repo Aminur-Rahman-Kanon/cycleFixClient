@@ -14,16 +14,16 @@
 
 .go-back-btn-container {
     position: fixed;
-    top: 200px;
+    top: 50%;
     left: 5px;
     z-index: 300;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
     background-color: #7db2ed;
     color: white;
     display: flex;
     border: 1px solid #7db2ed;
-    border-radius: 50%;
+    border-radius: 5px;
     flex-flow: column;
     justify-content: center;
     align-items: center;
@@ -35,10 +35,10 @@
     color: #7db2ed;
 }
 
-.go-back-arrow {
+/* .go-back-arrow {
     font-size: 30px;
     color: inherit;
-}
+} */
 
 .calender-main-container {
     width: 100%;
@@ -47,6 +47,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    animation: startUp 1.2s ease-out forwards;
 }
 
 .calender-container {
@@ -92,7 +93,6 @@
 
 .react-calendar__navigation__label {
     width: 200px;
-    height: 50px;
     background-color: transparent;
     color: rgb(255, 255, 255);
     border: 1px solid transparent;
@@ -153,6 +153,7 @@ abbr {
 
 .clock-main {
     width: 80%;
+    max-width: 1000px;
     padding: 40px;
     margin: 150px auto;
     box-sizing: border-box;
@@ -162,10 +163,10 @@ abbr {
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    animation: clockOn 1.2s ease-out forwards
+    animation: startUp 1.2s ease-out forwards
 }
 
-@keyframes clockOn {
+@keyframes startUp {
     0% {
         transform: scale(0);
     }
@@ -277,6 +278,7 @@ abbr {
     justify-content: center;
     align-items: center;
     color: white;
+    animation: startUp 1.2s ease-out forwards;
 }
 
 .details-form-main-off {
@@ -285,6 +287,7 @@ abbr {
 
 .details-form-container {
     width: 70%;
+    max-width: 850px;
     padding: 30px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -406,17 +409,192 @@ option {
 }
 
 .input-form-btn-container {
-    width: 100%;
+    width: 400px;
     margin: 20px auto;
 }
 
 .input-form-btn {
     height: 40px;
-    width: 250px;
+    width: 100%;
     border: 1px solid #7db2ed;
     border-radius: 5px;
     background-color: #7db2ed;
     color: white;
+    cursor: pointer;
+}
+
+.input-form-btn:hover {
+    background-color: #64a2e9;
+}
+
+.input-form-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.input-form-btn:disabled:hover {
+    background-color: #7db2ed;
+    opacity: 0.5;
+}
+
+.user-input-main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: startUp 1.2s ease-out forwards;
+}
+
+.user-input-main-off {
+    display: none;
+}
+
+.booking-information-main {
+    width: 50%;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #383737e0;
+    border-radius: 10px;
+    color: white;
+}
+
+.booking-information-details {
+    text-align: left;
+}
+
+.user-input-form {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-input-container {
+    width: 90%;
+    height: 50px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: transparent;
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-input-icon {
+    width: 30px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+}
+
+.user-input {
+    width: 75%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.user-input::placeholder {
+    color: lightgray;
+}
+
+.user-input-container-btn {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.user-input-submit-btn {
+    width: 100%;
+    height: 40px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    cursor: pointer;
+}
+
+.user-input-submit-btn:hover {
+    background-color: #64a2e9;
+}
+
+.user-input-submit-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.user-input-submit-btn:disabled:hover {
+    background-color: #7db2ed;
+    opacity: 0.5;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+@media (max-width: 850px) {
+    .user-input-main {
+        width: 95%;
+        padding: 10px;
+        flex-flow: column;
+    }
+    
+    .booking-information-main, .user-input-form {
+        align-items: center;
+        width: 100%
+    }
+    .booking-information-details {
+        text-align: center;
+    }
+
+    .booking-information-details-h2 {
+        margin: 5px;
+    }
+
+    .go-back-btn-container {
+        transform: rotate(90deg);
+        left: -20px;
+    }
+
+    .user-input-container, .user-input-container-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 794px) {
+    .clock-main {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .clock-container {
+        width: 100%;
+    }
+    
+    .time-cards {
+        width: 90%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -427,24 +605,12 @@ option {
         font-size: 30px;
     }
 
-    .clock-main {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .clock-container {
-        width: 100%;
-    }
-
-    .time-cards {
-        width: 90%;
-    }
 
     .details-form-container {
         width: 95%;
     }
 
-    .input-container, .textarea-container, .select-div {
+    .input-container, .textarea-container, .select-div, .input-form-btn-container {
         width: 100%;
     }
 
@@ -457,7 +623,8 @@ option {
     }
 
     .input-form-btn {
-        width: 90%;
+        width: 100%;
+        height: 50px;
     }
 }
 

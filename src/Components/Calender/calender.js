@@ -1,32 +1,34 @@
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
-import { Link, useLocation, useParams } from "react-router-dom";
+// import { Link, useLocation, useParams } from "react-router-dom";
 import './calender.css';
 import Aos from "aos";
 import 'react-clock/dist/Clock.css';
 import { timePool } from "../../Data/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesDown, faBicycle, faPalette, faQuestion, faCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesDown, faBicycle, faPalette, faQuestion, faCircleLeft, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../Assets/logo.png'
 
 const CalenderEL = () => {
-
-    const location = useParams();
-
     const [selectedDate, setSelectedDate] = useState('');
-
     const [selectedTime, setSelectedTime] = useState('');
 
     const [make, setMake] = useState('');
-
     const [model, setModel] = useState('');
-
     const [color, setColor] = useState('');
-
     const [issue, setIssue] = useState('');
-
     const [additionalCost, setAdditionalCost] = useState('');
+    const [detailsFormFinalValidation, setDetailsFormFinalValidation] = useState(true);
+    const [disappearDetailsForm, setDisappearDetailsForm] = useState(false);
 
     const [initDate, setInitDate] = useState('');
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [emailValidity, setEmailValidity] = useState(true);
+    const [phone, setPhone] = useState('');
+    const [formFinalValidationBtn, setFormFinalValidationBtn] = useState(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -37,8 +39,43 @@ const CalenderEL = () => {
         window.scrollTo(0, 0);
     }, [selectedDate])
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (email){
+                const check1 = email.indexOf('@');
+                const check2 = email.indexOf('.com');
+                if (check1 > 0 && check2 > 0){
+                    email.slice(check1+1, check2) ? setEmailValidity(true) : setEmailValidity(false);
+                }
+                else {
+                    setEmailValidity(false);
+                }
+            }
+        }, [1200])
+
+        return () => clearTimeout(timer)
+    }, [ email ])
+
+    useEffect(() => {
+        if (make && model && color && issue){
+            setDetailsFormFinalValidation(false)
+        }
+        else {
+            setDetailsFormFinalValidation(true);
+        }
+    }, [make, model, color, issue, additionalCost])
+
+    useEffect(() => {
+        if (firstName && lastName && emailValidity && phone) {
+            setFormFinalValidationBtn(false)
+        }
+        else {
+            setFormFinalValidationBtn(true);
+        }
+    }, [firstName, lastName, emailValidity, phone])
+
     const timeTable = timePool.map(times => {
-        return <div className="time-cards">
+        return <div key={times.time} className="time-cards">
             <h2 style={{color: 'lightgray'}} className="time-card-h2">Time: {times.time}.00</h2>
             <div className={times.available ? "time-card-available" : 'time-card-booked'}>{times.available ? 'Available' : 'Booked'}</div>
             <button disabled={!times.available}
@@ -50,23 +87,28 @@ const CalenderEL = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setDisappearDetailsForm(true);
     }
 
     const backBtnHandler = () => {
         if (selectedDate && !selectedTime) {
             setSelectedDate('');
         }
-        else if (selectedDate && selectedTime) {
-            setSelectedTime('')
+        else if (selectedDate && selectedTime && !disappearDetailsForm) {
+            setSelectedTime('');
+        }
+        else if (selectedDate && selectedTime && disappearDetailsForm){
+            setDisappearDetailsForm(false);
         }
     }
+
 
     return (
         <div className='calendar-main'>
             <div className="go-back-btn-container" onClick={ backBtnHandler } style={!selectedDate && !selectedTime ? {display: 'none'} : {display:'flex'}}>
-                <FontAwesomeIcon icon={faCircleLeft} className="go-back-arrow"/>
+                <p className="go-back-btn">Go back</p>
             </div>
-            <div data-aos = "zoom-in-down" className="calender-main-container" style={selectedDate ? {display: 'none'} : {display: 'flex'}}>
+            <div className="calender-main-container" style={selectedDate ? {display: 'none'} : {display: 'flex'}}>
                 <h1 className="calender-main-h1">Please Select An Available Date Below</h1>
                 <div className="calender-container">
                     <Calendar minDate={new Date()}
@@ -90,7 +132,7 @@ const CalenderEL = () => {
                 </div>
             </div>
 
-            <div className={selectedDate && selectedTime ? "details-form-main" : 'details-form-main-off'}>
+            <div className={selectedDate && selectedTime && !disappearDetailsForm ? "details-form-main" : 'details-form-main-off'}>
                 <h1 className="details-form-h1">Please Tell us about your bike</h1>
                 <form className="details-form-container">
                     <div className="input-container">
@@ -123,6 +165,7 @@ const CalenderEL = () => {
                                   rows="10"
                                   className="form-textarea"
                                   placeholder="Issue/Problem"
+                                  maxLength='300'
                                   onChange={(e) => setIssue(e.target.value)} />
                     </div>
 
@@ -141,15 +184,77 @@ const CalenderEL = () => {
                                 <option value='£150'>£150</option>
                             </select>
                             <FontAwesomeIcon icon={ faAnglesDown } className='select-icon'/>
-
-
                         </div>
                     </div>
 
                     <div className="input-form-btn-container">
-                        <button className="input-form-btn"
+                        <button disabled={detailsFormFinalValidation} className="input-form-btn"
                                 onClick={ handleSubmit }
                             >Next</button>
+                    </div>
+                </form>
+            </div>
+
+            <div className={selectedDate && selectedTime && disappearDetailsForm ? "user-input-main" : "user-input-main-off"}>
+                <div className="booking-information-main">
+                    <div className="logo-container">
+                        <img src={logo} className="logo" alt="cycle fix logo"/>
+                    </div>
+                    <div className="booking-information-details">
+                        <h2 className="booking-information-details-h2">Date</h2>
+                        <p>{selectedDate}</p>
+                    </div>
+                    <div className="booking-information-details">
+                        <h2 className="booking-information-details-h2">Time</h2>
+                        <p>{selectedTime}.00</p>
+                    </div>
+                    <div className="booking-information-details">
+                        <h2 className="booking-information-details-h2">Descrption</h2>
+                        <div className="booking-details">
+                            <p>Make: {make}</p>
+                            <p>Model: {model}</p>
+                            <p>Color: {color}</p>
+                            <p>Issue: {issue}</p>
+                            <p>Additional cost: {additionalCost}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form className="user-input-form">
+                    <div className="user-input-container">
+                        <FontAwesomeIcon icon={faSignature} className="user-input-icon"/>
+                        <input type="text"
+                               className="user-input"
+                               placeholder="First name"
+                               onChange={(e) => setFirstName(e.target.value)}
+                               />
+                    </div>
+                    <div className="user-input-container">
+                        <FontAwesomeIcon icon={faSignature} className="user-input-icon"/>
+                        <input type="text"
+                               className="user-input"
+                               placeholder="Last name"
+                               onChange={(e) => setLastName(e.target.value)}
+                               />
+                    </div>
+                    <div className="user-input-container" style={!emailValidity ? {backgroundColor: '#ff00004f', border: '1px solid #ff00004f'} : null}>
+                        <FontAwesomeIcon icon={faAt} className="user-input-icon"/>
+                        <input type="email"
+                               className="user-input"
+                               placeholder="Email"
+                               onChange={(e) => setEmail(e.target.value)}
+                               />
+                    </div>
+                    <div className="user-input-container">
+                        <FontAwesomeIcon icon={faPhone} className="user-input-icon"/>
+                        <input type="number"
+                               className="user-input"
+                               placeholder="Phone number"
+                               onChange={(e) => setPhone(e.target.value)}
+                               />
+                    </div>
+                    <div className="user-input-container-btn">
+                        <button disabled={formFinalValidationBtn} className="user-input-submit-btn">Next</button>
                     </div>
                 </form>
             </div>
