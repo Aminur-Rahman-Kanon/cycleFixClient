@@ -1,0 +1,222 @@
+.paymentMain {
+    width: 100%;
+    background-image: url('../Assets/calender.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentFormIntro {
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentFormIntroH1 {
+    color: lightgray;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.paymentFormMain {
+    width: 90%;
+    padding: 45px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 5px 5px 12px 2px rgba(255, 255, 255, 0.459);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.322);
+}
+
+.logoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+}
+
+.userInformationMain {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.623);
+    border-radius: 15px;
+    color: white;
+}
+
+.userInformationContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.paymentFormContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fieldSet {
+    width: 90%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.formIcon {
+    width: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #7db2ed;
+    color: white;
+    border-radius: 5px;
+}
+
+.formInput {
+    width: 80%;
+    height: 30px;
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+.formInput::placeholder {
+    color: lightgray;
+}
+
+.paymentCardContainer {
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.innerDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnContainer {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payBtn {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    cursor: pointer;
+}
+
+.payBtn:hover {
+    background-color: #619ee4;
+}
+.payBtn:disabled, .payBtn:disabled:hover {
+    background-color: #7db2ed;
+    opacity: 0.5;
+    cursor: default;
+}
+
+.displayMsgMain {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ededed;
+    border-radius: 10px;
+}
+
+.displayMsgBtn {
+    height: 40px;
+    width: 300px;
+    border: 1px solid #7db2ed;
+    border-radius: 10px;
+    background-color: #7db2ed;
+    color: white;
+    cursor: pointer;
+}
+
+.displayMsgBtn:hover {
+    background-color: #64a3eb;
+}
+
+.innerDetailsH4 {
+    margin: 5px 10px 5px 0px;
+}
+
+@media (max-width: 850px) {
+    .paymentFormMain {
+        width: 95%;
+        padding: 20px;
+        flex-flow: column;
+    }
+
+    .logoContainer {
+        justify-content: center;
+    }
+
+    .userInformationMain {
+        width: 100%;
+    }
+
+    .userInformationContainer {
+        align-items: center;
+    }
+
+    .userInformationH3, .userInformationP {
+        margin: 10px;
+    }
+
+    .innerDetailsH4 {
+        margin: 10px;
+    }
+
+    .paymentFormContainer {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .paymentFormContainer {
+        width: 100%;
+    }
+}

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
-// import { Link, useLocation, useParams } from "react-router-dom";
-import './calender.css';
+import { useParams } from "react-router-dom";
+import './booking.css';
 import Aos from "aos";
 import 'react-clock/dist/Clock.css';
 import { timePool } from "../../Data/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../Assets/logo.png'
+import logo from '../../Assets/logo.png';
 
-const CalenderEL = () => {
+const Booking = () => {
+
+    const params = useParams();
 
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
@@ -21,8 +23,6 @@ const CalenderEL = () => {
     const [additionalCost, setAdditionalCost] = useState('0');
     const [detailsFormFinalValidation, setDetailsFormFinalValidation] = useState(true);
     const [disappearDetailsForm, setDisappearDetailsForm] = useState(false);
-
-    const [initDate, setInitDate] = useState('');
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -108,6 +108,25 @@ const CalenderEL = () => {
         }
     }
 
+    const processToPayment = () => {
+        const data = {
+            service: params.serviceId,
+            price: params.packagePrice,
+            date: selectedDate,
+            time: selectedTime,
+            firstName,
+            lastName,
+            email,
+            phone,
+            bikeDetails: {
+                make, model, color, issue, additionalCost
+            }
+        }
+
+        sessionStorage.setItem('userData', JSON.stringify(data));
+        window.location.replace('/payment')
+    }
+
     return (
         <div className='calendar-main'>
             <div className="go-back-btn-container" onClick={ backBtnHandler } style={!selectedDate && !selectedTime ? {display: 'none'} : {display:'flex'}}>
@@ -124,7 +143,6 @@ const CalenderEL = () => {
                                 showNeighboringMonth={false}
                                 onClickDay={(value) => {
                                     setSelectedDate(value.toDateString());
-                                    setInitDate(value);
                                 }}
                             />
                 </div>
@@ -139,7 +157,7 @@ const CalenderEL = () => {
             </div>
 
             <div className={selectedDate && selectedTime && !disappearDetailsForm ? "details-form-main" : 'details-form-main-off'}>
-                <h1 className="details-form-h1">Please Tell us about your bike</h1>
+                <h1 className="details-form-h1">Please tell us about your bike</h1>
                 <form className="details-form-container">
                     <div className="input-container">
                         <FontAwesomeIcon icon={faBicycle} className="input-container-icon"/>
@@ -182,12 +200,12 @@ const CalenderEL = () => {
                                     className="input-container-select"
                                     onChange={(e) => setAdditionalCost(e.target.value)}>
                                 <option disabled>Please select an option</option>
-                                <option value='£25'>£25</option>
-                                <option value='£50'>£50</option>
-                                <option value='£75'>£75</option>
-                                <option value='£100'>£100</option>
-                                <option value='£125'>£125</option>
-                                <option value='£150'>£150</option>
+                                <option value={25}>£25</option>
+                                <option value={50}>£50</option>
+                                <option value={75}>£75</option>
+                                <option value={100}>£100</option>
+                                <option value={125}>£125</option>
+                                <option value={150}>£150</option>
                             </select>
                             <FontAwesomeIcon icon={ faAnglesDown } className='select-icon'/>
                         </div>
@@ -260,7 +278,7 @@ const CalenderEL = () => {
                                />
                     </div>
                     <div className="user-input-container-btn">
-                        <button disabled={formFinalValidationBtn} className="user-input-submit-btn">Next</button>
+                        <input type="button" onClick={ processToPayment } value="Go to payment" className="user-input-submit-btn"/>
                     </div>
                 </form>
             </div>
@@ -268,4 +286,4 @@ const CalenderEL = () => {
     )
 }
 
-export default CalenderEL;
+export default Booking;

@@ -58,7 +58,7 @@ const BookAservice = () => {
             </div>
             <div className={styles.chooseServicesPriceContainer}>
                 <h2 className={styles.price}>£{item.price}</h2>
-                <Link to = {`/book-service/${item.h2}/select-time-pool`} className={styles.selectLink}>Select {item.h2}</Link>
+                <Link to = {`/book-service/${item.h2}/${item.price}`} className={styles.selectLink}>Select {item.h2}</Link>
             </div>
         </div>
     });
