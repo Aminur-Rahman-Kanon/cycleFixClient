@@ -85,7 +85,7 @@ const Booking = () => {
             <div className={times.available ? "time-card-available" : 'time-card-booked'}>{times.available ? 'Available' : 'Booked'}</div>
             <button disabled={!times.available}
                     className="select-time-link"
-                    onClick={() => setSelectedTime(times.time)}
+                    onClick={() => setSelectedTime(`${times.time}.00`)}
                     >Select</button>
         </div>
     })
@@ -111,7 +111,7 @@ const Booking = () => {
     const processToPayment = () => {
         const data = {
             service: params.serviceId,
-            price: params.packagePrice,
+            packagePrice: params.packagePrice,
             date: selectedDate,
             time: selectedTime,
             firstName,
@@ -230,7 +230,7 @@ const Booking = () => {
                     </div>
                     <div className="booking-information-details">
                         <h2 className="booking-information-details-h2">Time</h2>
-                        <p>{selectedTime}.00</p>
+                        <p>{selectedTime}</p>
                     </div>
                     <div className="booking-information-details">
                         <h2 className="booking-information-details-h2">Descrption</h2>

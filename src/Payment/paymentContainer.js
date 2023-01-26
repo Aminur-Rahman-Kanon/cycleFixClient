@@ -5,7 +5,7 @@ import Payment from "./payment";
 
 const PUBLIC_KEY = "pk_test_51MUBDICGr3Ft61igWyky0aosAhx68Nl06srX5bIDSyDQGUr32PSezaXUFuEqYHgjtIFl3wy6DYkMk37G193lFgKN001xUNVubG";
 
-const stripePromise = loadStripe(PUBLIC_KEY);
+const stripePromise = loadStripe(PUBLIC_KEY)
 
 const PaymentContainer = () => {
 
