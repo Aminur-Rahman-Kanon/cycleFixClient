@@ -283,6 +283,8 @@
     border: none;
     outline: none;
     background-color: transparent;
+    color: #7db2ed;
+    font-weight: bold;
 }
 
 .camsInquiryFormMsgInput {

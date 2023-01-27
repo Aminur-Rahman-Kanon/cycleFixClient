@@ -8,9 +8,15 @@ const SideDrawer = (props) => {
 
     return (
         <div className={props.sideDrawer ? styles.sideDrawerOn : styles.sideDrawerOff}>
-            <img src={logo} className={styles.sideDrawerLogo}/>
-            <LoginBar />
-            <Navbar />
+            <div className={styles.logoContainer}>
+                <img src={logo} className={styles.sideDrawerLogo}/>
+                <div className={styles.loginBarSidedrawer}>
+                    <LoginBar />
+                </div>
+            </div>
+            <div className={styles.navBarSidedrawer}>
+                <Navbar />
+            </div>
         </div>
     )
 }

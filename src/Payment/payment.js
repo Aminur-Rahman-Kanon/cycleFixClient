@@ -85,8 +85,8 @@ const Payment = () => {
         if (!error) {
             try {
                 const { id } = paymentMethod
-                const response = await axios.post('https://cyclefixserver.onrender.com/payment', {
-                    amount: subtotal,
+                const response = await axios.post('http://localhost:8000/payment', {
+                    amount: 2500,
                     id
                 })
 
@@ -100,13 +100,19 @@ const Payment = () => {
                     userData.paymentStatus = 'Paid';
                     userData.authCode = genAuthCode;
                     userData.totalPrice = subtotal;
-                    await fetch('https://cyclefixserver.onrender.com/payment-success', {
+                    await fetch('http://localhost:8000/payment-success', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({userData})
-                    }).then(res => res.json()).then(data => setbookingStatus(data.status)).catch(err => setbookingStatus('error'))
+                    }).then(res => res.json()).then(data => {
+                        setSpinner(false);
+                        setbookingStatus(data.status);
+                    }).catch(err => {
+                        setSpinner(false);
+                        setbookingStatus('error');
+                    })
                 }
             } catch (error) {
                 setSpinner(false)
@@ -153,11 +159,9 @@ const Payment = () => {
 
     const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
-    console.log(bookingStatus);
-
     return (
         <div className={styles.paymentMain}>
-            <Backdrop backdrop={backdrop} />
+            <Backdrop backdrop={backdrop} toogleBackdrop={() => {/*Does nothing*/}}/>
             <Modal switch={modal}>
                 { bookingStatus === 'error' && !error ? displaybookingStatus : displayMsg}
             </Modal>
@@ -170,14 +174,14 @@ const Payment = () => {
                             <img src={logo} alt="cycle fix logo"/>
                         </div>
                         <div className={styles.userInformationContainer}>
-                            <h3 className={styles.userInformationH3}>Service name</h3>
+                            <h2 className={styles.userInformationH2}>Service name</h2>
                             <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? userData.service : 'No information'}</p>
                         </div>
                         <div className={styles.userInformationContainer}>
-                            <p className={styles.userInformationP}>Date: {Object.keys(userData).length > 0 ? `${userData.date} at ${userData.time}` : 'No information'}</p>
+                            <p className={styles.userInformationP}>Date: {Object.keys(userData).length > 0 ? `${userData.date} at 9 AM` : 'No information'}</p>
                         </div>
                         <div className={styles.userInformationContainer}>
-                            <h3>Customer details</h3>
+                            <h2 className={styles.userInformationH2}>Customer details</h2>
                             <div className={styles.innerDetails}>
                                 <h4 className={styles.innerDetailsH4}>Full name</h4>
                                 <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? `${userData.firstName} ${userData.lastName}` : 'No information'}</p>
@@ -196,11 +200,17 @@ const Payment = () => {
                             </div>
                             <div className={styles.innerDetails}>
                                 <h4 className={styles.innerDetailsH4}>Additional cost</h4>
-                                <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? userData.bikeDetails.additionalCost : 'No information'}</p>
+                                <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? `£${userData.bikeDetails.additionalCost}` : 'No information'}</p>
                             </div>
                             <div className={styles.innerDetails}>
                                 <h4 className={styles.innerDetailsH4}>Subtotal</h4>
                                 <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? `£${totalPrice}` : 'No information'}</p>
+                            </div>
+                            <div className={styles.innerDetails}>
+                                <div className={styles.innerDetailsDeposit}>
+                                    <h4 className={styles.innerDetailsH4}>Deposit: £25</h4>
+                                    <h3 className={styles.innerDetailsH4}>You just need to pay the deposit to make a booking</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -223,7 +233,7 @@ const Payment = () => {
                             <button onClick={ handleSubmit }
                                     className={styles.payBtn}
                                     disabled={!name}
-                                    >{`Pay £${totalPrice} and Book`}</button>
+                                    >Pay £25 deposit and Book</button>
                         </div>
                     </form>
                 </div>

@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import styles from './contact.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapPin, faAt, faPhone, faPieChart, faSignature, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faMapPin, faAt, faPhone, faSignature, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import DownArrow from "../Others/DownArrow/downArrow";
 import Spinner from "../Others/Spinner/spinner";
 import Modal from "../Others/Modal/modal";
 import Backdrop from "../Backdrop/backdrop";
+import { LoggedInUsers } from "../../App";
 
 const Contact = () => {
+
+    const loggedInUser = useContext(LoggedInUsers);
 
     const formRef = useRef(null);
 
@@ -29,6 +32,19 @@ const Contact = () => {
     const [modal, setModal] = useState(false);
 
     const [backdrop, setBackdrop] = useState(false);
+
+    useEffect(() => {
+        if (loggedInUser) {
+            if (loggedInUser.hasOwnProperty('iss')){
+                setName(`${loggedInUser.given_name} ${loggedInUser.family_name}`);
+                setEmail(loggedInUser.email)
+            }
+            else if (loggedInUser.hasOwnProperty('_id')) {
+                setName(`${loggedInUser.firstName} ${loggedInUser.lastName}`)
+                setEmail(loggedInUser.email)
+            }
+        }
+    }, [])
 
     useEffect(() => {
         if (backdrop) {
@@ -96,7 +112,6 @@ const Contact = () => {
             setModal(true);
             setBackdrop(true);
         })
-
     }
 
     const closeDisplayMsg = () => {
@@ -183,6 +198,7 @@ const Contact = () => {
                                     <input type="text"
                                         className={styles.formInput}
                                         placeholder="Your Name"
+                                        value={name ? name : ''}
                                         onChange={(e) => setName(e.target.value)} />
                                 </div>
                                 <div className={styles.formInputContainer}>
@@ -197,6 +213,7 @@ const Contact = () => {
                                     <input type="email"
                                         className={styles.formInput}
                                         placeholder="Your Email"
+                                        value={email ? email : ''}
                                         onChange={(e) => setEmail(e.target.value)} />
                                 </div>
                                 <div className={styles.formTextAreaContainer}>

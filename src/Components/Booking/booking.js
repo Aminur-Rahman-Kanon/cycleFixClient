@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Calendar from "react-calendar";
 import { useParams } from "react-router-dom";
 import './booking.css';
@@ -8,10 +8,12 @@ import { timePool } from "../../Data/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Assets/logo.png';
+import { LoggedInUsers } from "../../App";
 
 const Booking = () => {
 
     const params = useParams();
+    const loggedInUser = useContext(LoggedInUsers);
 
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
@@ -31,9 +33,28 @@ const Booking = () => {
     const [phone, setPhone] = useState('');
     const [formFinalValidationBtn, setFormFinalValidationBtn] = useState(true);
 
+    const [bookedDate, setBookedDate] = useState([]);
+
     useEffect(() => {
         window.scrollTo(0, 0);
         Aos.init({ duration: 1500 })
+
+        fetch('https://cyclefixserver.onrender.com/query-available-date', {
+            method: "POST"
+        }).then(res => res.json()).then(data => setBookedDate(data.data)).catch(err => console.log(err));
+
+        if (loggedInUser){
+            if (loggedInUser.hasOwnProperty('_id')){
+                setFirstName(loggedInUser.firstName);
+                setLastName(loggedInUser.lastName);
+                setEmail(loggedInUser.email);
+            }
+            else if (loggedInUser.hasOwnProperty('iss')) {
+                setFirstName(loggedInUser.given_name);
+                setLastName(loggedInUser.family_name);
+                setEmail(loggedInUser.email);
+            }
+        }
     }, [])
 
     useEffect(() => {
@@ -113,7 +134,6 @@ const Booking = () => {
             service: params.serviceId,
             packagePrice: params.packagePrice,
             date: selectedDate,
-            time: selectedTime,
             firstName,
             lastName,
             email,
@@ -126,6 +146,13 @@ const Booking = () => {
         sessionStorage.setItem('userData', JSON.stringify(data));
         window.location.replace('/payment')
     }
+
+    const newDate = [[28, 29], [4, 6, 7], [8, 9, 11], [15, 18, 20]]
+
+    const test = [6, 0]
+
+    console.log(bookedDate)
+
 
     return (
         <div className='calendar-main'>
@@ -141,6 +168,7 @@ const Booking = () => {
                                 nextAriaLabel="Go to next month"
                                 prevAriaLabel="Go to prev month"
                                 showNeighboringMonth={false}
+                                tileDisabled={({date, view}) => bookedDate[date.getMonth()] ? bookedDate[date.getMonth()].includes(date.getDate()) : null}
                                 onClickDay={(value) => {
                                     setSelectedDate(value.toDateString());
                                 }}
@@ -148,15 +176,15 @@ const Booking = () => {
                 </div>
             </div>
 
-            <div className={selectedDate && !selectedTime ? "clock-main" : "clock-main-off"}>
+            {/* <div className={selectedDate && !selectedTime ? "clock-main" : "clock-main-off"}>
                 <h2 className="calender-main-h1">Selected Date: {selectedDate}</h2>
                 <h2 className="calender-main-h1">Please Select An Available Time Below</h2>
                 <div className="clock-container">
                     {timeTable}
                 </div>
-            </div>
+            </div> */}
 
-            <div className={selectedDate && selectedTime && !disappearDetailsForm ? "details-form-main" : 'details-form-main-off'}>
+            <div className={selectedDate && !disappearDetailsForm ? "details-form-main" : 'details-form-main-off'}>
                 <h1 className="details-form-h1">Please tell us about your bike</h1>
                 <form className="details-form-container">
                     <div className="input-container">
@@ -219,7 +247,7 @@ const Booking = () => {
                 </form>
             </div>
 
-            <div className={selectedDate && selectedTime && disappearDetailsForm ? "user-input-main" : "user-input-main-off"}>
+            <div className={selectedDate && disappearDetailsForm ? "user-input-main" : "user-input-main-off"}>
                 <div className="booking-information-main">
                     <div className="logo-container">
                         <img src={logo} className="logo" alt="cycle fix logo"/>
@@ -230,7 +258,7 @@ const Booking = () => {
                     </div>
                     <div className="booking-information-details">
                         <h2 className="booking-information-details-h2">Time</h2>
-                        <p>{selectedTime}</p>
+                        <p>Please bring your bike in the shop around 9 AM</p>
                     </div>
                     <div className="booking-information-details">
                         <h2 className="booking-information-details-h2">Descrption</h2>
@@ -239,7 +267,9 @@ const Booking = () => {
                             <p>Model: {model}</p>
                             <p>Color: {color}</p>
                             <p>Issue: {issue}</p>
-                            <p>Additional cost: {additionalCost}</p>
+                            <p>Additional cost: £{additionalCost}</p>
+                            <p>Deposit: £25</p>
+                            <p>You need to pay just the deposit to make a booking</p>
                         </div>
                     </div>
                 </div>
@@ -250,6 +280,7 @@ const Booking = () => {
                         <input type="text"
                                className="user-input"
                                placeholder="First name"
+                               value={firstName ? firstName : ''}
                                onChange={(e) => setFirstName(e.target.value)}
                                />
                     </div>
@@ -258,6 +289,7 @@ const Booking = () => {
                         <input type="text"
                                className="user-input"
                                placeholder="Last name"
+                               value={lastName ? lastName : ''}
                                onChange={(e) => setLastName(e.target.value)}
                                />
                     </div>
@@ -266,6 +298,7 @@ const Booking = () => {
                         <input type="email"
                                className="user-input"
                                placeholder="Email"
+                               value={email ? email : ''}
                                onChange={(e) => setEmail(e.target.value)}
                                />
                     </div>

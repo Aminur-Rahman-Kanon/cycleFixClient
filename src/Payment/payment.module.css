@@ -33,6 +33,21 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.322);
+    animation: startUp 1.2s ease-out forwards
+}
+
+@keyframes startUp {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .logoContainer {
@@ -63,6 +78,15 @@
     justify-content: center;
     align-items: flex-start;
     text-align: left;
+}
+
+.userInformationH2 {
+    color: #7db2ed;
+    margin: 10px 10px 10px 0px;
+}
+
+.userInformationH3, .userInformationP {
+    margin: 10px 0;
 }
 
 .paymentFormContainer {
@@ -181,7 +205,15 @@
 }
 
 .innerDetailsH4 {
-    margin: 5px 10px 5px 0px;
+    margin: 10px 10px 10px 0px;
+    text-align: left;
+}
+
+.innerDetailsDeposit {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 @media (max-width: 850px) {
@@ -203,12 +235,12 @@
         align-items: center;
     }
 
-    .userInformationH3, .userInformationP {
+    .innerDetailsH4 {
         margin: 10px;
     }
 
-    .innerDetailsH4 {
-        margin: 10px;
+    .innerDetailsDeposit {
+        align-items: center;
     }
 
     .paymentFormContainer {
@@ -223,5 +255,9 @@
 
     .fieldSet, .paymentCardContainer, .btnContainer {
         width: 100%;
+    }
+
+    .innerDetailsH4 {
+        text-align: center;
     }
 }

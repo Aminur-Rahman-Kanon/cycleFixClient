@@ -27,11 +27,13 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   if (!loggedInUser){
-    if (sessionStorage.key(0) === 'loggedInUser'){
+    if (Object.keys(sessionStorage).includes('loggedInUser')){
       const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
       setLoggedInUser(user);
     }
   }
+
+  // console.log(Object.keys(sessionStorage).includes('loggedInUser'));
 
   const closeSideDrawer = () => {
     setBackdrop(false);

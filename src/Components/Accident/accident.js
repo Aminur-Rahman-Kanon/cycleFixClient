@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+import { LoggedInUsers } from '../../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faSignature, faEnvelope, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import cams from '../../Assets/cams.jpg';
@@ -12,6 +13,8 @@ import styles from './accident.module.css';
 let target = null;
 
 const Accident = () => {
+
+    const loggedInUser = useContext(LoggedInUsers);
 
     const formRef = useRef();
 
@@ -39,6 +42,17 @@ const Accident = () => {
 
     useEffect(() => {
         Aos.init({ duration: '2000', once: true });
+
+        if (loggedInUser) {
+            if (loggedInUser.hasOwnProperty('_id')) {
+                setName(`${loggedInUser.firstName} ${loggedInUser.lastName}`);
+                setEmail(loggedInUser.email);
+            }
+            else if (loggedInUser.hasOwnProperty('iss')) {
+                setName(`${loggedInUser.given_name} ${loggedInUser.family_name}`)
+                setEmail(loggedInUser.email);
+            }
+        }
     }, [])
 
     useEffect(() => {
@@ -239,6 +253,7 @@ const Accident = () => {
                             <input type="text"
                                    className={styles.camsInquiryFormInput}
                                    placeholder="Your Name"
+                                   value={name ? name : ''}
                                    onChange={(e) => {
                                         setName(e.target.value);
                                         target = 'name'
@@ -250,6 +265,7 @@ const Accident = () => {
                             <input type="email"
                                    className={styles.camsInquiryFormInput}
                                    placeholder="Your Email"
+                                   value={email ? email : ''}
                                    onChange={(e) => {
                                         setEmail(e.target.value)
                                         target = 'email'

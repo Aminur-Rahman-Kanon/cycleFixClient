@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './workshopPriceList.module.css';
 import { priceList } from '../../Data/data';
-import clipboard from '../../Assets/clipboard.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faScrewdriverWrench, faMagnifyingGlass, faSterlingSign } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import DownArrow from '../Others/DownArrow/downArrow';
+import workshop from '../../Assets/testWorkshop.jpg';
 import Aos from 'aos';
 
 const WorkshopPriceList = () => {
@@ -17,7 +17,7 @@ const WorkshopPriceList = () => {
     }, [])
 
     let displayList = Object.values(priceList).map(lists => {
-        return <div data-aos = "flip-left" key={lists.h2} className={styles.priceListMain}>
+        return <div data-aos = "fade-right" key={lists.h2} className={styles.priceListMain}>
             <h2 className={styles.priceListMainH2}>{lists.h2}</h2>
             <div className={styles.poundSignMain}>
                 <FontAwesomeIcon icon={ faSterlingSign } className={styles.poundSign}/>
@@ -54,8 +54,8 @@ const WorkshopPriceList = () => {
     return (
         <div className={styles.workshopMain}>
             <div className={styles.workshopHeader}>
-                <div data-aos = "fade-down-right" className={styles.workshopHeaderBg}>
-                    <img src={clipboard} className={styles.workshopHeaderImg}/>
+                <div className={styles.workshopHeaderBg}>
+
                 </div>
 
                 <div className={styles.workshopHeaderContainer}>
@@ -182,7 +182,7 @@ const WorkshopPriceList = () => {
                     </div>
                 </div>
                 <div className={styles.notListedJob}>
-                    <p className={styles.notListedJobP}>Jobs that are not listed above are quoted at an hourly rate of £50/hour, contact <a href='#' className={styles.contact}>Cycle Fix</a> London for more info.</p>
+                    <p className={styles.notListedJobP}>Jobs that are not listed above are quoted at an hourly rate of £50/hour, contact <a href='/contact' className={styles.contact}>Cycle Fix</a> London for more info.</p>
                 </div>
             </div>
         </div>

@@ -94,7 +94,6 @@
 
 .contactFormHeaderMain {
     width: 100%;
-    /* padding: 15px; */
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -144,11 +143,12 @@
 .formInputContainer {
     width: 350px;
     display: flex;
+    height: 45px;
     justify-content: flex-start;
     align-items: center;
     margin: 15px;
     border: 1px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .formInputContainer.wrongInput {
