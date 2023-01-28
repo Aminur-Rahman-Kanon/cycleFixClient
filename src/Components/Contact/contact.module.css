@@ -238,6 +238,99 @@
     background-color: #74a9e3;
 }
 
+.whatsappMain {
+    width: 100%;
+    margin: 50px auto;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #00560e; */
+    /* background-color: #003e0a; */
+    background: linear-gradient(287deg, #003e0a, #008722);
+}
+
+.whatsappH1, .whatsappH2 {
+    color: lightgray;
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+
+.whatsappImgContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsappImg {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.whatsappHeaderContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsappContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.whatsappBtn:hover {
+    animation: whatsapp 1.2s ease-in-out forwards;
+}
+
+@keyframes whatsapp {
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.whatsappBtn {
+    width: 100px;
+    margin: 20px;
+}
+
+@media (max-width: 950px) {
+    .whatsappMain {
+        flex-flow: column;
+    }
+
+    .whatsappImgContainer {
+        width: 75%;
+    }
+
+    .whatsappHeaderContainer {
+        width: 100%;
+    }
+}
+
 @media (max-width: 902px) {
     .contactFormMain {
         height: 1200px;
@@ -264,5 +357,9 @@
 @media (max-width: 550px) {
     .formInputContainer, .formTextAreaContainer {
         width: 95%;
+    }
+
+    .whatsappImgContainer {
+        width: 100%;
     }
 }

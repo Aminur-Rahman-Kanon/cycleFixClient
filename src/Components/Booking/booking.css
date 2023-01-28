@@ -131,8 +131,9 @@ abbr {
 }
 
 .react-calendar__tile--now {
-    background-color: #7db2ed;
-    color: white;
+    background-color: #7db2ed!important;
+    color: white!important;
+    opacity: 1!important;
 }
 
 .react-calendar__navigation__prev-button, .react-calendar__navigation__next-button {
@@ -192,6 +193,7 @@ abbr {
     letter-spacing: 2px;
     color: lightgray;
     margin: 5px 0px 30px 0px;
+    text-transform: capitalize;
 }
 
 .clock-container {

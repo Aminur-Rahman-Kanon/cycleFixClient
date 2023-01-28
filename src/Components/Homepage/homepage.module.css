@@ -97,11 +97,12 @@
 .headerContainer2 {
     width: 100%;
     margin: 80px auto;
-    padding: 20px;
+    padding: 50px 10px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(252deg, #242323, #0000004d);
 }
 
 .headerContainer2Part1, .headerContainer2Part2 {
@@ -113,7 +114,9 @@
 
 .headerContainer2Img {
     width: 100%;
-    height: 450px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 12px 1px lightgrey;
 }
 
 .headerContainer2H2 {
@@ -124,13 +127,14 @@
 .headerContainer2H1 {
     font-size: 40px;
     letter-spacing: 1px;
-    color: #545454;
+    color: lightgray;
 }
 
 .headerContainer2P {
     text-align: left;
     font-size: 15px;
     letter-spacing: 1px;
+    color: lightgray;;
 }
 
 .headerContainer3Main {
@@ -234,6 +238,10 @@
     color: #7db2ed;
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 1px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .xiaomiImgContainer {
@@ -257,6 +265,11 @@
 .xiaomiBtn {
     height: 50px;
     width: 300px;
+    margin: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid rgb(148, 148, 148);
     border-radius: 10px;
     background-color: rgb(148, 148, 148);
@@ -421,7 +434,12 @@
 @media (max-width: 1060px) {
     .headerContainer2 {
         flex-flow: column;
-        padding: 0;
+        padding: 20px 10px;
+        background: linear-gradient(32deg, #242323, #0000004d);
+    }
+
+    .headerContainer2H1 {
+        font-size: 2em;
     }
 
     .headerContainer2Part1 {
@@ -512,6 +530,10 @@
         margin: 10px;
     }
 
+    .headerContainer2Part1 {
+        padding: 0;
+    }
+
     .xiaomiImg {
         width: 90%;
     }
@@ -528,10 +550,6 @@
 
     .testimonialBackground {
         height: 1200px;
-    }
-
-    .headerContainer2Img {
-        height: 350px;
     }
 }
 

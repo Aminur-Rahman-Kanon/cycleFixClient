@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
+
 .modalMain {
     position: fixed;
     top: 50%;
@@ -10,6 +13,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    font-family: 'PT Serif', serif;
 }
 
 @media (max-width: 768px) {

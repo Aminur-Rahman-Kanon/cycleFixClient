@@ -7,6 +7,10 @@ import Spinner from "../Others/Spinner/spinner";
 import Modal from "../Others/Modal/modal";
 import Backdrop from "../Backdrop/backdrop";
 import { LoggedInUsers } from "../../App";
+import ReactWhatsapp from "react-whatsapp";
+import whatsapp from '../../Assets/whatsapp.jpg';
+import whatsappBtn from '../../Assets/whatsappBtn.png';
+import Aos from "aos";
 
 const Contact = () => {
 
@@ -34,6 +38,7 @@ const Contact = () => {
     const [backdrop, setBackdrop] = useState(false);
 
     useEffect(() => {
+        Aos.init({ duration: 1500, once: true })
         if (loggedInUser) {
             if (loggedInUser.hasOwnProperty('iss')){
                 setName(`${loggedInUser.given_name} ${loggedInUser.family_name}`);
@@ -231,6 +236,22 @@ const Contact = () => {
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            <div className={styles.whatsappMain}>
+                <div className={styles.whatsappImgContainer}>
+                    <img src={ whatsapp } className={styles.whatsappImg}/>
+                </div>
+
+                <div data-aos="zoom-in-down" className={styles.whatsappHeaderContainer}>
+                    <h1 className={styles.whatsappH1}>Want to connect with us in whatsapp</h1>
+                    <h2 className={styles.whatsappH2}>Lets chat</h2>
+                    <div className={styles.whatsappContainer}>
+                        <ReactWhatsapp number="004402078200028" message="Hello Cycle fix..." className={styles.whatsapp}>
+                            <img src={whatsappBtn} className={styles.whatsappBtn}/>
+                        </ReactWhatsapp>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import { faScrewdriverWrench, faPersonBiking, faPersonDigging, faCircleExclamation, faMotorcycle, faChargingStation, faStar, faAngleLeft, faAngleRight, faLocationPin, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
 import bg2 from '../../Assets/bg2.jpg';
 import Aos from "aos";
@@ -157,7 +158,7 @@ const Homepage = () => {
                 <div data-aos = "fade-up-left" className={styles.xiaomiContainer}>
                     <h1 className={styles.xiaomiH1}>Xiaomi Electric Scooter Repair Services</h1>
                     <h2 className={styles.xiaomiH2}>We specialise in repairing the popular Xiaomi M365 electric scooters</h2>
-                    <button className={styles.xiaomiBtn}>Explore</button>
+                    <Link to='/xiaomi-e-scooter' className={styles.xiaomiBtn}>Explore</Link>
                 </div>
 
                 <div data-aos = "fade-up-right" className={styles.xiaomiImgContainer}>

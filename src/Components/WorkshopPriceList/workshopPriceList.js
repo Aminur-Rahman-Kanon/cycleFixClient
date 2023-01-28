@@ -45,7 +45,7 @@ const WorkshopPriceList = () => {
 
                 <div className={styles.priceListsContainer2}>
                     <h3 className={styles.bookNowH3}>Book For This Service !</h3>
-                    <Link to="#" className={styles.bookNowBtn}>Book Now</Link>
+                    <Link to={`/book-service/${lists.h2.toLowerCase()}/${lists.price}`} className={styles.bookNowBtn}>Book Now</Link>
                 </div>
             </div>
         </div>

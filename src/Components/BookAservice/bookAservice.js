@@ -71,7 +71,7 @@ const BookAservice = () => {
                 </div>
                 <div className={styles.bookServiceBgContainer}>
                     <h1>Stress Free Bike Repair Service</h1>
-                    <h2>Book a free no-obligation assessment for your bike today</h2>
+                    <h2>Book a reliable no-obligation assessment for your bike today</h2>
                     <DownArrow h3="Book A Service from Below" clickHandler={() => bookService.current.scrollIntoView(true)} />
                 </div>
             </div>

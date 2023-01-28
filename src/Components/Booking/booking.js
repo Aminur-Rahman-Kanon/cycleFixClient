@@ -147,19 +147,13 @@ const Booking = () => {
         window.location.replace('/payment')
     }
 
-    const newDate = [[28, 29], [4, 6, 7], [8, 9, 11], [15, 18, 20]]
-
-    const test = [6, 0]
-
-    console.log(bookedDate)
-
-
     return (
         <div className='calendar-main'>
             <div className="go-back-btn-container" onClick={ backBtnHandler } style={!selectedDate && !selectedTime ? {display: 'none'} : {display:'flex'}}>
                 <p className="go-back-btn">Go back</p>
             </div>
             <div className="calender-main-container" style={selectedDate ? {display: 'none'} : {display: 'flex'}}>
+                <h1 className="calender-main-h1">{params.serviceId || 'Not Available'}</h1>
                 <h1 className="calender-main-h1">Please Select An Available Date Below</h1>
                 <div className="calender-container">
                     <Calendar minDate={new Date()}

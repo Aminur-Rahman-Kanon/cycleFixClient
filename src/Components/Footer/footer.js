@@ -16,11 +16,19 @@ const footer = () => {
                         <img src={logo} className={styles.logo} />
                     </div>
                     <h3 className={styles.cycleFixP}>Cycle Fix</h3>
-                    <div className={styles.socialLink}>
-                        <FontAwesomeIcon icon={faFacebook} className={styles.socialLinkIcon}/>
-                        <FontAwesomeIcon icon={faTwitter} className={styles.socialLinkIcon}/>
-                        <FontAwesomeIcon icon={faInstagram} className={styles.socialLinkIcon}/>
-                        <FontAwesomeIcon icon={faYoutube} className={styles.socialLinkIcon}/>
+                    <div className={styles.socialLinks}>
+                        <a href="https://www.facebook.com/cyclefixlondon/?locale=en_GB" target="_blank" className={styles.socialLink}>
+                            <FontAwesomeIcon icon={faFacebook} className={styles.socialLinkIcon}/>
+                        </a>
+                        <a href="https://mobile.twitter.com/cyclefixlondon" className={styles.socialLink}>
+                            <FontAwesomeIcon icon={faTwitter} className={styles.socialLinkIcon}/>
+                        </a>
+                        <a href="https://www.instagram.com/cyclefixlondon/?hl=en" className={styles.socialLink}>
+                            <FontAwesomeIcon icon={faInstagram} className={styles.socialLinkIcon}/>
+                        </a>
+                        <a href="#" className={styles.socialLink}>
+                            <FontAwesomeIcon icon={faYoutube} className={styles.socialLinkIcon}/>
+                        </a>
                     </div>
                 </div>
 

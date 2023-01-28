@@ -1,24 +1,50 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from './xiaomi.module.css';
 import { Link } from 'react-router-dom';
 import xiaomiBg from '../../Assets/xiaomi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faScrewdriverWrench, faPoundSign } from '@fortawesome/free-solid-svg-icons';
+import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
 import { xiaomiRepairPrice } from '../../Data/data';
 import DownArrow from "../Others/DownArrow/downArrow";
 import Aos from 'aos';
+import Spinner from "../Others/Spinner/spinner";
+import Backdrop from "../Backdrop/backdrop";
+import Modal from "../Others/Modal/modal";
 
 const Xiaomi = () => {
 
     const priceRef = useRef(null);
 
+    const [status, setStatus] = useState('');
+
+    const [spinner, setSpinner] = useState(false);
+
+    const [modal, setModal] = useState(false);
+
+    const [backdrop, setbackdrop] = useState(false);
+
     useEffect(() => {
-        Aos.init({ duration: 2500, once: true })
+        window.scrollTo(0, 0);
+        Aos.init({ duration: 2500, once: true });
     }, [])
+
+    useEffect(() => {
+        if (backdrop){
+            document.body.style.position = 'sticky';
+            document.body.style.overflow = 'hidden';
+        }
+        else {
+            document.body.style.position = 'unset';
+            document.body.style.overflow = 'auto';
+        }
+    }, [backdrop])
 
     const displayList = xiaomiRepairPrice ? xiaomiRepairPrice.map(list => {
         return <div data-aos = "flip-left" className={styles.listCard}>
-            <FontAwesomeIcon  icon={faScrewdriverWrench} className={styles.listIcon}/>
+            {/* <FontAwesomeIcon  icon={faScrewdriverWrench} className={styles.listIcon}/> */}
+            <div className={styles.xiaomiLogoContainer}>
+                <img src={xiaomiBg} className={styles.xiaomiImg}/>
+            </div>
             <div className={styles.listCardDetails}>
                 <p className={styles.listH3}>{list.repair}</p>
                 <div className={styles.priceContainer}>
@@ -26,14 +52,68 @@ const Xiaomi = () => {
                     <p className={styles.priceP}>{list.price}</p>
                 </div>
             </div>
-            <Link to="#" className={styles.bookNowBtn}>Book now</Link>
+            <button className={styles.bookNowBtn} onClick={() => bookService(list.repair, list.price)}>Book now</button>
         </div>
     })
     : 
     null
 
+    const bookService = async (service, price) => {
+        console.log(service, price);
+        setSpinner(true);
+        await fetch('https://cyclefixserver.onrender.com/book-xiaomi-service', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                service, price
+            })
+        }).then(res => res.json()).then(data => {
+            setSpinner(false);
+            setStatus(data.status);
+            setModal(true);
+            setbackdrop(true);
+        }).catch(err => {
+            setSpinner(false);
+            setStatus('error');
+            setModal(true);
+            setbackdrop(true);
+        })
+    }
+
+    const errorHandler = () => {
+        setModal(false);
+        setbackdrop(false);
+        setStatus('');
+    }
+
+    let displayMsg = null;
+
+    if (status === 'success'){
+        displayMsg = <div className={styles.displayMsgMain}>
+            <h1 className={styles.displayMsgH1}>Request Succesfull</h1>
+            <p style={{textAlign: 'center'}}>A query has been has sent to the admin</p>
+            <p style={{textAlign: 'center'}}>We will get back to ASAP to confirm your booking</p>
+            <button className={styles.displayMsgBtn} onClick={() => window.location.reload()}>Ok</button>
+        </div>
+    }
+    else if (status === 'error') {
+        displayMsg = <div className={styles.displayMsgMain}>
+            <h1 className={styles.displayMsgH1}>Request Failed</h1>
+            <p style={{textAlign: 'center'}}>Couldn't submit query</p>
+            <p style={{textAlign: 'center'}}>Please try again</p>
+            <button className={styles.displayMsgBtn} onClick={ errorHandler }>Ok</button>
+        </div>
+    }
+
 
     return (
+        <>
+        <Backdrop backdrop={backdrop} toggleBackdrop={() => {/*does nothing */}}/>
+        <Modal switch={modal}>
+            {displayMsg}
+        </Modal>
         <div className={styles.xiaomiMain}>
             <div className={styles.xiaomiContainer}>
                 <div className={styles.xiaomiBg}>
@@ -56,6 +136,7 @@ const Xiaomi = () => {
             </div>
 
             <div className={styles.repairListMain} ref={ priceRef }>
+                <Spinner switch={ spinner }/>
                 <h1 className={styles.repairListMainH1}>Xiaomi Electric Scooter Repair Services</h1>
                 <div data-aos = "fade-down-right" className={styles.repairListContainer}>
                     {displayList}
@@ -67,6 +148,7 @@ const Xiaomi = () => {
                 <p>If your scooter does not have the MI on the floor platform it is not a genuine Xiaomi scooter.</p>
             </div>
         </div>
+        </>
     )    
 }
 
