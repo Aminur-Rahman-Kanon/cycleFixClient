@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Assets/logo.png';
 import { LoggedInUsers } from "../../App";
-import Barcode from "react-barcode";
 
 const Booking = () => {
 
@@ -131,8 +130,6 @@ const Booking = () => {
     }
 
     const processToPayment = async () => {
-        const barcode = await <Barcode value={email}/>
-
         const totalPrice = parseInt(params.packagePrice) + parseInt(additionalCost);
         const due = totalPrice - 25;
 
@@ -148,7 +145,6 @@ const Booking = () => {
             lastName,
             email,
             phone,
-            barcode: barcode,
             bikeDetails: {
                 make, model, color, additionalInfo
             }
