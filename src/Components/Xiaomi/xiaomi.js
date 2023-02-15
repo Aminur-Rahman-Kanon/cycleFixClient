@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from './xiaomi.module.css';
-import { Link } from 'react-router-dom';
 import xiaomiBg from '../../Assets/xiaomi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPoundSign } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faPoundSign, faSignature, faPhone, faAt } from '@fortawesome/free-solid-svg-icons';
 import { xiaomiRepairPrice } from '../../Data/data';
 import DownArrow from "../Others/DownArrow/downArrow";
 import Aos from 'aos';
@@ -23,6 +22,10 @@ const Xiaomi = () => {
 
     const [backdrop, setbackdrop] = useState(false);
 
+    const [displayForm, setDisplayForm] = useState(false);
+
+    const [selectedCard, setSelectedCard] = useState({});
+
     useEffect(() => {
         window.scrollTo(0, 0);
         Aos.init({ duration: 2500, once: true });
@@ -41,7 +44,6 @@ const Xiaomi = () => {
 
     const displayList = xiaomiRepairPrice ? xiaomiRepairPrice.map(list => {
         return <div data-aos = "flip-left" className={styles.listCard}>
-            {/* <FontAwesomeIcon  icon={faScrewdriverWrench} className={styles.listIcon}/> */}
             <div className={styles.xiaomiLogoContainer}>
                 <img src={xiaomiBg} className={styles.xiaomiImg}/>
             </div>
@@ -52,14 +54,18 @@ const Xiaomi = () => {
                     <p className={styles.priceP}>{list.price}</p>
                 </div>
             </div>
-            <button className={styles.bookNowBtn} onClick={() => bookService(list.repair, list.price)}>Book now</button>
+            <button className={styles.bookNowBtn} onClick={() => {
+                setSelectedCard({
+                    service:list.repair, price: list.price
+                })
+                setDisplayForm(true);
+            }}>Book now</button>
         </div>
     })
     : 
     null
 
-    const bookService = async (service, price) => {
-        console.log(service, price);
+    const bookService = async (query) => {
         setSpinner(true);
         await fetch('https://cyclefixserver.onrender.com/book-xiaomi-service', {
             method: 'POST',
@@ -67,7 +73,7 @@ const Xiaomi = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                service, price
+                service: query.service, price: query.price
             })
         }).then(res => res.json()).then(data => {
             setSpinner(false);
@@ -87,6 +93,41 @@ const Xiaomi = () => {
         setbackdrop(false);
         setStatus('');
     }
+
+    const displayBookingForm = <div className={styles.bookingFormMain} style={displayForm ? {display: 'flex'} : {display: 'none'}}>
+        <form className={styles.bookingFormContainer}>
+            <h2 className={styles.bookingFormHeader}>Please fill up the following information</h2>
+            <div className={styles.bookingInputContainer}>
+                <input type="text"
+                       className={styles.bookingInput}
+                       placeholder="Your name"/>
+                <FontAwesomeIcon icon={faSignature} className={styles.bookingInputIcon}/>
+            </div>
+            <div className={styles.bookingInputContainer}>
+                <input type="email"
+                       className={styles.bookingInput}
+                       placeholder="Your email"/>
+                <FontAwesomeIcon icon={faAt} className={styles.bookingInputIcon}/>
+            </div>
+            <div className={styles.bookingInputContainer}>
+                <input type="number"
+                       className={styles.bookingInput}
+                       placeholder="Your number"/>
+                <FontAwesomeIcon icon={faPhone} className={styles.bookingInputIcon}/>
+            </div>
+            <div className={styles.bookingInputContainer}>
+                <input type="text"
+                       className={styles.bookingInput}
+                       placeholder="Approximate date"/>
+                <FontAwesomeIcon icon={faCalendar} className={styles.bookingInputIcon}/>
+            </div>
+
+            <button className={styles.requestBtn} onClick={(e) => {
+                e.preventDefault();
+                bookService(selectedCard);
+            }}>Request</button>
+        </form>
+    </div>
 
     let displayMsg = null;
 
@@ -110,10 +151,12 @@ const Xiaomi = () => {
 
     return (
         <>
+        <Spinner spinner={spinner} />
         <Backdrop backdrop={backdrop} toggleBackdrop={() => {/*does nothing */}}/>
         <Modal switch={modal}>
             {displayMsg}
         </Modal>
+        {displayBookingForm}
         <div className={styles.xiaomiMain}>
             <div className={styles.xiaomiContainer}>
                 <div className={styles.xiaomiBg}>
@@ -136,9 +179,8 @@ const Xiaomi = () => {
             </div>
 
             <div className={styles.repairListMain} ref={ priceRef }>
-                <Spinner switch={ spinner }/>
                 <h1 className={styles.repairListMainH1}>Xiaomi Electric Scooter Repair Services</h1>
-                <div data-aos = "fade-down-right" className={styles.repairListContainer}>
+                <div className={styles.repairListContainer}>
                     {displayList}
                 </div>
             </div>

@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Assets/logo.png';
 import { LoggedInUsers } from "../../App";
+import Barcode from "react-barcode";
 
 const Booking = () => {
 
@@ -21,7 +22,7 @@ const Booking = () => {
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
     const [color, setColor] = useState('');
-    const [issue, setIssue] = useState('');
+    const [additionalInfo, setAdditionalInfo] = useState('');
     const [additionalCost, setAdditionalCost] = useState('0');
     const [detailsFormFinalValidation, setDetailsFormFinalValidation] = useState(true);
     const [disappearDetailsForm, setDisappearDetailsForm] = useState(false);
@@ -79,13 +80,13 @@ const Booking = () => {
     }, [ email ])
 
     useEffect(() => {
-        if (make && model && color && issue){
+        if (make && model && color){
             setDetailsFormFinalValidation(false)
         }
         else {
             setDetailsFormFinalValidation(true);
         }
-    }, [make, model, color, issue, additionalCost])
+    }, [make, model, color, additionalInfo, additionalCost])
 
     useEffect(() => {
         if (firstName && lastName && emailValidity && phone) {
@@ -129,17 +130,27 @@ const Booking = () => {
         }
     }
 
-    const processToPayment = () => {
+    const processToPayment = async () => {
+        const barcode = await <Barcode value={email}/>
+
+        const totalPrice = parseInt(params.packagePrice) + parseInt(additionalCost);
+        const due = totalPrice - 25;
+
         const data = {
             service: params.serviceId,
             packagePrice: params.packagePrice,
+            additionalCost,
+            totalPrice,
+            due,
+            deposit: 25,
             date: selectedDate,
             firstName,
             lastName,
             email,
             phone,
+            barcode: barcode,
             bikeDetails: {
-                make, model, color, issue, additionalCost
+                make, model, color, additionalInfo
             }
         }
 
@@ -169,14 +180,6 @@ const Booking = () => {
                             />
                 </div>
             </div>
-
-            {/* <div className={selectedDate && !selectedTime ? "clock-main" : "clock-main-off"}>
-                <h2 className="calender-main-h1">Selected Date: {selectedDate}</h2>
-                <h2 className="calender-main-h1">Please Select An Available Time Below</h2>
-                <div className="clock-container">
-                    {timeTable}
-                </div>
-            </div> */}
 
             <div className={selectedDate && !disappearDetailsForm ? "details-form-main" : 'details-form-main-off'}>
                 <h1 className="details-form-h1">Please tell us about your bike</h1>
@@ -210,9 +213,9 @@ const Booking = () => {
                         <textarea type="text"
                                   rows="10"
                                   className="form-textarea"
-                                  placeholder="Issue/Problem"
+                                  placeholder="Additional Info"
                                   maxLength='300'
-                                  onChange={(e) => setIssue(e.target.value)} />
+                                  onChange={(e) => setAdditionalInfo(e.target.value)} />
                     </div>
 
                     <div className="input-container-select-main">
@@ -260,8 +263,8 @@ const Booking = () => {
                             <p>Make: {make}</p>
                             <p>Model: {model}</p>
                             <p>Color: {color}</p>
-                            <p>Issue: {issue}</p>
-                            <p>Additional cost: £{additionalCost}</p>
+                            <p>additional info: {additionalInfo}</p>
+                            <p>Total price: £{parseInt(additionalCost) + parseInt(params.packagePrice)}</p>
                             <p>Deposit: £25</p>
                             <p>You need to pay just the deposit to make a booking</p>
                         </div>
@@ -305,7 +308,7 @@ const Booking = () => {
                                />
                     </div>
                     <div className="user-input-container-btn">
-                        <input type="button" onClick={ processToPayment } value="Go to payment" className="user-input-submit-btn"/>
+                        <input disabled={formFinalValidationBtn} type="button" onClick={ processToPayment } value="Go to payment" className="user-input-submit-btn"/>
                     </div>
                 </form>
             </div>

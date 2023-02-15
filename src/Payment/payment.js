@@ -53,7 +53,7 @@ const Payment = () => {
 
     if (sessionStorage.length > 0) {
         userData = JSON.parse(sessionStorage.getItem('userData'));
-        totalPrice = parseInt(userData.packagePrice) + parseInt(userData.bikeDetails.additionalCost)
+        totalPrice = parseInt(userData.packagePrice) + parseInt(userData.additionalCost)
     }
 
     const subtotal = totalPrice * 100
@@ -74,6 +74,8 @@ const Payment = () => {
         }
     }, [backdrop])
 
+    console.log(userData);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSpinner(true);
@@ -85,7 +87,7 @@ const Payment = () => {
         if (!error) {
             try {
                 const { id } = paymentMethod
-                const response = await axios.post('https://cyclefixserver.onrender.com/payment', {
+                const response = await axios.post('http://localhost:8000/payment', {
                     amount: 2500,
                     id
                 })
@@ -100,7 +102,7 @@ const Payment = () => {
                     userData.paymentStatus = 'Paid';
                     userData.authCode = genAuthCode;
                     userData.totalPrice = subtotal;
-                    await fetch('https://cyclefixserver.onrender.com/payment-success', {
+                    await fetch('http://localhost:8000/payment-success', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -200,7 +202,7 @@ const Payment = () => {
                             </div>
                             <div className={styles.innerDetails}>
                                 <h4 className={styles.innerDetailsH4}>Additional cost</h4>
-                                <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? `£${userData.bikeDetails.additionalCost}` : 'No information'}</p>
+                                <p className={styles.userInformationP}>{Object.keys(userData).length > 0 ? `£${userData.additionalCost}` : 'No information'}</p>
                             </div>
                             <div className={styles.innerDetails}>
                                 <h4 className={styles.innerDetailsH4}>Subtotal</h4>
@@ -208,7 +210,7 @@ const Payment = () => {
                             </div>
                             <div className={styles.innerDetails}>
                                 <div className={styles.innerDetailsDeposit}>
-                                    <h4 className={styles.innerDetailsH4}>Deposit: £25</h4>
+                                    <h4 className={styles.innerDetailsH4}>Deposit: {Object.keys(userData).length > 0 ? `£${userData.deposit}` : '£25'}</h4>
                                     <h3 className={styles.innerDetailsH4}>You just need to pay the deposit to make a booking</h3>
                                 </div>
                             </div>

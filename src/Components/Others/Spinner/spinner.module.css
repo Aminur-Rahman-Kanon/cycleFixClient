@@ -12,7 +12,7 @@
     align-items: center;
     background-color: #8b8b8bf2;
     color: #7db2ed;
-    z-index: 100;
+    z-index: 900;
 }
 
 .spinnerP {
