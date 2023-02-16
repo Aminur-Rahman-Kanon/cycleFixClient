@@ -26,6 +26,14 @@ const Xiaomi = () => {
 
     const [selectedCard, setSelectedCard] = useState({});
 
+    const [name, setName] = useState('');
+
+    const [email, setEmail] = useState('');
+
+    const [phone, setPhone] = useState('');
+    
+    const [date, setDate] = useState('');
+
     useEffect(() => {
         window.scrollTo(0, 0);
         Aos.init({ duration: 2500, once: true });
@@ -73,7 +81,7 @@ const Xiaomi = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                service: query.service, price: query.price
+                service: query.service, price: query.price, name, email, phone, date
             })
         }).then(res => res.json()).then(data => {
             setSpinner(false);
@@ -100,25 +108,29 @@ const Xiaomi = () => {
             <div className={styles.bookingInputContainer}>
                 <input type="text"
                        className={styles.bookingInput}
-                       placeholder="Your name"/>
+                       placeholder="Your name"
+                       onChange={() => setName(e.target.value)}/>
                 <FontAwesomeIcon icon={faSignature} className={styles.bookingInputIcon}/>
             </div>
             <div className={styles.bookingInputContainer}>
                 <input type="email"
                        className={styles.bookingInput}
-                       placeholder="Your email"/>
+                       placeholder="Your email"
+                       onChange={() => setEmail(e.target.value)}/>
                 <FontAwesomeIcon icon={faAt} className={styles.bookingInputIcon}/>
             </div>
             <div className={styles.bookingInputContainer}>
                 <input type="number"
                        className={styles.bookingInput}
-                       placeholder="Your number"/>
+                       placeholder="Your phone number"
+                       onChange={(e) => setPhone(e.target.value)}/>
                 <FontAwesomeIcon icon={faPhone} className={styles.bookingInputIcon}/>
             </div>
             <div className={styles.bookingInputContainer}>
                 <input type="text"
                        className={styles.bookingInput}
-                       placeholder="Approximate date"/>
+                       placeholder="Approximate date"
+                       onChange={(e) => setDate(e.target.value)}/>
                 <FontAwesomeIcon icon={faCalendar} className={styles.bookingInputIcon}/>
             </div>
 
