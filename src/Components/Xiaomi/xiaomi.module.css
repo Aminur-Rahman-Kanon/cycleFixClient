@@ -252,6 +252,14 @@
     color: #7db2ed;
 }
 
+.bookingBtns {
+    width: 300px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .requestBtn {
     height: 40px;
     width: 290px;

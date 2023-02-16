@@ -133,11 +133,18 @@ const Xiaomi = () => {
                        onChange={(e) => setDate(e.target.value)}/>
                 <FontAwesomeIcon icon={faCalendar} className={styles.bookingInputIcon}/>
             </div>
+            
+            <div className={styles.bookingBtns}>
+                <button className={styles.requestBtn} onClick={(e) => {
+                    e.preventDefault();
+                    bookService(selectedCard);
+                }}>Request</button>
+                <button className={styles.requestBtn} onClick={(e) => {
+                    e.preventDefault();
+                    setDisplayForm(false);
+                }}>Close</button>
 
-            <button className={styles.requestBtn} onClick={(e) => {
-                e.preventDefault();
-                bookService(selectedCard);
-            }}>Request</button>
+            </div>
         </form>
     </div>
 
