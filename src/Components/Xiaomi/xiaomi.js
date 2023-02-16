@@ -109,14 +109,14 @@ const Xiaomi = () => {
                 <input type="text"
                        className={styles.bookingInput}
                        placeholder="Your name"
-                       onChange={() => setName(e.target.value)}/>
+                       onChange={(e) => setName(e.target.value)}/>
                 <FontAwesomeIcon icon={faSignature} className={styles.bookingInputIcon}/>
             </div>
             <div className={styles.bookingInputContainer}>
                 <input type="email"
                        className={styles.bookingInput}
                        placeholder="Your email"
-                       onChange={() => setEmail(e.target.value)}/>
+                       onChange={(e) => setEmail(e.target.value)}/>
                 <FontAwesomeIcon icon={faAt} className={styles.bookingInputIcon}/>
             </div>
             <div className={styles.bookingInputContainer}>
