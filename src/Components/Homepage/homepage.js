@@ -58,7 +58,7 @@ const Homepage = () => {
     if (testimonial !== null) {
         displayRatings = testimonial.slice(testimonialIndex*itemToView, (testimonialIndex*itemToView) + itemToView).map(ratings => {
             return <div key={ratings.comment} className={styles.testimonialCard}>
-            <p>{ratings.comment}</p>       
+            <p style={{color: 'lightgray'}}>{ratings.comment}</p>       
             <div className={styles.testimonialStars}>
                 <h2>{ratings.name}</h2>
                 {Number(ratings.rating) === 5 ? Array.from(Array(Number(ratings.rating)).keys()).map((star, index) => {
@@ -168,6 +168,9 @@ const Homepage = () => {
 
             <div className={styles.testimonialMain}>
                 <Spinner switch={spinner} />
+                <Link to="/feedback" className={styles.addFeedBack}>
+                    <p style={{margin: '5px'}}>Add feedback</p>
+                </Link>
                 <div className={styles.testimonialBackground}>
 
                 </div>

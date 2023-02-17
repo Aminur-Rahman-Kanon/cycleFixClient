@@ -431,6 +431,30 @@
     font-size: 19px;
 }
 
+.addFeedBack {
+    position: absolute;
+    text-decoration: none;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    right: -50px;
+    color: white;
+    z-index: 100;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(270deg);
+    letter-spacing: 1px;
+    background-color: #7db2ed;
+    cursor: pointer;
+}
+
+.addFeedBack:hover {
+    background-color: #63a2eb;
+}
+
 @media (max-width: 1060px) {
     .headerContainer2 {
         flex-flow: column;

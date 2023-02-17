@@ -17,6 +17,7 @@ import Contact from './Components/Contact/contact';
 import Booking from './Components/Booking/booking';
 import BookAservice from './Components/BookAservice/bookAservice';
 import PaymentContainer from './Payment/paymentContainer';
+import Feedback from './Components/Feedback/feedback';
 
 export const LoggedInUsers = createContext(null);
 
@@ -57,13 +58,14 @@ function App() {
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/login' element={<Login />}/> }
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/register' element={<Registration />}/> }
           <Route path='/workshop-price-list' element={<WorkshopPriceList /> }/>
-          <Route path='*' element={<DefaultRoute />}/>
           <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />
           <Route path='courtesy-bike' element={<CourtesyBike />} />
           <Route path='/contact' element={ <Contact /> } />
           <Route path='/book-service' element={<BookAservice />}/>
           <Route path='/book-service/:serviceId/:packagePrice' element={<Booking />} />
           <Route path='/payment' element={<PaymentContainer />}/>
+          <Route path='/feedback' element={<Feedback />}/>
+          <Route path='*' element={<DefaultRoute />}/>
         </Routes>
         <Footer />
       </LoggedInUsers.Provider>
