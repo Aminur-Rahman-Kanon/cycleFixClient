@@ -169,7 +169,15 @@ const Booking = () => {
                                 nextAriaLabel="Go to next month"
                                 prevAriaLabel="Go to prev month"
                                 showNeighboringMonth={false}
-                                tileDisabled={({date, view}) => bookedDate[date.getMonth()] ? bookedDate[date.getMonth()].includes(date.getDate()) : null}
+                                tileClassName={({date}) => date.getDay() === 0 ? 'sunday' : null}
+                                tileDisabled={({date, view}) => {
+                                    if (date.getDay() === 0){
+                                        return date.getDate();
+                                    }
+                                    if (bookedDate[date.getMonth()]){
+                                        return bookedDate[date.getMonth()].includes(date.getDate())
+                                    }
+                                }}
                                 onClickDay={(value) => {
                                     setSelectedDate(value.toDateString());
                                 }}

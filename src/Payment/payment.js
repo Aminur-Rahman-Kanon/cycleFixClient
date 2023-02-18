@@ -74,8 +74,6 @@ const Payment = () => {
         }
     }, [backdrop])
 
-    console.log(userData);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSpinner(true);
@@ -144,7 +142,7 @@ const Payment = () => {
     if (success) {
         displayMsg = <div className={styles.displayMsgMain}>
             <h1 style={{color: '#7db2ed'}}>Payment received</h1>
-            <p style={{textAlign: 'center'}}>{`${userData.service} service has been booked on ${userData.date} at ${userData.time}.00`}</p>
+            <p style={{textAlign: 'center'}}>{`${userData.service} service has been booked on ${userData.date} at 9.00 AM`}</p>
             <p>Your authorization code: {authCode}</p>
             <p>See you soon!</p>
             <button className={styles.displayMsgBtn} onClick={() => window.location.assign('/')}>Finish</button>

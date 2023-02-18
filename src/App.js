@@ -59,7 +59,7 @@ function App() {
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/register' element={<Registration />}/> }
           <Route path='/workshop-price-list' element={<WorkshopPriceList /> }/>
           <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />
-          <Route path='courtesy-bike' element={<CourtesyBike />} />
+          <Route path='/courtesy-bike' element={<CourtesyBike />} />
           <Route path='/contact' element={ <Contact /> } />
           <Route path='/book-service' element={<BookAservice />}/>
           <Route path='/book-service/:serviceId/:packagePrice' element={<Booking />} />
