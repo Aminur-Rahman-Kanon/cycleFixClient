@@ -74,37 +74,48 @@ const Homepage = () => {
 
     return (
         <div className={styles.homepageMain}>
-            <div className={styles.headerContainer1}>
-                <div data-aos="fade-right" className={styles.headerContainer1Items}>
-                    <h1 className={styles.headerContainer1H1}>Your Reliable Local Bicycle <span style={{color: '#a6cefb'}}>Repair Shop</span></h1>
-                    <p className={styles.headerIntro1P}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tempus sapien. In eleifend orci arcu, sed tempor enim lobortis a. Phasellus at tincidunt risus, at scelerisque enim.</p>
-                    <div className={styles.headerContainer1Links}>
-                        <Link to="" className={styles.headerContainer1Link}>
-                            <p className={styles.linkP}>Book now</p>
-                            <FontAwesomeIcon icon={faScrewdriverWrench} className={styles.linkIcon}/>
-                        </Link>
-                        <Link to="" className={styles.headerContainer1Link}>Services</Link>
-                    </div>
-                </div>
+            <div className={styles.headerContainer}>
+                <div className={styles.bgImage}>
 
-                <div data-aos="fade-left" className={styles.headerContainer1Items}>
-                    <img src={banner} alt="cycle fix banner" className={styles.headerContainer1Banner}/>
+                </div>
+                <div className={styles.headerContainerBanner}>
+                    <div data-aos="fade-left" className={styles.headerContainer1Items}>
+                        <h1 className={styles.headerContainer1H1}>Your Reliable Local Bicycle <span style={{color: '#a6cefb'}}>Repair Shop</span></h1>
+                        <p className={styles.headerIntro1P}>No matter how complex the repair job, our passionate team have the engineering know-how to find the best solution. We are proud of our service to the community as your local bike shop.</p>
+                        <div className={styles.headerContainer1Links}>
+                            <Link to="/book-service/booking" className={styles.headerContainer1Link}>
+                                <p className={styles.linkP}>Book now</p>
+                                <FontAwesomeIcon icon={faScrewdriverWrench} className={styles.linkIcon}/>
+                            </Link>
+                            <Link to="/workshop-price-list/services" className={styles.headerContainer1Link}>Services</Link>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-right" className={styles.headerContainer1Items}>
+                        <img src={banner} alt="cycle fix banner" className={styles.headerContainer1Banner}/>
+                    </div>
                 </div>
             </div>
 
             <div className={styles.headerContainer2}>
-                <div className={styles.headerContainer2Part1} >
-                    <img src={bg2} className={styles.headerContainer2Img}/>
+                <div className={styles.headerContainer2Bg}>
+
                 </div>
 
-                <div data-aos="fade-left" className={styles.headerContainer2Part2}>
-                    <h2 className={styles.headerContainer2H2}>Bicycle Workshop</h2>
-                    <h1 className={styles.headerContainer2H1}>Servicing & Repair</h1>
-                    <p className={styles.headerContainer2P}>Are you in need of urgent bike repairs in the London area? If so, then you should choose Cycle Fix for your local bicycle repair shop.
-                       At Cycle Fix we aim to service and repair your bike quickly so you can get right back to cycling. “Walk in, ride out” is the motto of our bike repair shop. We will do all we can to ensure your bike returns to you in perfect working order.
-                       No matter how complex the repair job, our passionate team have the engineering know-how to find the best solution. We are proud of our service to the community as your local bike shop.
-                       Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. We service all types of bikes and we also pride ourselves in engineering solutions for your complex bike repair problems.
-                    </p>
+                <div className={styles.headerContainer2Banner}>
+                    <div className={styles.headerContainer2Part1} >
+                        <img src={bg2} className={styles.headerContainer2Img}/>
+                    </div>
+
+                    <div data-aos="fade-left" className={styles.headerContainer2Part2}>
+                        <h2 className={styles.headerContainer2H2}>Bicycle Workshop</h2>
+                        <h3 className={styles.headerContainer2H3}>Servicing & Repair</h3>
+                        <p className={styles.headerContainer2P}>Are you in need of urgent bike repairs in the London area? If so, then you should choose Cycle Fix for your local bicycle repair shop.
+                        At Cycle Fix we aim to service and repair your bike quickly so you can get right back to cycling. “Walk in, ride out” is the motto of our bike repair shop. We will do all we can to ensure your bike returns to you in perfect working order.
+                        No matter how complex the repair job, our passionate team have the engineering know-how to find the best solution. We are proud of our service to the community as your local bike shop.
+                        Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. We service all types of bikes and we also pride ourselves in engineering solutions for your complex bike repair problems.
+                        </p>
+                    </div>
                 </div>
             </div>
 

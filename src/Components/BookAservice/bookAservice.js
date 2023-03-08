@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from './bookAservice.module.css';
 import DownArrow from "../Others/DownArrow/downArrow";
 import { priceList } from '../../Data/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { faAnglesDown, faAnglesUp ,faMagnifyingGlass, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
 
@@ -14,6 +14,16 @@ const BookAservice = () => {
     const [expandIcon, setExpandIcon] = useState(false);
 
     const [itemName, setItemName] = useState('');
+
+    const params = useParams();
+
+    useEffect(() => {
+        if (Object.keys(params).length > 0 && params.hasOwnProperty('booking')){
+            if (params.booking === 'booking'){
+                bookService.current.scrollIntoView(true);
+            }
+        }
+    }, [])
 
     const displayPriceContainer = priceList.map(item => {
         return <div key={item.h2} className={styles.chooseServicesCards}>

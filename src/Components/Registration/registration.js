@@ -58,7 +58,19 @@ const Registration = () => {
                 lastName.length > 0 ? setLastNameValidity(true) : setLastNameValidity(false);
                 break;
 
-            case 'email':
+            case 'user':
+                user.length > 0 ? setUserValidity(true) : setUserValidity(false);
+                break;
+
+            default:
+                break;
+        }
+
+    }, [firstName, lastName, email, user, password, reTypePassword, termsCondition])
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (email){
                 const check1 = email.includes('@');
                 const check2 = email.includes('.com');
                 const check1Index = email.indexOf('@');
@@ -72,17 +84,11 @@ const Registration = () => {
                 if (userExist){
                     setUserExist(false);
                 }
-                break;
+            }
+        }, 1200)
 
-            case 'user':
-                user.length > 0 ? setUserValidity(true) : setUserValidity(false);
-                break;
-
-            default:
-                break;
-        }
-
-    }, [firstName, lastName, email, user, password, reTypePassword, termsCondition])
+        return () => clearTimeout(timer);
+    }, [email])
 
     useEffect(() => {
         const id = setTimeout(() => {
@@ -129,7 +135,7 @@ const Registration = () => {
                 setBackdrop(true);
                 setModal(true);
             }
-            else {
+            else if(data.status === 'user created') {
                 setSpinner(false);
                 setUserExist(true);
             }
@@ -180,7 +186,7 @@ const Registration = () => {
             </div>
 
             <div className={styles.registrationContainer}>
-                <h1 className={styles.registrationFormH1}>Sign Up</h1>
+                <h1 className={styles.registrationFormH1}>Registration</h1>
                 <form className={styles.registrationForm}>
                     <div className={styles.registrationFormNames}>
                         <div className={ firstNameValidity ? styles.registrationFormName : `${styles.registrationFormName} ${styles.wrongInput}`}>
@@ -266,7 +272,7 @@ const Registration = () => {
                     </div>
 
                     <button className={styles.registrationBtn} disabled={!finalValidation} onClick={ formHandleSubmit }>
-                        Sign Up
+                        Register
                     </button>
 
                     <div className={styles.registrationFormLoginContainer}>

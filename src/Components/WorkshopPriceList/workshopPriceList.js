@@ -3,17 +3,23 @@ import styles from './workshopPriceList.module.css';
 import { priceList } from '../../Data/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faScrewdriverWrench, faMagnifyingGlass, faSterlingSign } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import DownArrow from '../Others/DownArrow/downArrow';
-import workshop from '../../Assets/testWorkshop.jpg';
 import Aos from 'aos';
 
 const WorkshopPriceList = () => {
+
+    const params = useParams();
 
     const arrowRef = useRef(null);
 
     useEffect(() => {
         Aos.init({duration: 1500, once: true});
+        if (Object.keys(params).length > 0 && params.hasOwnProperty('services')){
+            if (params.services === 'services'){
+                arrowRef.current.scrollIntoView(true);
+            }
+        }
     }, [])
 
     let displayList = Object.values(priceList).map(lists => {
