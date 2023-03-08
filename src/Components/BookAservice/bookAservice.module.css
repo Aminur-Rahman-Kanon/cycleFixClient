@@ -250,9 +250,6 @@
     .chooseServicesPriceContainer {
         width: 100%;
     }
-}
-
-@media (max-width: 768px) {
     .bookServiceBg {
         background-attachment: scroll;
     }

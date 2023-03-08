@@ -242,6 +242,12 @@
     }
 }
 
+@media (max-width: 932px) {
+    .workshopHeaderBg {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 863px) {
     .priceListMain {
         width: 100%;
@@ -282,12 +288,6 @@
     .individualPriceRow {
         width: 100%;
         margin: 15px auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .workshopHeaderBg {
-        background-attachment: scroll;
     }
 }
 

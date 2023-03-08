@@ -405,12 +405,14 @@
     }
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 932px) {
     .accidentIntroBg, .camsInquiryBg {
         background-attachment: scroll;
     }
+}
 
+
+@media (max-width: 768px) {
     .camsInquiryFormInputContainer, .camsInquiryFormMsgInputContainer {
         width: 90%;
         min-width: unset;

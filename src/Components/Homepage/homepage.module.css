@@ -513,6 +513,12 @@
     }
 }
 
+@media (max-width: 932px) {
+    .headerContainer3ImgContainer, .testimonialBackground {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 900px) {
     .testimonialBackground {
         height: 1000px;
@@ -566,9 +572,6 @@
         width: 70%;
     }
 
-    .headerContainer3ImgContainer, .testimonialBackground {
-        background-attachment: scroll;
-    }
 }
 
 @media (max-width: 759px) {

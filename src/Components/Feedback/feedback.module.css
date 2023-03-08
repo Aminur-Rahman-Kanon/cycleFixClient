@@ -9,6 +9,8 @@
     background-image: url('../../Assets/feedback.jpg');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     filter: brightness(0.5);
 }
 
@@ -157,6 +159,12 @@
 
 .statusMsgBtn:hover {
     background-color: #66a1e6;
+}
+
+@media (max-width: 932px) {
+    .feedbackBg {
+        background-attachment: scroll;
+    }
 }
 
 @media (max-width: 700px) {

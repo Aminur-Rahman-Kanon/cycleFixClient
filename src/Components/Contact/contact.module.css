@@ -34,8 +34,6 @@
 .contactFormMain {
     position: relative;
     width: 100%;
-    height: 100vh;
-    /* margin: 50px auto; */
     box-sizing: border-box;
     background-image: url('../../Assets/contact.jpg');
     background-position: center;
@@ -50,7 +48,6 @@
 
 .contactForm {
     width: 100%;
-    height: 720px;
     padding: 10px;
     box-sizing: border-box;
     display: flex;
@@ -335,14 +332,11 @@
     }
 }
 
-@media (max-width: 902px) {
-    .contactFormMain {
-        height: 1200px;
+@media (max-width: 932px) {
+    .contactBg, .contactFormMain {
+        background-attachment: scroll;
     }
-
-    .contactForm {
-        height: 1200px;
-    }
+    
     .contactFormHeaderMain {
         flex-flow: column;
     }
@@ -355,12 +349,6 @@
     }
     .formInput, .formInputTextarea {
         width: 85%;
-    }
-}
-
-@media (max-width: 768px) {
-    .contactBg, .contactFormMain {
-        background-attachment: scroll;
     }
 }
 
