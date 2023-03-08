@@ -13,11 +13,13 @@
 }
 
 .accidentIntroBg {
-    height: 800px;
+    height: 100vh;
     width: 100%;
     background-image: url('../../Assets/accident.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     filter: brightness(0.4);
 }
 
@@ -186,7 +188,7 @@
 .camsInquiryMain {
     position: relative;
     width: 100%;
-    margin: 50px auto;
+    /* margin: 50px auto; */
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
@@ -213,6 +215,8 @@
     background-image: url('../../Assets/accident2.jpg');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     filter: brightness(0.3);
 }
 

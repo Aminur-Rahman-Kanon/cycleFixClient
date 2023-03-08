@@ -17,6 +17,8 @@
     background-image: url('../../Assets/courtesyBike.jpg');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     filter: brightness(0.5);
 }
 

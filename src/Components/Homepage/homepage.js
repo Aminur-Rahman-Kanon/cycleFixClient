@@ -11,6 +11,7 @@ import p2 from '../../Assets/p2.jpeg';
 import p3 from '../../Assets/p3.jpg';
 import styles from './homepage.module.css';
 import Spinner from '../Others/Spinner/spinner';
+import banner from '../../Assets/test3.png';
 
 const Homepage = () => {
 
@@ -21,7 +22,7 @@ const Homepage = () => {
     const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
-        Aos.init({duration: '1500', once: true});
+        Aos.init({duration: 1500, once: true});
         setSpinner(true);
         
         fetch('https://cyclefixserver.onrender.com/testimonial', {
@@ -74,17 +75,20 @@ const Homepage = () => {
     return (
         <div className={styles.homepageMain}>
             <div className={styles.headerContainer1}>
-                <div className={styles.headerContainer1Card}>
-                    <h1 className={styles.headerContainer1H1}>Your Reliable Local Bicycle Repair Shop</h1>
-                    <div className={styles.headerContainer1Banner}>
-                        <h2 className={styles.headerContainer1H2}>Repair</h2>
-                        <h2 className={styles.headerContainer1H2}>Accessories</h2>
-                        <h2 className={styles.headerContainer1H2}>Service</h2>
+                <div data-aos="fade-right" className={styles.headerContainer1Items}>
+                    <h1 className={styles.headerContainer1H1}>Your Reliable Local Bicycle <span style={{color: '#a6cefb'}}>Repair Shop</span></h1>
+                    <p className={styles.headerIntro1P}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non tempus sapien. In eleifend orci arcu, sed tempor enim lobortis a. Phasellus at tincidunt risus, at scelerisque enim.</p>
+                    <div className={styles.headerContainer1Links}>
+                        <Link to="" className={styles.headerContainer1Link}>
+                            <p className={styles.linkP}>Book now</p>
+                            <FontAwesomeIcon icon={faScrewdriverWrench} className={styles.linkIcon}/>
+                        </Link>
+                        <Link to="" className={styles.headerContainer1Link}>Services</Link>
                     </div>
-                    <div className={styles.headerContainer1Btn} onClick={() => window.location.assign('/book-service')}>
-                        <p className={styles.bookingBtnP}>Book A Service</p>
-                        <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.screwDriver}/>
-                    </div>
+                </div>
+
+                <div data-aos="fade-left" className={styles.headerContainer1Items}>
+                    <img src={banner} alt="cycle fix banner" className={styles.headerContainer1Banner}/>
                 </div>
             </div>
 
