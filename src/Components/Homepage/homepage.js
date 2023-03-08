@@ -108,55 +108,57 @@ const Homepage = () => {
                 </div>
             </div>
 
-            <div className={styles.headerContainer3Main}>
+            <section className={styles.headerContainer3Main}>
                 <div className={styles.headerContainer3ImgContainer}>
-                    <div className={styles.headerContainer3Cards}>
-                        <div data-aos="fade-right" className={styles.headerContainer3Header}>
-                            <h2 className={styles.headerContainer3Header3H2}>Our Services</h2>
-                            <h1 className={styles.headerContainer3Header3H1}>Your Reliable Local Bicycle Repair Shop</h1>
-                            <p className={styles.headerContainer3HeaderP}>Among the services we offer at our bicycle repair shop, foremost is our servicing and repair options. From a simple safety check to a complete rebuild, we will thoroughly assess your bike and let you know what we need to do.</p>
+
+                </div>
+
+                <div className={styles.headerContainer3Cards}>
+                    <div data-aos="fade-right" className={styles.headerContainer3Header}>
+                        <h2 className={styles.headerContainer3Header3H2}>Our Services</h2>
+                        <h1 className={styles.headerContainer3Header3H1}>Your Reliable Local Bicycle Repair Shop</h1>
+                        <p className={styles.headerContainer3HeaderP}>Among the services we offer at our bicycle repair shop, foremost is our servicing and repair options. From a simple safety check to a complete rebuild, we will thoroughly assess your bike and let you know what we need to do.</p>
+                    </div>
+
+                    <div data-aos="fade-left" className={styles.headerContainer3Services}>
+                        <div className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faCircleExclamation } className={styles.headerContainer3ServiceIcon} />
+                            <h2 className={styles.headerContainer3H2}>Walk in Ride out</h2>
+                            <p>Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. </p>
                         </div>
 
-                        <div data-aos="fade-left" className={styles.headerContainer3Services}>
-                            <div className={styles.headerContainer3Service}>
-                                <FontAwesomeIcon icon={ faCircleExclamation } className={styles.headerContainer3ServiceIcon} />
-                                <h2 className={styles.headerContainer3H2}>Walk in Ride out</h2>
-                                <p>Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. </p>
-                            </div>
+                        <div className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.headerContainer3ServiceIcon} />
+                            <h2 className={styles.headerContainer3H2}>Wide range of stocks</h2>
+                            <p>We have a specialist custom spoke cutter and a new threading tool to repair your damaged cranks. This can save valuable time and hundreds of pounds for our customers.</p>
+                        </div>
 
-                            <div className={styles.headerContainer3Service}>
-                                <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.headerContainer3ServiceIcon} />
-                                <h2 className={styles.headerContainer3H2}>Wide range of stocks</h2>
-                                <p>We have a specialist custom spoke cutter and a new threading tool to repair your damaged cranks. This can save valuable time and hundreds of pounds for our customers.</p>
-                            </div>
+                        <div className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faPersonDigging } className={styles.headerContainer3ServiceIcon} />
+                            <h2 className={styles.headerContainer3H2}>Experienced professional</h2>
+                            <p>knowledgeable team who are passionately committed to their work. We pride ourselves on our dedication to customer satisfaction</p>
+                        </div>
 
-                            <div className={styles.headerContainer3Service}>
-                                <FontAwesomeIcon icon={ faPersonDigging } className={styles.headerContainer3ServiceIcon} />
-                                <h2 className={styles.headerContainer3H2}>Experienced professional</h2>
-                                <p>knowledgeable team who are passionately committed to their work. We pride ourselves on our dedication to customer satisfaction</p>
-                            </div>
+                        <div className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faChargingStation } className={styles.headerContainer3ServiceIcon} />
+                            <h2 className={styles.headerContainer3H2}>Accessories</h2>
+                            <p>Whether you’re a professional rider or casual biker. The unrivalled choice of bike accessories includes everything you need to make cycling more fun from some of the world's biggest brands.</p>
+                        </div>
 
-                            <div className={styles.headerContainer3Service}>
-                                <FontAwesomeIcon icon={ faChargingStation } className={styles.headerContainer3ServiceIcon} />
-                                <h2 className={styles.headerContainer3H2}>Accessories</h2>
-                                <p>Whether you’re a professional rider or casual biker. The unrivalled choice of bike accessories includes everything you need to make cycling more fun from some of the world's biggest brands.</p>
-                            </div>
+                        <div className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faPersonBiking} className={styles.headerContainer3ServiceIcon} />
+                            <h2 className={styles.headerContainer3H2}>Courtesy bike</h2>
+                            <p>Our courtesy bikes are high quality hybrid Trek bikes which are both comfortable and easy to ride. All our bikes have a safety check after each use.</p>
+                        </div>
 
-                            <div className={styles.headerContainer3Service}>
-                                <FontAwesomeIcon icon={ faPersonBiking} className={styles.headerContainer3ServiceIcon} />
-                                <h2 className={styles.headerContainer3H2}>Courtesy bike</h2>
-                                <p>Our courtesy bikes are high quality hybrid Trek bikes which are both comfortable and easy to ride. All our bikes have a safety check after each use.</p>
-                            </div>
-
-                            <div className={styles.headerContainer3Service}>
-                                <FontAwesomeIcon icon={ faMotorcycle } className={styles.headerContainer3ServiceIcon} />
-                                <h2 className={styles.headerContainer3H2}>Xiaomi E-scooter</h2>
-                                <p>We specialise in repairing the popular Xiaomi M365 electric scooters</p>
-                            </div>
+                        <div className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faMotorcycle } className={styles.headerContainer3ServiceIcon} />
+                            <h2 className={styles.headerContainer3H2}>Xiaomi E-scooter</h2>
+                            <p>We specialise in repairing the popular Xiaomi M365 electric scooters</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div className={styles.xiaomiMain}>
                 <div data-aos = "fade-up-left" className={styles.xiaomiContainer}>
