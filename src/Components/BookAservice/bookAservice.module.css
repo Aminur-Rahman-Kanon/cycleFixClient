@@ -252,6 +252,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .bookServiceBg {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 450px) {
     .selectLink {
         width: 100%;

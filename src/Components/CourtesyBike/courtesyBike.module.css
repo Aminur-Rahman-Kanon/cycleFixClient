@@ -59,3 +59,9 @@
     text-align: center;
     color: #7db2ed;
 }
+
+@media (max-width: 768px) {
+    .CourtesyBikeBg {
+        background-attachment: scroll;
+    }
+}

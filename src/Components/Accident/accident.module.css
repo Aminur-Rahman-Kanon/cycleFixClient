@@ -407,6 +407,10 @@
 
 
 @media (max-width: 768px) {
+    .accidentIntroBg, .camsInquiryBg {
+        background-attachment: scroll;
+    }
+
     .camsInquiryFormInputContainer, .camsInquiryFormMsgInputContainer {
         width: 90%;
         min-width: unset;

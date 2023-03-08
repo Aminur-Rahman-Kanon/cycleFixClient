@@ -358,6 +358,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .contactBg, .contactFormMain {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 550px) {
     .formInputContainer, .formTextAreaContainer {
         width: 95%;

@@ -242,24 +242,6 @@
     }
 }
 
-/* @media (max-width: 1080px) {
-    .workshopHeader {
-        position: relative;
-        padding: 50px 0;
-    }
-    .workshopHeaderBg {
-        width: 100%;
-        filter: brightness(0.4);
-    }
-    .workshopHeaderContainer {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 95%;
-    }
-} */
-
 @media (max-width: 863px) {
     .priceListMain {
         width: 100%;
@@ -300,6 +282,12 @@
     .individualPriceRow {
         width: 100%;
         margin: 15px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .workshopHeaderBg {
+        background-attachment: scroll;
     }
 }
 

@@ -114,13 +114,13 @@ const Homepage = () => {
                 </div>
 
                 <div className={styles.headerContainer3Cards}>
-                    <div data-aos="fade-right" className={styles.headerContainer3Header}>
+                    <div className={styles.headerContainer3Header}>
                         <h2 className={styles.headerContainer3Header3H2}>Our Services</h2>
                         <h1 className={styles.headerContainer3Header3H1}>Your Reliable Local Bicycle Repair Shop</h1>
                         <p className={styles.headerContainer3HeaderP}>Among the services we offer at our bicycle repair shop, foremost is our servicing and repair options. From a simple safety check to a complete rebuild, we will thoroughly assess your bike and let you know what we need to do.</p>
                     </div>
 
-                    <div data-aos="fade-left" className={styles.headerContainer3Services}>
+                    <div className={styles.headerContainer3Services}>
                         <div className={styles.headerContainer3Service}>
                             <FontAwesomeIcon icon={ faCircleExclamation } className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Walk in Ride out</h2>
@@ -209,7 +209,6 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
-
 
             <div className={styles.professionalsMain}>
                 <div className={styles.professionalsHeader}>
