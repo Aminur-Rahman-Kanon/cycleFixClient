@@ -506,7 +506,7 @@
     z-index: 100;
     padding: 10px;
     box-sizing: border-box;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
     transform: rotate(270deg);
     letter-spacing: 1px;
     background-color: #7db2ed;
@@ -582,6 +582,10 @@
 
     .headerContainer2, .headerContainer3Main, .xiaomiMain, .testimonialMain, .professionalsMain {
         margin: 50px auto;
+    }
+
+    .headerContainer1H1 {
+        text-align: center;
     }
 
     .testimonialBackground {

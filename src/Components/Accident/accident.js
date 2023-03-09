@@ -41,24 +41,26 @@ const Accident = () => {
     const [backdrop, setBackdrop] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         Aos.init({ duration: '2000', once: true });
+    }, [])
 
+    useEffect(() => {
         if (loggedInUser) {
-            if (loggedInUser.hasOwnProperty('_id')) {
+            if (loggedInUser.hasOwnProperty('_id') && !name && !email) {
                 setName(`${loggedInUser.firstName} ${loggedInUser.lastName}`);
                 setEmail(loggedInUser.email);
             }
-            else if (loggedInUser.hasOwnProperty('iss')) {
+            else if (loggedInUser.hasOwnProperty('iss') && !name && !email) {
                 setName(`${loggedInUser.given_name} ${loggedInUser.family_name}`)
                 setEmail(loggedInUser.email);
             }
         }
-    }, [])
+    }, [loggedInUser, name, email])
 
     useEffect(() => {
         if (backdrop){
             document.body.style.overflow = 'hidden';
-            // window.scrollTo(0, 1000);
             document.body.style.position = 'sticky';
         }
         else {
@@ -102,14 +104,13 @@ const Accident = () => {
     }, [name, email, message, phoneNumber])
 
     useEffect(() => {
-        console.log(phoneNumber);
         if ((name && nameValidation) && (email && emailValidation) && (message && messageValidation) && (phoneNumber && phoneNumberValidation)){
             setFinalValidation(true);
         }
         else {
             setFinalValidation(false);
         }
-    }, [nameValidation, emailValidation, messageValidation, phoneNumberValidation])
+    }, [name, nameValidation, email, emailValidation, message, messageValidation, phoneNumber, phoneNumberValidation])
 
     const handleSubmission = event => {
         event.preventDefault();
@@ -168,7 +169,6 @@ const Accident = () => {
 
     return (
         <>
-
         <Backdrop backdrop={backdrop} />
 
         <div className={styles.accidentMain}>
@@ -195,7 +195,7 @@ const Accident = () => {
                        They have dedicated Claims Advisors who deal with your claims quickly and efficiently. Thanks to their long-established relationships with repairers, insurance companies and solicitors, they are able to ensure your problems are resolved to your complete satisfaction.
                        Their head office is based in Liverpool where they offer a 24 hours, 7 days a week service.</p>
                     
-                    <a href="https://c-ams.co.uk" target="_blank" className={styles.camsLink}>Explore CAMS</a>
+                    <a href="https://c-ams.co.uk" target="_blank" rel="noreferrer" className={styles.camsLink}>Explore CAMS</a>
                 </div>
             </div>
 
@@ -228,7 +228,7 @@ const Accident = () => {
                     </div>
                 </div>
                 <div className={styles.whatWeDoImgContainer}>
-                    <img src={mechanic} className={styles.whatWeDoImg} />
+                    <img src={mechanic} alt="cycle fix accident claim" className={styles.whatWeDoImg} />
                 </div>
             </div>
 

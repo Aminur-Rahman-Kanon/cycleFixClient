@@ -160,14 +160,15 @@ const Payment = () => {
     const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
     return (
+        <>
+        <Spinner switch={spinner} />
+        <Backdrop backdrop={backdrop} toogleBackdrop={() => {/*Does nothing*/}}/>
+        <Modal switch={modal}>
+            { bookingStatus === 'error' && !error ? displaybookingStatus : displayMsg}
+        </Modal>
         <div className={styles.paymentMain}>
-            <Backdrop backdrop={backdrop} toogleBackdrop={() => {/*Does nothing*/}}/>
-            <Modal switch={modal}>
-                { bookingStatus === 'error' && !error ? displaybookingStatus : displayMsg}
-            </Modal>
             <div className={styles.paymentFormIntro}>
                 <h1 className={styles.paymentFormIntroH1}>Enter your payment details</h1>
-                <Spinner switch={spinner} />
                 <div className={styles.paymentFormMain}>
                     <div className={styles.userInformationMain}>
                         <div className={styles.logoContainer}>
@@ -239,6 +240,7 @@ const Payment = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

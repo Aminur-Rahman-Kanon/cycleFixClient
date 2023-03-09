@@ -14,13 +14,17 @@ const WorkshopPriceList = () => {
     const arrowRef = useRef(null);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         Aos.init({duration: 1500, once: true});
+    }, [])
+
+    useEffect(() => {
         if (Object.keys(params).length > 0 && params.hasOwnProperty('services')){
             if (params.services === 'services'){
                 arrowRef.current.scrollIntoView(true);
             }
         }
-    }, [])
+    }, [params])
 
     let displayList = Object.values(priceList).map(lists => {
         return <div data-aos = "fade-right" key={lists.h2} className={styles.priceListMain}>

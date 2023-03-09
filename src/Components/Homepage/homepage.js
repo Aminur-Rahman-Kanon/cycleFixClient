@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { faScrewdriverWrench, faPersonBiking, faPersonDigging, faCircleExclamation, faMotorcycle, faChargingStation, faStar, faAngleLeft, faAngleRight, faLocationPin, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faScrewdriverWrench, faPersonBiking, faPersonDigging, faCircleExclamation, faMotorcycle, faChargingStation, faStar, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import bg2 from '../../Assets/bg2.jpg';
 import Aos from "aos";
 import 'aos/dist/aos.css';
@@ -22,6 +22,7 @@ const Homepage = () => {
     const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         Aos.init({duration: 1500, once: true});
         setSpinner(true);
         
@@ -49,7 +50,7 @@ const Homepage = () => {
             return <FontAwesomeIcon key={star} icon={faStar}/>
         });
 
-        const finalCalculation = Array.from(Array(addStar).keys()).map((star, index) => {
+        const finalCalculation = Array.from(Array(addStar).keys()).map(star => {
             return <FontAwesomeIcon key={star + 6} icon={faStar} style={{color: 'lightgray'}}/>
         })
 
@@ -104,7 +105,7 @@ const Homepage = () => {
 
                 <div className={styles.headerContainer2Banner}>
                     <div className={styles.headerContainer2Part1} >
-                        <img src={bg2} className={styles.headerContainer2Img}/>
+                        <img src={bg2} alt="bicycle workshop" className={styles.headerContainer2Img}/>
                     </div>
 
                     <div data-aos="fade-left" className={styles.headerContainer2Part2}>
@@ -179,7 +180,7 @@ const Homepage = () => {
                 </div>
 
                 <div data-aos = "fade-up-right" className={styles.xiaomiImgContainer}>
-                    <img src={xiaomi} className={styles.xiaomiImg} />
+                    <img src={xiaomi} alt="xiaomi e scooter" className={styles.xiaomiImg} />
                 </div>
             </div>
 
@@ -230,15 +231,15 @@ const Homepage = () => {
 
                 <div className={styles.professionalsContainer}>
                     <div className={styles.professionalsImgContainer}>
-                        <img src={p1} className={styles.professionalsContainerImg}/>
+                        <img src={p1} alt="cycle fix team member" className={styles.professionalsContainerImg}/>
                     </div>
 
                     <div className={styles.professionalsImgContainer}>
-                        <img src={p2} className={styles.professionalsContainerImg}/>
+                        <img src={p2} alt="cycle fix team member" className={styles.professionalsContainerImg}/>
                     </div>
 
                     <div className={styles.professionalsImgContainer}>
-                        <img src={p3} className={styles.professionalsContainerImg}/>
+                        <img src={p3} alt="cycle fix team member" className={styles.professionalsContainerImg}/>
                     </div>
                 </div>
             </div>

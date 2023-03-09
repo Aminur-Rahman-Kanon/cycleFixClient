@@ -18,12 +18,13 @@ const BookAservice = () => {
     const params = useParams();
 
     useEffect(() => {
+        console.log('foo');
         if (Object.keys(params).length > 0 && params.hasOwnProperty('booking')){
             if (params.booking === 'booking'){
                 bookService.current.scrollIntoView(true);
             }
         }
-    }, [])
+    }, [params])
 
     const displayPriceContainer = priceList.map(item => {
         return <div key={item.h2} className={styles.chooseServicesCards}>

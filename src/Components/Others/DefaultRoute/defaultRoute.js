@@ -1,13 +1,18 @@
 import React from "react";
 import styles from './defaultRoute.module.css';
+import notFound from '../../../Assets/404.png';
+import { useNavigate } from 'react-router-dom';
 
-const defaultRoute = () => {
+const DefaultRoute = () => {
+
+    const navigate = useNavigate();
 
     return (
         <div className={styles.defaultRouteMain}>
-            <h1>404 bad gateway</h1>
+            <img src={notFound} className={styles.notFound} alt="cycle fix page not found"/>
+            <button className={styles.notFoundBtn} onClick={() => navigate(-1)}>Go back</button>
         </div>
     )
 }
 
-export default defaultRoute;
+export default DefaultRoute;

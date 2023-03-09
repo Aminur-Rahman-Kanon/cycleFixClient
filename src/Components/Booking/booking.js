@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import './booking.css';
 import Aos from "aos";
 import 'react-clock/dist/Clock.css';
-import { timePool } from "../../Data/data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Assets/logo.png';
@@ -16,7 +15,6 @@ const Booking = () => {
     const loggedInUser = useContext(LoggedInUsers);
 
     const [selectedDate, setSelectedDate] = useState('');
-    const [selectedTime, setSelectedTime] = useState('');
 
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
@@ -42,20 +40,25 @@ const Booking = () => {
         fetch('https://cyclefixserver.onrender.com/query-available-date', {
             method: "POST"
         }).then(res => res.json()).then(data => setBookedDate(data.data)).catch(err => console.log(err));
+    }, [])
 
+    useEffect(() => {
         if (loggedInUser){
-            if (loggedInUser.hasOwnProperty('_id')){
+            if (loggedInUser.hasOwnProperty('_id') && !firstName && !lastName && !email){
                 setFirstName(loggedInUser.firstName);
                 setLastName(loggedInUser.lastName);
                 setEmail(loggedInUser.email);
             }
-            else if (loggedInUser.hasOwnProperty('iss')) {
+            else if (loggedInUser.hasOwnProperty('iss') && !firstName && !lastName && !email) {
                 setFirstName(loggedInUser.given_name);
                 setLastName(loggedInUser.family_name);
                 setEmail(loggedInUser.email);
             }
         }
-    }, [])
+
+    }, [loggedInUser, firstName, lastName, email])
+
+    console.log(firstName);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -98,18 +101,18 @@ const Booking = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [selectedDate, selectedTime, disappearDetailsForm])
+    }, [selectedDate, disappearDetailsForm])
 
-    const timeTable = timePool.map(times => {
-        return <div key={times.time} className="time-cards">
-            <h2 style={{color: 'lightgray'}} className="time-card-h2">Time: {times.time}.00</h2>
-            <div className={times.available ? "time-card-available" : 'time-card-booked'}>{times.available ? 'Available' : 'Booked'}</div>
-            <button disabled={!times.available}
-                    className="select-time-link"
-                    onClick={() => setSelectedTime(`${times.time}.00`)}
-                    >Select</button>
-        </div>
-    })
+    // const timeTable = timePool.map(times => {
+    //     return <div key={times.time} className="time-cards">
+    //         <h2 style={{color: 'lightgray'}} className="time-card-h2">Time: {times.time}.00</h2>
+    //         <div className={times.available ? "time-card-available" : 'time-card-booked'}>{times.available ? 'Available' : 'Booked'}</div>
+    //         <button disabled={!times.available}
+    //                 className="select-time-link"
+    //                 onClick={() => setSelectedTime(`${times.time}.00`)}
+    //                 >Select</button>
+    //     </div>
+    // })
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -117,15 +120,12 @@ const Booking = () => {
     }
 
     const backBtnHandler = () => {
-        if (selectedDate && !selectedTime) {
+        if (selectedDate && !disappearDetailsForm) {
             setSelectedDate('');
         }
-        else if (selectedDate && selectedTime && !disappearDetailsForm) {
-            setSelectedTime('');
-
-        }
-        else if (selectedDate && selectedTime && disappearDetailsForm){
+        else if (selectedDate && disappearDetailsForm) {
             setDisappearDetailsForm(false);
+
         }
     }
 
@@ -156,7 +156,7 @@ const Booking = () => {
 
     return (
         <div className='calendar-main'>
-            <div className="go-back-btn-container" onClick={ backBtnHandler } style={!selectedDate && !selectedTime ? {display: 'none'} : {display:'flex'}}>
+            <div className="go-back-btn-container" onClick={ backBtnHandler } style={!selectedDate ? {display: 'none'} : {display:'flex'}}>
                 <p className="go-back-btn">Go back</p>
             </div>
             <div className="calender-main-container" style={selectedDate ? {display: 'none'} : {display: 'flex'}}>

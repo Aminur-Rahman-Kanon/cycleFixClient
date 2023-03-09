@@ -34,8 +34,6 @@ function App() {
     }
   }
 
-  // console.log(Object.keys(sessionStorage).includes('loggedInUser'));
-
   const closeSideDrawer = () => {
     setBackdrop(false);
     setSideDrawer(false);
@@ -47,7 +45,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={backdrop ? {overflow: 'hidden', position: 'fixed'} : {overflow: 'auto', position: 'unset'}}>
+    <div className="App" style={backdrop ? {overflow: 'hidden', position: 'fixed', width: '100%'} : {overflow: 'auto', position: 'unset', width: 'auto'}}>
       <LoggedInUsers.Provider value={ loggedInUser }>
         <Backdrop backdrop={backdrop} toggleBackdrop={ closeSideDrawer } />
         <Topbar toggleSideDrawer={ openSideDrawer } />

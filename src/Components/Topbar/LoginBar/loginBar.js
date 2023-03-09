@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './loginBar.module.css';
-import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import male from '../../../Assets/male.png';
 import female from '../../../Assets/female.png';
 import { LoggedInUsers } from "../../../App";
 
 const LoginBar = () => {
+
+    const location = useLocation().pathname;
 
     const loggedInUser = useContext( LoggedInUsers );
 
@@ -18,17 +20,17 @@ const LoginBar = () => {
 
     let displayContainer = <div className={styles.loginBarMain}>
         <div className={styles.loginBarItems}>
-            <NavLink to="/login" className={({isActive}) => isActive ? styles.active : styles.inActive}>
+            <a href="/login" className={location === '/login' ? styles.active : styles.inActive}>
                 <FontAwesomeIcon icon={faCircleUser} className={styles.loginBarIcon}/>
                 <p className={styles.loginBarItemsP}>Login</p>
-            </NavLink>
+            </a>
         </div>
 
         <div className={styles.loginBarItems}>
-            <NavLink to="/register" className={({isActive}) => isActive ? styles.active : styles.inActive}>
+            <a href="/register" className={location === '/register' ? styles.active : styles.inActive}>
                 <FontAwesomeIcon icon={faUserPlus} className={styles.loginBarIcon}/>
                 <p className={styles.loginBarItemsP}>Register</p>
-            </NavLink>
+            </a>
         </div>
     </div>
 
@@ -36,7 +38,7 @@ const LoginBar = () => {
         if (loggedInUser.hasOwnProperty('_id')) {
             displayContainer = <div className={styles.loginBarMain}>
                 <div className={styles.profileMain}>
-                    <img src={loggedInUser.user === 'Male' ? male : female} className={styles.avatar}/>
+                    <img src={loggedInUser.user === 'Male' ? male : female} alt="cycle fix user" className={styles.avatar}/>
                     <div className={styles.logoutContainer}>
                         <p style={{margin: '2px'}}>{loggedInUser.firstName} {loggedInUser.lastName}</p>
                         <button className={styles.logoutBtn} onClick={logout}>Logout</button>
@@ -47,7 +49,7 @@ const LoginBar = () => {
         else if (loggedInUser.hasOwnProperty('iss')) {
             displayContainer = <div className={styles.loginBarMain}>
                 <div className={styles.profileMain}>
-                    <img src={loggedInUser.picture} className={styles.avatar}/>
+                    <img src={loggedInUser.picture} alt="cycle fix user" className={styles.avatar}/>
                     <div className={styles.logoutContainer}>
                         <p style={{margin: '2px'}}>{loggedInUser.given_name} {loggedInUser.family_name}</p>
                         <button className={styles.logoutBtn} onClick={logout}>Logout</button>

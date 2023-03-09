@@ -66,7 +66,7 @@ const Registration = () => {
                 break;
         }
 
-    }, [firstName, lastName, email, user, password, reTypePassword, termsCondition])
+    }, [firstName, lastName, user])
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -77,7 +77,7 @@ const Registration = () => {
                 const check2Index = email.indexOf('.com');
 
                 let domain = null;
-                if (check1, check2) {
+                if (check1 && check2) {
                     domain = email.slice(check1Index+1, check2Index)
                 }
                 domain ? setEmailValidity(true) : setEmailValidity(false);
@@ -115,7 +115,7 @@ const Registration = () => {
         else {
             setFinalValidation(false);
         }
-    }, [firstNameValidity, lastNameValidity, emailValidity, userValidity, passwordValidity, termsCondition])
+    }, [firstName, firstNameValidity, lastName, lastNameValidity, email, emailValidity, user, userValidity, password, passwordValidity, termsCondition])
 
     const formHandleSubmit = (e) => {
         e.preventDefault();
@@ -135,7 +135,7 @@ const Registration = () => {
                 setBackdrop(true);
                 setModal(true);
             }
-            else if(data.status === 'user created') {
+            else if(data.status === 'user exist') {
                 setSpinner(false);
                 setUserExist(true);
             }

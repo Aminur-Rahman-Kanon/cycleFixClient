@@ -49,8 +49,4 @@ const xiaomiRepairPrice = [
     {repair: 'Throttle replacement', price: '40'}, {repair: 'Rear mudguard with fitting', price: '20'}, {repair: 'Rear mudguard with fitting including brake light and wiring', price: '30'}
 ]
 
-const timePool = [{time: '8', available: true}, {time: '9', available: true}, {time: '10', available: true}, {time: '11', available: true},
-                  {time: '12', available: true}, {time: '13', available: false}, {time: '14', available: true}, {time: '15', available: true}, 
-                  {time: '16', available: true}, {time: '17', available: true}, {time: '18', available: false}]
-
-export { priceList, xiaomiRepairPrice, timePool };
+export { priceList, xiaomiRepairPrice };
