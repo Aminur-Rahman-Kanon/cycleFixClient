@@ -60,6 +60,7 @@ function App() {
           <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />
           <Route path='/courtesy-bike' element={<CourtesyBike />} />
           <Route path='/contact' element={ <Contact /> } />
+          <Route path='/contact/:query' element={ <Contact /> } />
           <Route path='/book-service' element={<BookAservice />}/>
           <Route path='/book-service/:booking' element={<BookAservice />}/>
           <Route path='/book-service/:serviceId/:packagePrice' element={<Booking />} />

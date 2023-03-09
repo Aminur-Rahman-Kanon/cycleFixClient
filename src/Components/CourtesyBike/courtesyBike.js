@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleDown } from '@fortawesome/free-solid-svg-icons';
 import styles from './courtesyBike.module.css';
 import DownArrow from "../Others/DownArrow/downArrow";
+import { useParams } from "react-router-dom";
 
 const CourtesyBike = () => {
-
+    
     const courtesyRef = useRef(null);
 
     return (
@@ -28,7 +27,7 @@ const CourtesyBike = () => {
                 <p>Our courtesy bikes are high quality hybrid Trek bikes which are both comfortable and easy to ride. All our bikes have a safety check after each use. Every bike comes complete with mudguards, pannier rack, puncture resistant tyres and anti theft security skewers. We make sure that the bike is the correct size frame and seat height for you and that you are confident on the bike before you ride away.</p>
                 <p>As part of this service we do ask that you agree to sign a disclaimer form. This includes some simple rules such as wearing a helmet and using lights whilst on public roads. We also ask that you ride responsibly following the rules of the highway code. As part of the disclaimer we also outline that cycling is a dangerous sport. Cycle Fix London will not take any responsibility for any injury to either yourself or a third party while using the free courtesy bike.</p>
                 <p>Whilst we have taken every measure to protect our bikes from theft using security skewers, the cost of any loss, theft or damage of the bike while in your possession will be liable to be paid by you, up to £400. Please make sure that you have a sold secure gold D-lock if you are going to lock the bike up in a public place. If you do not have a D-lock available we can also lend this to you for free however, you would be liable for costs up to £40.</p>
-                <h3 className={styles.courtesyBikeInformationH3}>If you are interested in getting your bike serviced by one of our highly skilled and passionate mechanics please contact us here.</h3>
+                <h3 className={styles.courtesyBikeInformationH3}>If you are interested in getting your bike serviced by one of our highly skilled and passionate mechanics please contact us <a href="/contact/query" className={styles.contact}>here</a>.</h3>
             </div>
         </div>
     )

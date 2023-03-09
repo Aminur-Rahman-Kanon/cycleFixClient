@@ -60,6 +60,12 @@
     color: #7db2ed;
 }
 
+.contact {
+    text-decoration: none;
+    color: #418ce2;
+
+}
+
 @media (max-width: 932px) {
     .CourtesyBikeBg {
         background-attachment: scroll;

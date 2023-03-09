@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import styles from './contact.module.css';
+import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapPin, faAt, faPhone, faSignature, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import DownArrow from "../Others/DownArrow/downArrow";
@@ -13,6 +14,10 @@ import whatsappBtn from '../../Assets/whatsappBtn.png';
 import Aos from "aos";
 
 const Contact = () => {
+
+    const params = useParams();
+
+    console.log(params);
 
     const loggedInUser = useContext(LoggedInUsers);
 
@@ -50,6 +55,14 @@ const Contact = () => {
             }
         }
     }, [])
+
+    useEffect(() => {
+        if (Object.keys(params).length > 0 && params.hasOwnProperty('query')){
+            if (params.query === 'query'){
+                formRef.current.scrollIntoView(true);
+            }
+        }
+    }, [params])
 
     useEffect(() => {
         if (backdrop) {
