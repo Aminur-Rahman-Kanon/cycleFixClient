@@ -1,4 +1,4 @@
-.sideDrawerOn {
+.sideDrawer {
     position: absolute;
     top: 0;
     right: 0;
@@ -12,10 +12,40 @@
     justify-content: flex-start;
     align-items: center;
     z-index: 500;
+    transition: transform 0.4s ease-out;
 }
 
-.sideDrawerOff {
-    display: none;
+.sideDrawer.on {
+    /* transform: translateX(0); */
+    animation: on 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.sideDrawer.off {
+    /* transform: translateX(100%); */
+    animation: off 0.4s ease-out forwards;
+}
+
+@keyframes on {
+    50% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes off {
+    50% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0.5;
+    }
 }
 
 .sideDrawerLogo {
@@ -38,14 +68,20 @@
     align-items: center;
 }
 
+@media (min-width: 1060px) {
+    .sideDrawer {
+        display: none;
+    }
+}
+
 @media (max-width: 550px) {
-    .sideDrawerOn {
+    .sideDrawer {
         width: 270px;
     }
 }
 
 @media (max-width: 950px) and (max-height: 450px) {
-    .sideDrawerOn {
+    .sideDrawer {
         width: 70%;
         flex-flow: row;
         justify-content: center;

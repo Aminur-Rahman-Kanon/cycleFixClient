@@ -7,7 +7,7 @@ import logo from '../../Assets/logo.png';
 const SideDrawer = (props) => {
 
     return (
-        <div className={props.sideDrawer ? styles.sideDrawerOn : styles.sideDrawerOff}>
+        <div className={props.sideDrawer ? `${styles.sideDrawer} ${styles.on}` : `${styles.sideDrawer} ${styles.off}`}>
             <div className={styles.logoContainer}>
                 <img src={logo} className={styles.sideDrawerLogo}/>
                 <div className={styles.loginBarSidedrawer}>

@@ -45,7 +45,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={backdrop ? {overflow: 'hidden', position: 'fixed', width: '100%'} : {overflow: 'auto', position: 'unset', width: 'auto'}}>
+    <div className="App" style={backdrop ? {overflow: 'hidden', position: 'fixed', width: '100%'} : {overflow: 'hidden', position: 'relative', width: 'auto'}}>
       <LoggedInUsers.Provider value={ loggedInUser }>
         <Backdrop backdrop={backdrop} toggleBackdrop={ closeSideDrawer } />
         <Topbar toggleSideDrawer={ openSideDrawer } />

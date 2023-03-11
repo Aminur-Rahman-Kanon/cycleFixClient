@@ -161,12 +161,12 @@ const Payment = () => {
 
     return (
         <>
-        <Spinner switch={spinner} />
         <Backdrop backdrop={backdrop} toogleBackdrop={() => {/*Does nothing*/}}/>
         <Modal switch={modal}>
             { bookingStatus === 'error' && !error ? displaybookingStatus : displayMsg}
         </Modal>
         <div className={styles.paymentMain}>
+            <Spinner switch={spinner} />
             <div className={styles.paymentFormIntro}>
                 <h1 className={styles.paymentFormIntroH1}>Enter your payment details</h1>
                 <div className={styles.paymentFormMain}>

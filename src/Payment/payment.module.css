@@ -1,4 +1,5 @@
 .paymentMain {
+    position: relative;
     width: 100%;
     background-image: url('../Assets/calender.jpg');
     background-position: center;
