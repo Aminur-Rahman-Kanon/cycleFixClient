@@ -16,36 +16,11 @@
 }
 
 .sideDrawer.on {
-    /* transform: translateX(0); */
-    animation: on 0.4s ease-out forwards;
-    opacity: 0;
+    transform: translateX(0);
 }
 
 .sideDrawer.off {
-    /* transform: translateX(100%); */
-    animation: off 0.4s ease-out forwards;
-}
-
-@keyframes on {
-    50% {
-        transform: translateX(-20%);
-    }
-
-    100% {
-        transform: translateX(0%);
-        opacity: 1;
-    }
-}
-
-@keyframes off {
-    50% {
-        transform: translateX(-20%);
-    }
-
-    100% {
-        transform: translateX(100%);
-        opacity: 0.5;
-    }
+    transform: translateX(100%);
 }
 
 .sideDrawerLogo {
