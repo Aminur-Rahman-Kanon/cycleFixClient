@@ -12,6 +12,7 @@ import p3 from '../../Assets/p3.jpg';
 import styles from './homepage.module.css';
 import Spinner from '../Others/Spinner/spinner';
 import banner from '../../Assets/test3.png';
+import { Helmet } from "react-helmet-async";
 
 const Homepage = () => {
 
@@ -74,6 +75,12 @@ const Homepage = () => {
     }
 
     return (
+        <>
+        <Helmet>
+            <title>Cycle fix</title>
+            <meta name="description" content="Bicycle repair shop"/>
+            <link rel="canonical" href="/"/>
+        </Helmet>
         <div className={styles.homepageMain}>
             <div className={styles.headerContainer}>
                 <div className={styles.bgImage}>
@@ -244,6 +251,7 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
