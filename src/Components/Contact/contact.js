@@ -12,6 +12,7 @@ import ReactWhatsapp from "react-whatsapp";
 import whatsapp from '../../Assets/whatsapp.jpg';
 import whatsappBtn from '../../Assets/whatsappBtn.png';
 import Aos from "aos";
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
 
@@ -140,34 +141,38 @@ const Contact = () => {
     let displayMsg = null;
     if (status === 'success'){
         displayMsg = <div className={styles.displayMsgMain}>
-            <h1>Thanks for your query</h1>
-            <h2>We will get back to you ASAP</h2>
+            <h2>Thanks for your query</h2>
+            <p>We will get back to you ASAP</p>
             <button className={styles.displayMsgBtn} onClick={ () => window.location.reload() }>Okay</button>
         </div>
     }
     else {
         displayMsg = <div className={styles.displayMsgMain}>
-            <h1>Something went wrong</h1>
-            <h2>Please try again</h2>
+            <h2>Something went wrong</h2>
+            <p>Please try again</p>
             <button className={styles.displayMsgBtn} onClick={ closeDisplayMsg }>Okay</button>
         </div>
     }
 
     return (
         <>
+        <Helmet>
+            <title>Contact cycle fix</title>
+            <meta name="description" content="contact cycle fix"/>
+            <link rel="canonical" href="/contact"/>
+        </Helmet>
         <Backdrop backdrop={backdrop} toggleBackdrop={() => { /*nothing*/}}/>
         <Modal switch={modal}>
             {displayMsg}
         </Modal>
-        <div className={styles.contactBgMain}>
-            
+        <div className={styles.contactBgMain}>            
             <div className={styles.contactBgContainer}>
                 <div className={styles.contactBg}>
 
                 </div>
 
                 <div className={styles.contactQuery}>
-                    <h1 className={styles.contactQueryH1}>We are there whenever you need us</h1>
+                    <h2 className={styles.contactQueryH1}>We are there whenever you need us</h2>
                     <DownArrow h3="If you have any queries contact us below" clickHandler={() => formRef.current.scrollIntoView(true)}/>
                 </div>
             </div>
@@ -258,8 +263,8 @@ const Contact = () => {
                 </div>
 
                 <div data-aos="zoom-in-down" className={styles.whatsappHeaderContainer}>
-                    <h1 className={styles.whatsappH1}>Want to connect with us in whatsapp</h1>
-                    <h2 className={styles.whatsappH2}>Lets chat</h2>
+                    <h2 className={styles.whatsappH1}>Want to connect with us in whatsapp</h2>
+                    <h3 className={styles.whatsappH2}>Lets chat</h3>
                     <div className={styles.whatsappContainer}>
                         <ReactWhatsapp number="004402078200028" message="Hello Cycle fix..." className={styles.whatsapp}>
                             <img src={whatsappBtn} className={styles.whatsappBtn}/>

@@ -63,6 +63,14 @@
     background: linear-gradient(88deg, #434242, #686767);
 }
 
+.priceListBg {
+    width: 100%;
+}
+
+.priceListBgImg {
+    border-radius: 10px;
+}
+
 .priceListH1 {
     color: #cde9fa;
     margin: 35px;
@@ -91,8 +99,7 @@
 }
 
 .poundSign {
-    font-size: 35px;
-    margin: 5px;
+    font-size: 20px;
     color: #d7e4f3;
 }
 
@@ -169,7 +176,7 @@
 .price {
     color: #d7e4f3;
     margin: 5px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -258,6 +265,10 @@
 
     .priceListsContainer {
         flex-flow: column;
+    }
+
+    .priceListBgImg {
+        width: 100%;
     }
 
     .priceListsContainer1 {

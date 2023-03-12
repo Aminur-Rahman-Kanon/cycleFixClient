@@ -6,6 +6,7 @@ import styles from './registration.module.css';
 import Spinner from '../Others/Spinner/spinner';
 import Modal from '../Others/Modal/modal';
 import Backdrop from '../Backdrop/backdrop';
+import { Helmet } from 'react-helmet-async';
 
 let target = null;
 
@@ -175,6 +176,12 @@ const Registration = () => {
     }
 
     return (
+        <>
+        <Helmet>
+            <title>Cycle fix registration</title>
+            <meta name="description" content="cycle fix registration"/>
+            <link rel="canonical" href="/register"/>
+        </Helmet>
         <div className={styles.registrationMain}>
             <Backdrop backdrop={backdrop} toggleBackdrop={null}/>
             <Spinner switch={spinner} />
@@ -281,6 +288,7 @@ const Registration = () => {
                 </form>
             </div>
         </div>
+        </>
     )
 }
 

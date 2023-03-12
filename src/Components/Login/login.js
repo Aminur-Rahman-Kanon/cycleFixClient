@@ -7,6 +7,7 @@ import Modal from '../Others/Modal/modal';
 import Backdrop from '../Backdrop/backdrop';
 import Spinner from '../Others/Spinner/spinner';
 import jwtDecode from 'jwt-decode';
+import { Helmet } from 'react-helmet-async';
 
 let target = null;
 
@@ -125,6 +126,11 @@ const Login = () => {
     
     return (
         <>
+        <Helmet>
+            <title>Cycle fix login</title>
+            <meta name="description" content="cycle fix login"/>
+            <link rel="canonical" href="/login"/>
+        </Helmet>
         <Backdrop backdrop={backdrop} />
         <Modal switch={modal}>
             {displayMsg}

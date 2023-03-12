@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&display=swap');
 
 .homepageMain {
     width: 100%;
@@ -55,6 +55,7 @@
 .headerIntro1P {
     color: lightgray;
     letter-spacing: 1px;
+    font-size: 18px;
     line-height: 20px;
     text-align: left;
 }
@@ -124,49 +125,31 @@
 }
 
 .headerContainer2 {
-    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-}
-
-.headerContainer2Bg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../../Assets/bg/test4.jpg');
+    background-image: url('../../Assets/header4.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    filter: brightness(0.3);
-    z-index: -1;
 }
 
 .headerContainer2Banner {
-    width: 100%;
+    width: 50%;
+    padding: 50px 20px;
+    box-sizing: border-box;
     display: flex;
     flex-flow: row-reverse;
     justify-content: center;
     align-items: center;
 }
 
-.headerContainer2Part1{
-    width: 50%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
 
 .headerContainer2Part2 {
-    width: 40%;
+    width: 100%;
     padding: 10px;
     box-sizing: border-box;
     display: flex;
@@ -185,19 +168,39 @@
 .headerContainer2H2 {
     color: #8ebef5;
     font-size: 40px;
+    margin: 15px;
 }
 
 .headerContainer2H3 {
     font-size: 30px;
     letter-spacing: 1px;
     color: lightgray;
+    margin: 15px;
 }
 
 .headerContainer2P {
     text-align: left;
-    font-size: 15px;
+    font-size: 18px;
     letter-spacing: 1px;
-    color: rgb(255, 255, 255);;
+    color: rgb(235, 234, 234);;
+}
+
+.learnMore {
+    text-decoration: none;
+    width: 180px;
+    height: 40px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7db2ed;
+    color: white;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+}
+
+.learnMore:hover {
+    background-color: #5d96d8;
 }
 
 .headerContainer3Main {
@@ -241,7 +244,7 @@
 }
 
 .headerContainer3Service {
-    width: 300px;
+    width: 305px;
     margin: 10px;
     height: 270px;
     padding: 15px;
@@ -268,16 +271,22 @@
 
 .headerContainer3Header3H2 {
     color: #eba83a;
-    font-size: 30px;
+    font-size: 35px;
     font-family: 'Archivo Black', sans-serif;
 }
 
 .headerContainer3Header3H1 {
     font-family: 'Archivo Black', sans-serif;
+    font-size: 30px;
 }
 
 .headerContainer3HeaderP {
     font-size: 19px;
+    text-align: left;
+}
+
+.headerContainer3P {
+    text-align: left;
 }
 
 .xiaomiMain {
@@ -296,7 +305,7 @@
     padding: 10px;
     box-sizing: border-box;
     color: #7db2ed;
-    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Archivo', sans-serif;
     letter-spacing: 1px;
     display: flex;
     flex-flow: column;
@@ -311,10 +320,12 @@
 }
 
 .xiaomiH1 {
+    font-size: 35px;
     color: #f6cd81;
 }
 
 .xiaomiH2 {
+    font-size: 25px;
     color: rgb(240, 240, 240);
 }
 
@@ -343,19 +354,16 @@
     border: 1px solid #5d96d8;
 }
 
-.testimonial {
-    position: relative;
-}
-
 .testimonialMain {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
     width: 100%;
+    height: 100vh;
 }
 
 .testimonialBackground {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url('../../Assets/testimonial.jpg');
     background-position: center;
     background-size: cover;
@@ -518,42 +526,74 @@
     background-color: #63a2eb;
 }
 
-@media (max-width: 1060px) {
-    .headerContainer2 {
-        height: auto;
-        padding: 50px 10px;
-        box-sizing: border-box;
-    }
-    .headerContainer2Banner {
-        flex-flow: column;
-        /* padding: 20px 10px; */
-    }
+.aboutUsMain {
+    width: 100%;
+    height: 1000px;
+    padding: 50px 0;
+    background-image: url('../../Assets/aboutUs.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
 
-    .headerContainer2H1 {
-        font-size: 2em;
-    }
+.aboutUsContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    .headerContainer2Part1 {
-        width: 100%;
-    }
+.aboutUsImg {
+    width: 70%;
+    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0px 0px 12px 5px #7db2ed;
+}
 
-    .headerContainer2Part2 {
-        width: 100%;
-        padding: 15px;
-        box-sizing: border-box;
-    }
+.aboutUsDetails {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 80%);
+    background-color: white;
+    width: 95%;
+    padding: 100px 15px 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
 
-    .headerContainer2Img {
-        width: 80%;
-    }
+.aboutUsH {
+    font-size: 35px;
+    color: #5d96d8;
+    letter-spacing: 1px;
+}
+
+.aboutUsP {
+    text-align: left;
+    color: #242323;
 }
 
 @media (max-width: 932px) {
-    .headerContainer3ImgContainer, .testimonialBackground, .bgImage, .headerContainer2Bg {
+    .headerContainer3ImgContainer, .headerContainer2, .testimonialBackground, .bgImage, .headerContainer2Bg, .aboutUsMain {
         background-attachment: scroll;
     }
 
     .headerContainer1Items {
+        width: 100%;
+    }
+
+    .headerContainer2 {
+        justify-content: center;
+    }
+
+    .headerContainer2Banner, .headerContainer2Part2 {
         width: 100%;
     }
 }
@@ -668,6 +708,15 @@
         margin: 10px auto;
         width: 95%;
     }
+
+    .aboutUsImg {
+        width: 80%;
+    }
+
+    .aboutUsDetails {
+        width: 100%;
+        transform: translate(-50%, 90%);
+    }
 }
 
 @media (max-width: 500px) {
@@ -691,6 +740,10 @@
     .xiaomiBtn {
         width: 100%;
     }
+
+    .aboutUsMain {
+        height: 900px;
+    }
 }
 
 @media (max-width: 432px) {
@@ -701,6 +754,7 @@
     .headerIntro1P {
         margin: 0;
     }
+
 }
 
 @media (max-width: 323px) {
@@ -709,13 +763,23 @@
     }   
 }
 
-@media (min-width: 1061px) and (max-height: 750px) {
+@media (max-height: 750px) {
    .headerContainer {
-        padding-top: -50px;
+        padding-top: 80px;
         height: 800px;
     }
 
     .headerContainer2 {
+        height: auto;
+    }
+
+    .testimonialMain {
         height: 800px;
+    }
+}
+
+@media (min-height: 800px) {
+    .headerContainer2,.headerContainer {
+        height: 1000px;
     }
 }

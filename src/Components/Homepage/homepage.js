@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { faScrewdriverWrench, faPersonBiking, faPersonDigging, faCircleExclamation, faMotorcycle, faChargingStation, faStar, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import bg2 from '../../Assets/bg2.jpg';
+import { faScrewdriverWrench, faPersonBiking, faUserTie, faClock, faMotorcycle, faChargingStation, faStar, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import Aos from "aos";
 import 'aos/dist/aos.css';
 import xiaomi from '../../Assets/xiaomi.png';
@@ -12,9 +11,12 @@ import p3 from '../../Assets/p3.jpg';
 import styles from './homepage.module.css';
 import Spinner from '../Others/Spinner/spinner';
 import banner from '../../Assets/test3.png';
+import cycleFix from '../../Assets/cycleFix.jpg';
 import { Helmet } from "react-helmet-async";
 
 const Homepage = () => {
+
+    const aboutUs = useRef(null);
 
     const [testimonial, setTestimonial] = useState([]);
     
@@ -24,7 +26,7 @@ const Homepage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        Aos.init({duration: 1500, once: true});
+        Aos.init({duration: 1000, once: true});
         setSpinner(true);
         
         fetch('https://cyclefixserver.onrender.com/testimonial', {
@@ -111,11 +113,7 @@ const Homepage = () => {
                 </div>
 
                 <div className={styles.headerContainer2Banner}>
-                    <div className={styles.headerContainer2Part1} >
-                        <img src={bg2} alt="bicycle workshop" className={styles.headerContainer2Img}/>
-                    </div>
-
-                    <div data-aos="fade-left" className={styles.headerContainer2Part2}>
+                    <div data-aos="zoom-in" className={styles.headerContainer2Part2}>
                         <h2 className={styles.headerContainer2H2}>Bicycle Workshop</h2>
                         <h3 className={styles.headerContainer2H3}>Servicing & Repair</h3>
                         <p className={styles.headerContainer2P}>Are you in need of urgent bike repairs in the London area? If so, then you should choose Cycle Fix for your local bicycle repair shop.
@@ -123,6 +121,7 @@ const Homepage = () => {
                         No matter how complex the repair job, our passionate team have the engineering know-how to find the best solution. We are proud of our service to the community as your local bike shop.
                         Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. We service all types of bikes and we also pride ourselves in engineering solutions for your complex bike repair problems.
                         </p>
+                        <button className={styles.learnMore} onClick={() => aboutUs.current.scrollIntoView(true)}>Learn more</button>
                     </div>
                 </div>
             </div>
@@ -135,45 +134,45 @@ const Homepage = () => {
                 <div className={styles.headerContainer3Cards}>
                     <div className={styles.headerContainer3Header}>
                         <h2 className={styles.headerContainer3Header3H2}>Our Services</h2>
-                        <h1 className={styles.headerContainer3Header3H1}>Your Reliable Local Bicycle Repair Shop</h1>
+                        <h2 className={styles.headerContainer3Header3H1}>Your Reliable Local Bicycle Repair Shop</h2>
                         <p className={styles.headerContainer3HeaderP}>Among the services we offer at our bicycle repair shop, foremost is our servicing and repair options. From a simple safety check to a complete rebuild, we will thoroughly assess your bike and let you know what we need to do.</p>
                     </div>
 
                     <div className={styles.headerContainer3Services}>
-                        <div className={styles.headerContainer3Service}>
-                            <FontAwesomeIcon icon={ faCircleExclamation } className={styles.headerContainer3ServiceIcon} />
+                        <div data-aos="fade-right" data-aos-delay="100" className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faClock } className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Walk in Ride out</h2>
-                            <p>Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. </p>
+                            <p className={styles.headerContainer3P}>Here at Cycle Fix we aim to provide an on-the-spot repair wherever possible. Our motto is “walk in, ride out” and we go out of our way to provide a solution to get you back on your bike. </p>
                         </div>
 
-                        <div className={styles.headerContainer3Service}>
+                        <div data-aos="fade-right" data-aos-delay="300" className={styles.headerContainer3Service}>
                             <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Wide range of stocks</h2>
-                            <p>We have a specialist custom spoke cutter and a new threading tool to repair your damaged cranks. This can save valuable time and hundreds of pounds for our customers.</p>
+                            <p className={styles.headerContainer3P}>We have a specialist custom spoke cutter and a new threading tool to repair your damaged cranks. This can save valuable time and hundreds of pounds for our customers.</p>
                         </div>
 
-                        <div className={styles.headerContainer3Service}>
-                            <FontAwesomeIcon icon={ faPersonDigging } className={styles.headerContainer3ServiceIcon} />
+                        <div data-aos="fade-right" data-aos-delay="500" className={styles.headerContainer3Service}>
+                            <FontAwesomeIcon icon={ faUserTie } className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Experienced professional</h2>
-                            <p>knowledgeable team who are passionately committed to their work. We pride ourselves on our dedication to customer satisfaction</p>
+                            <p className={styles.headerContainer3P}>knowledgeable team who are passionately committed to their work. We pride ourselves on our dedication to customer satisfaction</p>
                         </div>
 
-                        <div className={styles.headerContainer3Service}>
+                        <div data-aos="fade-right" data-aos-delay="700" className={styles.headerContainer3Service}>
                             <FontAwesomeIcon icon={ faChargingStation } className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Accessories</h2>
-                            <p>Whether you’re a professional rider or casual biker. The unrivalled choice of bike accessories includes everything you need to make cycling more fun from some of the world's biggest brands.</p>
+                            <p className={styles.headerContainer3P}>Whether you’re a professional rider or casual biker. The unrivalled choice of bike accessories includes everything you need to make cycling more fun from some of the world's biggest brands.</p>
                         </div>
 
-                        <div className={styles.headerContainer3Service}>
+                        <div data-aos="fade-right" data-aos-delay="900" className={styles.headerContainer3Service}>
                             <FontAwesomeIcon icon={ faPersonBiking} className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Courtesy bike</h2>
-                            <p>Our courtesy bikes are high quality hybrid Trek bikes which are both comfortable and easy to ride. All our bikes have a safety check after each use.</p>
+                            <p className={styles.headerContainer3P}>Our courtesy bikes are high quality hybrid Trek bikes which are both comfortable and easy to ride. All our bikes have a safety check after each use.</p>
                         </div>
 
-                        <div className={styles.headerContainer3Service}>
+                        <div data-aos="fade-right" data-aos-delay="1000" className={styles.headerContainer3Service}>
                             <FontAwesomeIcon icon={ faMotorcycle } className={styles.headerContainer3ServiceIcon} />
                             <h2 className={styles.headerContainer3H2}>Xiaomi E-scooter</h2>
-                            <p>We specialise in repairing the popular Xiaomi M365 electric scooters</p>
+                            <p className={styles.headerContainer3P}>We specialise in repairing the popular Xiaomi M365 electric scooters</p>
                         </div>
                     </div>
                 </div>
@@ -181,12 +180,12 @@ const Homepage = () => {
 
             <div className={styles.xiaomiMain}>
                 <div data-aos = "fade-up-left" className={styles.xiaomiContainer}>
-                    <h1 className={styles.xiaomiH1}>Xiaomi Electric Scooter Repair Services</h1>
-                    <h2 className={styles.xiaomiH2}>We specialise in repairing the popular Xiaomi M365 electric scooters</h2>
+                    <h2 className={styles.xiaomiH1}>Xiaomi Electric Scooter Repair Services</h2>
+                    <p className={styles.xiaomiH2}>We specialise in repairing the popular Xiaomi M365 electric scooters</p>
                     <Link to='/xiaomi-e-scooter' className={styles.xiaomiBtn}>Explore</Link>
                 </div>
 
-                <div data-aos = "fade-up-right" className={styles.xiaomiImgContainer}>
+                <div data-aos = "fade-right" className={styles.xiaomiImgContainer}>
                     <img src={xiaomi} alt="xiaomi e scooter" className={styles.xiaomiImg} />
                 </div>
             </div>
@@ -202,8 +201,8 @@ const Homepage = () => {
 
                 <div className={styles.testimonialContainer}>
                     <div className={styles.testimonialHeader}>
-                        <h1>Testomonials</h1>
-                        <h2>What our client say</h2>
+                        <h2>Testomonials</h2>
+                        <h3>What our client say</h3>
                     </div>
 
                     <div className={styles.testimonialCards}>
@@ -231,8 +230,8 @@ const Homepage = () => {
 
             <div className={styles.professionalsMain}>
                 <div className={styles.professionalsHeader}>
-                    <h1 className={styles.professionalsH1}>OUR TEAM</h1>
-                    <h2 className={styles.professionalsH2}>Meet Our Expert Team</h2>
+                    <h2 className={styles.professionalsH1}>OUR TEAM</h2>
+                    <h3 className={styles.professionalsH2}>Meet Our Expert Team</h3>
                     <p className={styles.professionalsP}>Today we run the store with a small but knowledgeable team who are passionately committed to their work</p>
                 </div>
 
@@ -247,6 +246,18 @@ const Homepage = () => {
 
                     <div className={styles.professionalsImgContainer}>
                         <img src={p3} alt="cycle fix team member" className={styles.professionalsContainerImg}/>
+                    </div>
+                </div>
+            </div>
+
+            <div className={styles.aboutUsMain} ref={aboutUs}>
+                <div data-aos="zoom-in" className={styles.aboutUsContainer}>
+                    <img src={cycleFix} className={styles.aboutUsImg} alt="cycle fix"/>
+                    <div className={styles.aboutUsDetails}>
+                        <h2 className={styles.aboutUsH}>About Cycle fix</h2>
+                        <p className={styles.aboutUsP}>Cycle Fix first opened in 2015 as a bicycle repair shop on the Old Kent Road. Founded by brothers Terry and Damian Purchase, this family-owned and managed local bike shop developed quickly.</p>
+                        <p className={styles.aboutUsP}>By 2018 our business had grown well enough that we moved our bike repair shop to Kennington Road, at the site formally owned by Balfe’s Bikes. This move allowed us to develop even further, investing in a retail section for accessories, unique specialist bike repair tools, and five bike repair workshops with plenty of space to spare.</p>
+                        <p className={styles.aboutUsP}>Today we run the store with a small but knowledgeable team who are passionately committed to their work. We pride ourselves on our dedication to customer satisfaction: a service that is reflected in our positive customer reviews.</p>
                     </div>
                 </div>
             </div>

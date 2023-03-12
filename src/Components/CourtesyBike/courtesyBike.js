@@ -1,13 +1,19 @@
 import React, { useRef } from "react";
 import styles from './courtesyBike.module.css';
 import DownArrow from "../Others/DownArrow/downArrow";
-import { useParams } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 const CourtesyBike = () => {
     
     const courtesyRef = useRef(null);
 
     return (
+        <>
+        <Helmet>
+            <title>Courtesy bike service</title>
+            <meta name="description" content="courtesy bike"/>
+            <link rel="canonical" href="/courtesy-bike"/>
+        </Helmet>
         <div className={styles.courtesyBikeMain}>
             <div className={styles.courtesyBikeContainer}>
                 <div className={styles.CourtesyBikeBg}>
@@ -15,7 +21,7 @@ const CourtesyBike = () => {
                 </div>
 
                 <div className={styles.courtesyBikeDetails}>
-                    <h1>Free courtesy bike While we fix yours</h1>
+                    <h2 style={{fontSize: '35px'}}>Free courtesy bike While we fix yours</h2>
                     <DownArrow clickHandler={() => courtesyRef.current.scrollIntoView(true)}
                                 h3="Find out more"/>
                 </div>
@@ -30,6 +36,7 @@ const CourtesyBike = () => {
                 <h3 className={styles.courtesyBikeInformationH3}>If you are interested in getting your bike serviced by one of our highly skilled and passionate mechanics please contact us <a href="/contact/query" className={styles.contact}>here</a>.</h3>
             </div>
         </div>
+        </>
     )
 }
 

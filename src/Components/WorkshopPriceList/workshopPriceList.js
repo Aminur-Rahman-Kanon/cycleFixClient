@@ -6,6 +6,7 @@ import { faScrewdriverWrench, faMagnifyingGlass, faSterlingSign } from '@fortawe
 import { Link, useParams } from 'react-router-dom';
 import DownArrow from '../Others/DownArrow/downArrow';
 import Aos from 'aos';
+import { Helmet } from 'react-helmet-async';
 
 const WorkshopPriceList = () => {
 
@@ -15,7 +16,7 @@ const WorkshopPriceList = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        Aos.init({duration: 1500, once: true});
+        Aos.init({duration: 1000, once: true});
     }, [])
 
     useEffect(() => {
@@ -28,6 +29,9 @@ const WorkshopPriceList = () => {
 
     let displayList = Object.values(priceList).map(lists => {
         return <div data-aos = "fade-right" key={lists.h2} className={styles.priceListMain}>
+            <div className={styles.priceListBg}>
+                <img src={lists.img} alt="Bike repair services" className={styles.priceListBgImg} />
+            </div>
             <h2 className={styles.priceListMainH2}>{lists.h2}</h2>
             <div className={styles.poundSignMain}>
                 <FontAwesomeIcon icon={ faSterlingSign } className={styles.poundSign}/>
@@ -62,6 +66,12 @@ const WorkshopPriceList = () => {
     })
 
     return (
+        <>
+        <Helmet>
+            <title>Cycle fix price list</title>
+            <meta name="description" content="cycle repair price list"/>
+            <link rel="canonical" href="/workshop-price-list"/>
+        </Helmet>
         <div className={styles.workshopMain}>
             <div className={styles.workshopHeader}>
                 <div className={styles.workshopHeaderBg}>
@@ -69,7 +79,7 @@ const WorkshopPriceList = () => {
                 </div>
 
                 <div className={styles.workshopHeaderContainer}>
-                    <h2>Cycle Fix Workshop Price List</h2>
+                    <h1>Cycle Fix Workshop Price List</h1>
                     <p className={styles.headerContainerP}>Here at Cycle Fix London our experienced mechanics are keen to help get you back on the road. We specialise in on-the-spot repairs as well as servicing for all makes and models of bicycle. Below you will find our workshop price list for all repairs and servicing. Please note these costs are for labour only unless otherwise stated.</p>
                     <DownArrow clickHandler={() => arrowRef.current.scrollIntoView(true)}
                     h3="Check the prices below"/>
@@ -77,12 +87,12 @@ const WorkshopPriceList = () => {
             </div>
 
             <div className={styles.priceListMainContainer} ref={arrowRef}>
-                <h1 className={styles.priceListH1}>Workshop Price List</h1>
+                <h2 className={styles.priceListH1}>Workshop Price List</h2>
                 {displayList}
             </div>
 
             <div className={styles.individualPriceMain}>
-                <h1 className={styles.individualHeader}>Individual Repairs Price List</h1>
+                <h2 className={styles.individualHeader}>Individual Repairs Price List</h2>
                 <div className={styles.individualPriceTableMain}>
                     <div className={styles.individualPriceColumn}>
                         <div className={styles.individualPriceRow}>
@@ -196,6 +206,7 @@ const WorkshopPriceList = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

@@ -34,7 +34,7 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    color: #f6cd81;
+    color: #f1f1f1;
     letter-spacing: 2px;
 }
 
@@ -62,7 +62,7 @@
 
 .contact {
     text-decoration: none;
-    color: #418ce2;
+    color: rgb(224, 118, 24);
 
 }
 

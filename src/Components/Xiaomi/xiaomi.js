@@ -9,6 +9,7 @@ import Aos from 'aos';
 import Spinner from "../Others/Spinner/spinner";
 import Backdrop from "../Backdrop/backdrop";
 import Modal from "../Others/Modal/modal";
+import { Helmet } from 'react-helmet-async';
 
 const Xiaomi = () => {
 
@@ -152,7 +153,7 @@ const Xiaomi = () => {
 
     if (status === 'success'){
         displayMsg = <div className={styles.displayMsgMain}>
-            <h1 className={styles.displayMsgH1}>Request Succesfull</h1>
+            <h2 className={styles.displayMsgH1}>Request Succesfull</h2>
             <p style={{textAlign: 'center'}}>A query has been has sent to the admin</p>
             <p style={{textAlign: 'center'}}>We will get back to ASAP to confirm your booking</p>
             <button className={styles.displayMsgBtn} onClick={() => window.location.reload()}>Ok</button>
@@ -160,7 +161,7 @@ const Xiaomi = () => {
     }
     else if (status === 'error') {
         displayMsg = <div className={styles.displayMsgMain}>
-            <h1 className={styles.displayMsgH1}>Request Failed</h1>
+            <h2 className={styles.displayMsgH1}>Request Failed</h2>
             <p style={{textAlign: 'center'}}>Couldn't submit query</p>
             <p style={{textAlign: 'center'}}>Please try again</p>
             <button className={styles.displayMsgBtn} onClick={ errorHandler }>Ok</button>
@@ -170,6 +171,11 @@ const Xiaomi = () => {
 
     return (
         <>
+        <Helmet>
+            <title>Xiaomi repair service</title>
+            <meta name="description" content="Xiaomi repair"/>
+            <link rel="canonical" href="/xiaomi-e-scooter"/>
+        </Helmet>
         <Spinner spinner={spinner} />
         <Backdrop backdrop={backdrop} toggleBackdrop={() => {/*does nothing */}}/>
         <Modal switch={modal}>
@@ -191,14 +197,14 @@ const Xiaomi = () => {
             </div>
 
             <div className={styles.xiaomiRepairContainer}>
-                <h1 className={styles.xiaomiRepairH1}>Xiaomi Electric Scooter Repair Services</h1>
+                <h2 className={styles.xiaomiRepairH1}>Xiaomi Electric Scooter Repair Services</h2>
                 <p>Here you will find our price list for some of the more popular scooter repairs we offer at Cycle Fix London. Our prices include parts and labour however, we will only charge labour if you already have the replacement part required for the repair. Our hourly charge for labour is £50 per hour.</p>
                 <p>We have an extensive list of parts and accessories in stock for Xiaomi M365, Pro and Pro 2 electric scooter. Some accessories include: phone holders, child handlebars, bag hooks, storage bags, upgraded brakes, valve adapters and new grips. We can also supply parts for other brands of scooters too but these will be ordered in specially on a case by case basis.</p>
                 <p>We pride ourselves on having a can-do attitude towards electric scooter repairs and no job is too big or too small, check out some of our latest reviews. If you cannot see the price for the repair that you need, please don’t hesitate to contact us to see how we can help</p>
             </div>
 
             <div className={styles.repairListMain} ref={ priceRef }>
-                <h1 className={styles.repairListMainH1}>Xiaomi Electric Scooter Repair Services</h1>
+                <h2 className={styles.repairListMainH1}>Xiaomi Electric Scooter Repair Services</h2>
                 <div className={styles.repairListContainer}>
                     {displayList}
                 </div>

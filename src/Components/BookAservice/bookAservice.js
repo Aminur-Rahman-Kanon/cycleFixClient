@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useParams } from 'react-router-dom';
 import { faAnglesDown, faAnglesUp ,faMagnifyingGlass, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
+import { Helmet } from 'react-helmet-async';
 
 const BookAservice = () => {
 
@@ -18,7 +19,6 @@ const BookAservice = () => {
     const params = useParams();
 
     useEffect(() => {
-        console.log('foo');
         if (Object.keys(params).length > 0 && params.hasOwnProperty('booking')){
             if (params.booking === 'booking'){
                 bookService.current.scrollIntoView(true);
@@ -35,7 +35,7 @@ const BookAservice = () => {
 
                 <div className={styles.chooseServicesInfoContainer}>
                     <div className={styles.chooseServicesInfo}>
-                        <h2 style={{textAlign: 'center'}}>{item.h2}</h2>
+                        <h2 style={{textAlign: 'center', color: '#a70713'}}>{item.h2}</h2>
                         <p>{item.p}</p>
                     </div>
                     <div className={styles.chooseServicesIncludedMain}>
@@ -75,6 +75,12 @@ const BookAservice = () => {
     });
 
     return (
+        <>
+        <Helmet>
+            <title>Book service</title>
+            <meta name="description" content="Book for an appoinment"/>
+            <link rel="canonical" href="/book-service"/>
+        </Helmet>
         <div className={styles.bookServiceMain}>
             <div className={styles.bookServiceHeader}>
                 <div className={styles.bookServiceBg}>
@@ -89,13 +95,14 @@ const BookAservice = () => {
 
             <div className={styles.chooseServiceMain} ref={bookService}>
                 <div className={styles.chooseServiceContainer}>
-                    <h1 className={styles.chooseServiceH1}>Choose A Bike Service</h1>
+                    <h2 className={styles.chooseServiceH1}>Choose A Bike Service</h2>
                     <div className={styles.chooseServicesCardsMain}>
                         { displayPriceContainer }
                     </div>
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

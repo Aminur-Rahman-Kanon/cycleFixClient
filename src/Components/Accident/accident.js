@@ -9,6 +9,7 @@ import Aos from 'aos';
 import Modal from '../Others/Modal/modal';
 import Backdrop from '../Backdrop/backdrop';
 import styles from './accident.module.css';
+import { Helmet } from 'react-helmet-async';
 
 let target = null;
 
@@ -169,6 +170,11 @@ const Accident = () => {
 
     return (
         <>
+        <Helmet>
+            <title>CAMS</title>
+            <meta name="description" content="Cycling accident claim"/>
+            <link rel="canonical" href="/cycling-accident"/>
+        </Helmet>
         <Backdrop backdrop={backdrop} />
 
         <div className={styles.accidentMain}>
@@ -190,7 +196,7 @@ const Accident = () => {
                 </div>
 
                 <div className={styles.camsIntro}>
-                    <h1 className={styles.camsH1}>Who are CAMS</h1>
+                    <h2 className={styles.camsH1}>Who are CAMS</h2>
                     <p className={styles.camsP}>Cycling accident management services, is one of the UK’s leading cyclist support companies. They have been helping people who have been involved in bicycle and motorcycle accidents since the company was founded in 1996. Since then, they have assisted thousands of clients by taking away the inconvenience that inevitably results from losses incurred in any accident.
                        They have dedicated Claims Advisors who deal with your claims quickly and efficiently. Thanks to their long-established relationships with repairers, insurance companies and solicitors, they are able to ensure your problems are resolved to your complete satisfaction.
                        Their head office is based in Liverpool where they offer a 24 hours, 7 days a week service.</p>
@@ -239,7 +245,7 @@ const Accident = () => {
                 
                 <Spinner switch={spinner} />
                 <div className={styles.camsInquiryHeader}>
-                    <h1 className={styles.camsInquiryH1}>CAMS Inquiry</h1>
+                    <h2 className={styles.camsInquiryH1}>CAMS Inquiry</h2>
                 </div>
 
                 <div className={styles.camsInquiryBg}>
