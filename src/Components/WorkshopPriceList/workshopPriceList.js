@@ -14,6 +14,8 @@ const WorkshopPriceList = () => {
 
     const arrowRef = useRef(null);
 
+    const individualPriceListRef = useRef(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
         Aos.init({duration: 1000, once: true});
@@ -25,10 +27,16 @@ const WorkshopPriceList = () => {
                 arrowRef.current.scrollIntoView(true);
             }
         }
+
+        if (Object.keys(params).length > 0 && params.hasOwnProperty('services')){
+            if (params.services === 'individual-price-lists'){
+                individualPriceListRef.current.scrollIntoView(true);
+            }
+        }
     }, [params])
 
     let displayList = Object.values(priceList).map(lists => {
-        return <div data-aos = "fade-right" key={lists.h2} className={styles.priceListMain}>
+        return <div data-aos = "zoom-in" key={lists.h2} className={styles.priceListMain}>
             <div className={styles.priceListBg}>
                 <img src={lists.img} alt="Bike repair services" className={styles.priceListBgImg} />
             </div>
@@ -91,7 +99,7 @@ const WorkshopPriceList = () => {
                 {displayList}
             </div>
 
-            <div className={styles.individualPriceMain}>
+            <div className={styles.individualPriceMain} ref={individualPriceListRef}>
                 <h2 className={styles.individualHeader}>Individual Repairs Price List</h2>
                 <div className={styles.individualPriceTableMain}>
                     <div className={styles.individualPriceColumn}>

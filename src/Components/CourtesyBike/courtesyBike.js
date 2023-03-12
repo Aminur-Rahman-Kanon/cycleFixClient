@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from './courtesyBike.module.css';
 import DownArrow from "../Others/DownArrow/downArrow";
 import { Helmet } from 'react-helmet-async';
@@ -6,6 +6,10 @@ import { Helmet } from 'react-helmet-async';
 const CourtesyBike = () => {
     
     const courtesyRef = useRef(null);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <>

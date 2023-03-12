@@ -35,12 +35,12 @@ const footer = () => {
                 <div className={styles.footerContainerItem}>
                     <h2 className={styles.footerHeader}>Quick Links</h2>
                     <ul className={styles.quickLinksContainer}>
-                        <li className={styles.quickLinksList}><Link to="#" className={styles.quickLinksLink}>Home</Link></li>
-                        <li className={styles.quickLinksList}><Link to="#" className={styles.quickLinksLink}>Services</Link></li>
-                        <li className={styles.quickLinksList}><Link to="#" className={styles.quickLinksLink}>Appoinment</Link></li>
-                        <li className={styles.quickLinksList}><Link to="#" className={styles.quickLinksLink}>Price List</Link></li>
-                        <li className={styles.quickLinksList}><Link to="#" className={styles.quickLinksLink}>Contact</Link></li>
-                        <li className={styles.quickLinksList}><Link to="#" className={styles.quickLinksLink}>Courtesy Bike</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/" className={styles.quickLinksLink}>Home</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/workshop-price-list" className={styles.quickLinksLink}>Services</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/book-service" className={styles.quickLinksLink}>Appoinment</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/workshop-price-list/individual-price-lists" className={styles.quickLinksLink}>Individual Price List</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/contact" className={styles.quickLinksLink}>Contact</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/courtesy-bike" className={styles.quickLinksLink}>Courtesy Bike</Link></li>
                     </ul>
                 </div>
 
