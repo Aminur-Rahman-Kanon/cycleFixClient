@@ -549,7 +549,7 @@
     width: 70%;
     border-radius: 10px;
     z-index: 1;
-    box-shadow: 0px 0px 12px 5px #7db2ed;
+    box-shadow: 8px 8px 12px 5px #7db2ed;
 }
 
 .aboutUsDetails {
@@ -583,6 +583,10 @@
 @media (max-width: 932px) {
     .headerContainer3ImgContainer, .headerContainer2, .testimonialBackground, .bgImage, .headerContainer2Bg, .aboutUsMain {
         background-attachment: scroll;
+    }
+
+    .headerContainer, .headerContainer2, .testimonialMain {
+        height: auto;
     }
 
     .headerContainer1Items {
@@ -765,15 +769,7 @@
 
 @media (max-height: 750px) {
    .headerContainer {
-        padding-top: 80px;
-        height: 800px;
-    }
-
-    .headerContainer2 {
-        height: auto;
-    }
-
-    .testimonialMain {
+        padding-top: 100px;
         height: 800px;
     }
 }
