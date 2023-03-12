@@ -585,8 +585,11 @@
         background-attachment: scroll;
     }
 
-    .headerContainer, .headerContainer2, .testimonialMain {
+    .headerContainer, .headerContainer2 {
         height: auto;
+    }
+    .testimonialMain {
+        height: 1000px;
     }
 
     .headerContainer1Items {
@@ -634,7 +637,7 @@
     }
 
     .testimonialBackground {
-        height: 1000px;
+        /* height: 1000px; */
     }
 
     .testimonialCards {
@@ -751,10 +754,6 @@
 }
 
 @media (max-width: 432px) {
-    .testimonialBackground {
-        height: 1200px;
-    }
-
     .headerIntro1P {
         margin: 0;
     }
