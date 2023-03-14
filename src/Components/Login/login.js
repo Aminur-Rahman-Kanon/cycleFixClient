@@ -147,13 +147,13 @@ const Login = () => {
         <Modal switch={modal}>
             {displayMsg}
         </Modal>
-        <Spinner switch={ spinner } />
         <div className={styles.loginMain}>
             <div className={styles.loginBg}>
 
             </div>
 
             <div className={styles.loginContainer}>
+                <Spinner switch={ spinner } />
                 <form className={styles.loginForm}>
                     <h1 className={styles.loginH1}>Login</h1>
                     <div className={ emailValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
