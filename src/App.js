@@ -18,6 +18,7 @@ import Booking from './Components/Booking/booking';
 import BookAservice from './Components/BookAservice/bookAservice';
 import PaymentContainer from './Payment/paymentContainer';
 import Feedback from './Components/Feedback/feedback';
+import ForgotPassword from './Components/ForgotPassword/forgotPassword';
 
 export const LoggedInUsers = createContext(null);
 
@@ -55,6 +56,7 @@ function App() {
           <Route path="/cycling-accident" element={<Accident />} />
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/login' element={<Login />}/> }
           {sessionStorage.key(0) === 'loggedInUser' ? null : <Route path='/register' element={<Registration />}/> }
+          <Route path='/reset-password' element={<ForgotPassword />} />
           <Route path='/workshop-price-list' element={<WorkshopPriceList /> }/>
           <Route path='/workshop-price-list/:services' element={<WorkshopPriceList /> }/>
           <Route path='/xiaomi-e-scooter' element={<Xiaomi />} />

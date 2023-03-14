@@ -123,6 +123,18 @@ const Login = () => {
         window.location.assign('/');
     }
 
+    const forgotPasswordHandler = (e) => {
+        e.preventDefault();
+
+        fetch('http://localhost:8000/forgot-password', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify({ email })
+        }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err));
+    }
+
     
     return (
         <>
@@ -175,7 +187,7 @@ const Login = () => {
 
                     <div className={styles.loginAdditional}>
                         <Link to="/register" className={styles.loginAdditionalLink}>Create Account</Link>
-                        <Link to="#" className={styles.loginAdditionalLink}>Forgot Password</Link>
+                        <Link to="/reset-password" className={styles.loginAdditionalLink}>Forgot Password</Link>
                     </div>
                     
                     <div className={styles.googleBtnContainer}>
