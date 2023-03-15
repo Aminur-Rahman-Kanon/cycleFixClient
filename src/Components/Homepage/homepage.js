@@ -13,6 +13,10 @@ import Spinner from '../Others/Spinner/spinner';
 import banner from '../../Assets/test3.png';
 import cycleFix from '../../Assets/cycleFix.jpg';
 import { Helmet } from "react-helmet-async";
+import shimano from '../../Assets/shimano.png';
+import sram from '../../Assets/sram.png';
+import trek from '../../Assets/trek.png';
+import specialized from '../../Assets/specialized.png';
 
 const Homepage = () => {
 
@@ -103,6 +107,20 @@ const Homepage = () => {
 
                     <div data-aos="fade-right" className={styles.headerContainer1Items}>
                         <img src={banner} alt="cycle fix banner" className={styles.headerContainer1Banner}/>
+                    </div>
+                </div>
+                <div className={styles.brandsMain}>
+                    <div className={styles.brandContainer}>
+                        <img src={trek} alt="trek" className={styles.brand}/>
+                    </div>
+                    <div className={styles.brandContainer}>
+                        <img src={specialized} alt="specialized" className={styles.brand}/>
+                    </div>
+                    <div className={styles.brandContainer}>
+                        <img src={shimano} alt="shimano" className={styles.brand}/>
+                    </div>
+                    <div className={styles.brandContainer}>
+                        <img src={sram} alt="sram" className={styles.brand}/>
                     </div>
                 </div>
             </div>
