@@ -602,6 +602,7 @@
 .aboutUsP {
     text-align: left;
     color: #242323;
+    line-height: 20px;
 }
 
 @media (max-width: 932px) {
