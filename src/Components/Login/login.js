@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 import styles from './login.module.css';
@@ -8,10 +9,15 @@ import Backdrop from '../Backdrop/backdrop';
 import Spinner from '../Others/Spinner/spinner';
 import jwtDecode from 'jwt-decode';
 import { Helmet } from 'react-helmet-async';
+import AuthContext from '../Others/AuthContext/authContext';
 
 let target = null;
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    const context = useContext(AuthContext);
 
     const [email, setemail] = useState('');
     const [emailValidation, setemailValidation] = useState(true);
@@ -32,6 +38,9 @@ const Login = () => {
     const [spinner, setSpinner] = useState(false);
 
     useEffect(() => {
+        if(context.loggedInUser) {
+            return navigate('/');
+        }
         /* global google */
         google.accounts.id.initialize({
             client_id: "257327674926-u5bnbok1l36c70662j162rk5044krqsu.apps.googleusercontent.com",
@@ -118,22 +127,21 @@ const Login = () => {
 
     const handleGoogleLogin = (response) => {
         const user = jwtDecode(response.credential);
-        console.log(user);
         sessionStorage.setItem('loggedInUser', JSON.stringify(user));
-        window.location.assign('/');
+        return navigate('/');
     }
 
-    const forgotPasswordHandler = (e) => {
-        e.preventDefault();
+    // const forgotPasswordHandler = (e) => {
+    //     e.preventDefault();
 
-        fetch('http://localhost:8000/forgot-password', {
-            method: 'POST',
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify({ email })
-        }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err));
-    }
+    //     fetch('http://localhost:8000/forgot-password', {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-Type": 'application/json'
+    //         },
+    //         body: JSON.stringify({ email })
+    //     }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err));
+    // }
 
     
     return (

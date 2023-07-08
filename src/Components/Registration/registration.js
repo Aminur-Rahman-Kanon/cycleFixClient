@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignature, faAt, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './registration.module.css';
 import Spinner from '../Others/Spinner/spinner';
 import Modal from '../Others/Modal/modal';
 import Backdrop from '../Backdrop/backdrop';
 import { Helmet } from 'react-helmet-async';
+import AuthContext from '../Others/AuthContext/authContext';
 
 let target = null;
 
 const Registration = () => {
+
+    const navigate = useNavigate();
+
+    const context = useContext(AuthContext);
 
     const [firstName, setFirstName] = useState('');
     const [firstNameValidity, setFirstNameValidity] = useState(true);
@@ -47,9 +52,16 @@ const Registration = () => {
 
     const [backdrop, setBackdrop] = useState(false);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+        if (context.loggedInUser){
+            return navigate('/');
+        }
+    }, [])
+
 
     useEffect(() => {
-
         switch(target) {
             case 'firstName':
                 firstName.length > 0 ? setFirstNameValidity(true) : setFirstNameValidity(false);

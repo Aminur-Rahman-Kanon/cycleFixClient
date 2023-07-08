@@ -7,7 +7,7 @@ import DownArrow from "../Others/DownArrow/downArrow";
 import Spinner from "../Others/Spinner/spinner";
 import Modal from "../Others/Modal/modal";
 import Backdrop from "../Backdrop/backdrop";
-import { LoggedInUsers } from "../../App";
+import AuthContext from'../Others/AuthContext/authContext';
 import ReactWhatsapp from "react-whatsapp";
 import whatsapp from '../../Assets/whatsapp.jpg';
 import whatsappBtn from '../../Assets/whatsappBtn.png';
@@ -18,9 +18,7 @@ const Contact = () => {
 
     const params = useParams();
 
-    console.log(params);
-
-    const loggedInUser = useContext(LoggedInUsers);
+    const context = useContext(AuthContext);
 
     const formRef = useRef(null);
 
@@ -45,14 +43,14 @@ const Contact = () => {
 
     useEffect(() => {
         Aos.init({ duration: 1500, once: true })
-        if (loggedInUser) {
-            if (loggedInUser.hasOwnProperty('iss')){
-                setName(`${loggedInUser.given_name} ${loggedInUser.family_name}`);
-                setEmail(loggedInUser.email)
+        if (context.loggedInUser) {
+            if (context.loggedInUser.hasOwnProperty('iss')){
+                setName(`${context.loggedInUser.given_name} ${context.loggedInUser.family_name}`);
+                setEmail(context.loggedInUser.email)
             }
-            else if (loggedInUser.hasOwnProperty('_id')) {
-                setName(`${loggedInUser.firstName} ${loggedInUser.lastName}`)
-                setEmail(loggedInUser.email)
+            else if (context.loggedInUser.hasOwnProperty('_id')) {
+                setName(`${context.loggedInUser.firstName} ${context.loggedInUser.lastName}`)
+                setEmail(context.loggedInUser.email)
             }
         }
     }, [])

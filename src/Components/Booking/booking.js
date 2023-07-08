@@ -7,12 +7,12 @@ import 'react-clock/dist/Clock.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faBicycle, faPalette, faQuestion, faSignature, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Assets/logo.png';
-import { LoggedInUsers } from "../../App";
+import AuthContext from "../Others/AuthContext/authContext";
 
 const Booking = () => {
 
     const params = useParams();
-    const loggedInUser = useContext(LoggedInUsers);
+    const context = useContext(AuthContext);
 
     const [selectedDate, setSelectedDate] = useState('');
 
@@ -37,28 +37,25 @@ const Booking = () => {
         window.scrollTo(0, 0);
         Aos.init({ duration: 1500 })
 
-        fetch('https://cyclefixserver.onrender.com/query-available-date', {
-            method: "POST"
-        }).then(res => res.json()).then(data => setBookedDate(data.data)).catch(err => console.log(err));
+        fetch('https://cyclefixserver.onrender.com/query-available-date').then(res => res.json()).then(data => setBookedDate(data.data)).catch(err => console.log(err));
     }, [])
 
+    //set the names and email from logged in user information
     useEffect(() => {
-        if (loggedInUser){
-            if (loggedInUser.hasOwnProperty('_id') && !firstName && !lastName && !email){
-                setFirstName(loggedInUser.firstName);
-                setLastName(loggedInUser.lastName);
-                setEmail(loggedInUser.email);
+        if (context.loggedInUser){
+            if (context.loggedInUser.hasOwnProperty('_id') && !firstName && !lastName && !email){
+                setFirstName(context.loggedInUser.firstName);
+                setLastName(context.loggedInUser.lastName);
+                setEmail(context.loggedInUser.email);
             }
-            else if (loggedInUser.hasOwnProperty('iss') && !firstName && !lastName && !email) {
-                setFirstName(loggedInUser.given_name);
-                setLastName(loggedInUser.family_name);
-                setEmail(loggedInUser.email);
+            else if (context.loggedInUser.hasOwnProperty('iss') && !firstName && !lastName && !email) {
+                setFirstName(context.loggedInUser.given_name);
+                setLastName(context.loggedInUser.family_name);
+                setEmail(context.loggedInUser.email);
             }
         }
 
-    }, [loggedInUser, firstName, lastName, email])
-
-    console.log(firstName);
+    }, [context.loggedInUser, firstName, lastName, email])
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -174,9 +171,13 @@ const Booking = () => {
                                     if (date.getDay() === 0){
                                         return date.getDate();
                                     }
-                                    if (bookedDate[date.getMonth()]){
-                                        return bookedDate[date.getMonth()].includes(date.getDate())
-                                    }
+
+                                    return bookedDate.some(booking => {
+                                        const bookedDates = new Date(booking);
+                                        return bookedDates.getDate() === date.getDate() &&
+                                        bookedDates.getMonth() === date.getMonth() &&
+                                        bookedDates.getFullYear() === date.getFullYear()
+                                    });
                                 }}
                                 onClickDay={(value) => {
                                     setSelectedDate(value.toDateString());

@@ -82,38 +82,45 @@ const Payment = () => {
             card: elements.getElement(CardElement)
         })
 
+        console.log(paymentMethod);
+
         if (!error) {
             try {
-                const { id } = paymentMethod
-                const response = await axios.post('https://cyclefixserver.onrender.com/payment', {
-                    amount: 2500,
-                    id
-                })
+                const { id } = paymentMethod;
 
-                if (response.data.success){
-                    setSpinner(true)
-                    setSuccess(true);
-                    setModal(true);
-                    setBackdrop(true);
-                    const genAuthCode = genRanHex(12);
-                    setAuthCode(genAuthCode);
-                    userData.paymentStatus = 'Paid';
-                    userData.authCode = genAuthCode;
-                    userData.totalPrice = subtotal;
-                    await fetch('https://cyclefixserver.onrender.com/payment-success', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({userData})
-                    }).then(res => res.json()).then(data => {
-                        setSpinner(false);
-                        setbookingStatus(data.status);
-                    }).catch(err => {
-                        setSpinner(false);
-                        setbookingStatus('error');
-                    })
-                }
+                await fetch('https://cyclefixserver.onrender.com/payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ amount: 2500, id: id })
+                }).then(res => res.json())
+                .then(async data => {
+                    if (data.success){
+                        setSpinner(true)
+                        setSuccess(true);
+                        setModal(true);
+                        setBackdrop(true);
+                        const genAuthCode = genRanHex(12);
+                        setAuthCode(genAuthCode);
+                        userData.paymentStatus = 'Paid';
+                        userData.authCode = genAuthCode;
+                        userData.totalPrice = subtotal;
+                        await fetch('https://cyclefixserver.onrender.com/payment-success', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({userData})
+                        }).then(res => res.json()).then(data => {
+                            setSpinner(false);
+                            setbookingStatus(data.status);
+                        }).catch(err => {
+                            setSpinner(false);
+                            setbookingStatus('error');
+                        })
+                    }
+                })
             } catch (error) {
                 setSpinner(false)
                 setError(true);

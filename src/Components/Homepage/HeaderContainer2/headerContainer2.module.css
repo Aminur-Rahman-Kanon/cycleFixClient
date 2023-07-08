@@ -1,0 +1,119 @@
+.headerContainer3Main {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.headerContainer3ImgContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../Assets/bg3.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: brightness(0.5);
+}
+
+.headerContainer3Cards {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    align-items: center;
+    z-index: 1;
+    color: white;
+}
+
+.headerContainer3Header {
+    margin-bottom: 15px;
+    width: 85%;
+}
+
+.headerContainer3Header3H2 {
+    color: #eba83a;
+    font-size: 35px;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.headerContainer3Header3H1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 30px;
+}
+
+.headerContainer3HeaderP {
+    font-size: 19px;
+    text-align: left;
+}
+
+.headerContainer3Services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContainer3Service {
+    width: 305px;
+    margin: 10px;
+    height: 270px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+}
+
+.headerContainer3ServiceIcon {
+    font-size: 35px;
+    color: #5d96d8;
+}
+
+.headerContainer3H2 {
+    color: #8fbaeb;
+}
+
+.headerContainer3P {
+    text-align: left;
+}
+
+@media (max-width: 932px) {
+    .headerContainer3ImgContainer {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 900px) {
+    .headerContainer3Main {
+        margin: 50px auto;
+    }
+}
+
+@media (max-width: 679px) {
+    .headerContainer3Header {
+        margin: 10px auto;
+        width: 95%;
+    }
+
+    .headerContainer3Service {
+        width: 95%;
+        height: unset;
+        text-align: left;
+    }
+}
+
+@media (max-width: 323px) {
+    .headerContainer3Main {
+        height: 2200px;
+    }
+    .headerContainer3ImgContainer::after {
+        height: 2200px;
+    }
+}

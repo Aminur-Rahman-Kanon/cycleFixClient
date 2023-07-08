@@ -1,0 +1,107 @@
+.headerContainer2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url('../../../Assets/header4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-sizing: border-box;
+}
+
+.headerContainer2Banner {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContainer2Part2 {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.headerContainer2H2 {
+    color: #8ebef5;
+    font-size: 40px;
+    margin: 15px;
+}
+
+.headerContainer2H3 {
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: lightgray;
+    margin: 15px;
+}
+
+.headerContainer2P {
+    text-align: left;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: rgb(235, 234, 234);;
+}
+
+.learnMore {
+    text-decoration: none;
+    width: 180px;
+    height: 40px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7db2ed;
+    color: white;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+}
+
+.learnMore:hover {
+    background-color: #5d96d8;
+}
+
+@media (max-width: 932px) {
+    .headerContainer2 {
+        background-attachment: scroll;
+        height: auto;
+        justify-content: center;
+        padding: 50px 10px;
+    }
+
+    .headerContainer2Bg {
+        background-attachment: scroll;
+    }
+
+    .headerContainer2Banner, .headerContainer2Part2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .headerContainer2 {
+        margin: 50px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerContainer2H2, .headerContainer2H3 {
+        margin: 15px;
+    }
+}
+
+@media (max-width: 550px) {
+    .headerContainer2 {
+        padding: 15px 10px;
+    }
+}

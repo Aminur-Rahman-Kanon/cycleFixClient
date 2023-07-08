@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&display=swap');
+
+.homepageMain {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+#extText {
+    color: #7db2ed!important;
+}
+
+.headerContainer2Img {
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 12px 1px lightgrey;
+}
+
+
+@media (max-width: 768px) {
+    .headerContainer1 {
+        padding: 100px 0;
+        height: unset;
+        flex-flow: column-reverse;
+    }
+
+    .headerContainer2Img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .headerContainer1Card {
+        width: 98%;
+    }
+
+    .headerContainer1H2 {
+        font-size: 25px;
+        margin: 10px;
+    }
+
+    .headerContainer2Part1 {
+        padding: 0;
+    }
+}
