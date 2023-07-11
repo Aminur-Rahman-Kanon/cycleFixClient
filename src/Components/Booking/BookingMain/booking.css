@@ -3,7 +3,7 @@
 .calendar-main {
     position: relative;
     width: 100%;
-    background-image: url('../../Assets/calender.jpg');
+    background-image: url('../../../Assets/calender.jpg');
     background-position: center;
     background-size: cover;
     display: flex;
@@ -33,35 +33,6 @@
 .go-back-btn-container:hover {
     background-color: white;
     color: #7db2ed;
-}
-
-.calender-main-container {
-    width: 100%;
-    margin: 160px auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    animation: startUp 1.2s ease-out forwards;
-}
-
-.calender-container {
-    width: 700px;
-    padding: 50px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255 255 255 / 16%);
-    border-radius: 10px;
-}
-
-.react-calender {
-    width: 100%;
-    background-color: rgba(250, 250, 250, 0);
-    line-height: 20px;
-    color: #222;
 }
 
 .react-calendar__navigation {
@@ -189,13 +160,6 @@ abbr {
     display: none;
 }
 
-.calender-main-h1 {
-    letter-spacing: 2px;
-    color: lightgray;
-    margin: 5px 0px 30px 0px;
-    text-transform: capitalize;
-}
-
 .clock-container {
     width: 90%;
     display: flex;
@@ -278,34 +242,6 @@ abbr {
     background-color: #7db2ed;
 }
 
-.details-form-main {
-    width: 100%;
-    margin: 100px auto;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    animation: startUp 1.2s ease-out forwards;
-}
-
-.details-form-main-off {
-    display: none;
-}
-
-.details-form-container {
-    width: 70%;
-    max-width: 850px;
-    padding: 30px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.123);
-}
-
 .input-container {
     width: 400px;
     height: 60px;
@@ -327,7 +263,7 @@ abbr {
 }
 
 .form-textarea {
-    width: 300px;
+    width: 80%;
     padding-top: 20px;
     background-color: transparent;
     color: white;
@@ -349,7 +285,7 @@ abbr {
 }
 
 .form-input {
-    width: 300px;
+    width: 80%;
     height: 30px;
     background-color: transparent;
     color: white;
@@ -366,17 +302,6 @@ abbr {
     margin: 20px auto;
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.select-div {
-    position: relative;
-    width: 400px;
-    height: 40px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -402,47 +327,10 @@ abbr {
     text-align: left;
 }
 
-.select-icon {
-    font-size: 20px;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    z-index: 0;
-}
-
 option {
     color: white;
     font-size: 15px;
     background-color: #222;
-}
-
-.input-form-btn-container {
-    width: 400px;
-    margin: 20px auto;
-}
-
-.input-form-btn {
-    height: 40px;
-    width: 100%;
-    border: 1px solid #7db2ed;
-    border-radius: 5px;
-    background-color: #7db2ed;
-    color: white;
-    cursor: pointer;
-}
-
-.input-form-btn:hover {
-    background-color: #64a2e9;
-}
-
-.input-form-btn:disabled {
-    opacity: 0.5;
-    cursor: default;
-}
-
-.input-form-btn:disabled:hover {
-    background-color: #7db2ed;
-    opacity: 0.5;
 }
 
 .user-input-main {
@@ -610,18 +498,11 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 768px) {
-    .calender-container {
-        width: 90%;
-    }
     .react-calendar__navigation__label {
         font-size: 30px;
     }
 
-    .details-form-container {
-        width: 95%;
-    }
-
-    .input-container, .textarea-container, .select-div, .input-form-btn-container {
+    .input-container, .textarea-container {
         width: 100%;
     }
 
@@ -633,21 +514,12 @@ input::-webkit-inner-spin-button {
         width: 98%;
     }
 
-    .input-form-btn {
-        width: 100%;
-        height: 50px;
-    }
-
     .react-calendar__navigation__label {
         font-size: 25px;
     }
 }
 
 @media (max-width: 550px) {
-    .calender-container {
-        padding: 10px;
-    }
-
     .react-calendar__navigation__arrow {
         margin: 5px;
     }

@@ -7,15 +7,15 @@ import SideDrawer from './Components/SideDrawer/sideDrawer';
 import Backdrop from './Components/Backdrop/backdrop';
 import Footer from './Components/Footer/footer';
 import Login from './Components/Login/login';
-import Registration from './Components/Registration/registration';
+import Registration from './Components/Registration/RegistrationMain/registration';
 import Accident from './Components/Accident/AccidentMain/accident';
 import DefaultRoute from './Components/Others/DefaultRoute/defaultRoute';
 import WorkshopPriceList from './Components/WorkshopPriceList/workshopPriceList';
 import Xiaomi from './Components/Xiaomi/xiaomi';
 import CourtesyBike from './Components/CourtesyBike/courtesyBike';
-import Contact from './Components/Contact/contact';
-import Booking from './Components/Booking/booking';
-import BookAservice from './Components/BookAservice/bookAservice';
+import Contact from './Components/Contact/ContactMain/contact';
+import Booking from './Components/Booking/BookingMain/booking';
+import BookAservice from './Components/BookAservice/BookAServiceMain/bookAservice';
 import PaymentContainer from './Payment/paymentContainer';
 import Feedback from './Components/Feedback/feedback';
 import ForgotPassword from './Components/ForgotPassword/forgotPassword';
@@ -28,8 +28,8 @@ function App() {
   const [backdrop, setBackdrop] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  //if user logged in then save user information in a local variable
-  if (!loggedInUser && sessionStorage.key('loggedInUser')){
+  // if user logged in then save user information in a local variable
+  if (!loggedInUser && sessionStorage.getItem('loggedInUser')){
     const user = JSON.parse(sessionStorage.getItem('loggedInUser'));
     setLoggedInUser(user);
   }

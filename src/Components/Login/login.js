@@ -10,6 +10,7 @@ import Spinner from '../Others/Spinner/spinner';
 import jwtDecode from 'jwt-decode';
 import { Helmet } from 'react-helmet-async';
 import AuthContext from '../Others/AuthContext/authContext';
+import { emailValidation } from '../Others/HelperFunction/helperFunction';
 
 let target = null;
 
@@ -20,7 +21,7 @@ const Login = () => {
     const context = useContext(AuthContext);
 
     const [email, setemail] = useState('');
-    const [emailValidation, setemailValidation] = useState(true);
+    const [emailValidity, setemailValidity] = useState(true);
 
     const [password, setPassword] = useState('');
     const [passwordValidation, setPasswordValidation] = useState(true);
@@ -37,6 +38,8 @@ const Login = () => {
 
     const [spinner, setSpinner] = useState(false);
 
+    //if user is logged in then redirect to homepage
+    //initialize google client object and render a login prompt on componentOnMount
     useEffect(() => {
         if(context.loggedInUser) {
             return navigate('/');
@@ -57,23 +60,15 @@ const Login = () => {
         google.accounts.id.prompt();
     }, [])
 
+    //this hooik validate email from user inputs
     useEffect(() => {
-        switch(target){
-            case 'email':
-                email.length > 0 ? setemailValidation(true) : setemailValidation(false);
-                break;
+        const timer = emailValidation(email, setemailValidity);
+        return () => clearTimeout(timer);
+    }, [email])
 
-            case 'password':
-                password.length > 0 ? setPasswordValidation(true) : setPasswordValidation(false);
-                break;
-
-            default:
-                break;
-        }
-    }, [ email, password ])
-
+    //this hook toggle submit button enable/disable based on form validation
     useEffect(() => {
-        if ( ( email && emailValidation) && ( password && passwordValidation ) ){
+        if ( ( email && emailValidity) && ( password && passwordValidation ) ){
             setFinalValidation(true);
         }
         else {
@@ -81,27 +76,27 @@ const Login = () => {
         }
     }, [ email, password ])
 
-    const closeError = () => {
+    const closeModal = () => {
         setModal(false);
         setBackdrop(false);
         setError(false);
     }
 
+    //display status message handler
     let displayMsg = null;
-
     if (error){
         displayMsg = <div className={styles.errorMsg}>
             <h2 className={styles.errorMsgH2}>Something went wrong</h2>
             <p className={styles.errorMsgP}>Please try again</p>
-            <button className={styles.errorMsgBtn} onClick={ closeError }>
+            <button className={styles.errorMsgBtn} onClick={ closeModal }>
                 Try again
             </button>
         </div>
     }
 
+    //form submit handler
     const handleSubmit = (e) => {
         e.preventDefault();
-
         setSpinner(true);
 
         fetch('https://cyclefixserver.onrender.com/login', {
@@ -125,24 +120,12 @@ const Login = () => {
         }).catch(err => setError(true));
     }
 
+    //google login submit handler
     const handleGoogleLogin = (response) => {
         const user = jwtDecode(response.credential);
         sessionStorage.setItem('loggedInUser', JSON.stringify(user));
         return navigate('/');
     }
-
-    // const forgotPasswordHandler = (e) => {
-    //     e.preventDefault();
-
-    //     fetch('http://localhost:8000/forgot-password', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": 'application/json'
-    //         },
-    //         body: JSON.stringify({ email })
-    //     }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err));
-    // }
-
     
     return (
         <>
@@ -161,11 +144,11 @@ const Login = () => {
             </div>
 
             <div className={styles.loginContainer}>
-                <Spinner switch={ spinner } />
+                <Spinner spinner={ spinner } />
                 <form className={styles.loginForm}>
                     <h1 className={styles.loginH1}>Login</h1>
-                    <div className={ emailValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
-                        <FontAwesomeIcon icon={faUser} className={emailValidation ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`}/>
+                    <div className={ emailValidity ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
+                        <FontAwesomeIcon icon={faUser} className={emailValidity ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`}/>
                         <input type="text"
                             className={styles.loginInput}
                             placeholder="email"

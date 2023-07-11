@@ -1,0 +1,96 @@
+.whatsappMain {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(287deg, #003e0a, #008722);
+}
+
+.whatsappImgContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsappImg {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.whatsappHeaderContainer {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsappH1, .whatsappH2 {
+    color: lightgray;
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+
+.whatsappContainer {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.whatsappBtn {
+    width: 100px;
+    margin: 20px;
+}
+
+.whatsappBtn:hover {
+    animation: whatsapp 1.2s ease-in-out forwards;
+}
+
+@keyframes whatsapp {
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@media (max-width: 950px) {
+    .whatsappMain {
+        flex-flow: column;
+    }
+
+    .whatsappImgContainer {
+        width: 75%;
+    }
+
+    .whatsappHeaderContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .whatsappImgContainer {
+        width: 100%;
+    }
+}

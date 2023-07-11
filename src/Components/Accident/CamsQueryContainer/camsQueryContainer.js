@@ -5,6 +5,7 @@ import Modal from "../../Others/Modal/modal";
 import Spinner from '../../Others/Spinner/spinner';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignature, faAt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { emailValidation } from "../../Others/HelperFunction/helperFunction";
 
 let target = null;
 
@@ -20,7 +21,7 @@ const CamsQueryContainer = ({ formRef }) => {
     const [nameValidation, setnameValidation] = useState(true);
 
     const [email, setEmail] = useState('');
-    const [emailValidation, setEmailValidation] = useState(true);
+    const [emailValidity, setEmailValidity] = useState(true);
 
     const [message, setMessage] = useState('');
     const [messageValidation, setMessageValidation] = useState(true);
@@ -52,21 +53,6 @@ const CamsQueryContainer = ({ formRef }) => {
             case 'name':
                 name.length > 0 ? setnameValidation(true) : setnameValidation(false);
                 break;
-            
-            case 'email':
-                const check1 = email.includes('@');
-                const check2 = email.includes('.com');
-                const check1Index = email.indexOf('@');
-                const check2Index = email.indexOf('.com');
-                let domain = false;
-        
-                if (check1 && check2) {
-                    domain = email.slice(check1Index + 1, check2Index);
-                }
-        
-                domain.length > 0 ? setEmailValidation(true) : setEmailValidation(false);
-
-                break;
 
             case 'message':
                 message.length > 0 ? setMessageValidation(true) : setMessageValidation(false);
@@ -79,17 +65,25 @@ const CamsQueryContainer = ({ formRef }) => {
             default:
                 break;
         }
-    }, [name, email, message, phoneNumber])
+    }, [name, message, phoneNumber])
+
+    console.log(emailValidity);
+
+    //this hook validate email from user inputs
+    useEffect(() => {
+        const timer = emailValidation(email, setEmailValidity);
+        return () => clearTimeout(timer);
+    }, [email])
 
     //when all inputs are validated then enable the submit button
     useEffect(() => {
-        if ((name && nameValidation) && (email && emailValidation) && (message && messageValidation) && (phoneNumber && phoneNumberValidation)){
+        if ((name && nameValidation) && (email && emailValidity) && (message && messageValidation) && (phoneNumber && phoneNumberValidation)){
             setFinalValidation(true);
         }
         else {
             setFinalValidation(false);
         }
-    }, [name, nameValidation, email, emailValidation, message, messageValidation, phoneNumber, phoneNumberValidation])
+    }, [name, nameValidation, email, emailValidity, message, messageValidation, phoneNumber, phoneNumberValidation])
 
     //submit form handler
     const handleSubmission = event => {
@@ -145,14 +139,13 @@ const CamsQueryContainer = ({ formRef }) => {
         </div>
     }
 
-
     return (
         <div className={styles.camsInquiryMain} id="camsInquiry">
             <Modal switch={modal}>
                 {submitMsg}
             </Modal>
             
-            <Spinner switch={spinner} />
+            <Spinner spinner={spinner} />
             <div className={styles.camsInquiryHeader}>
                 <h2 className={styles.camsInquiryH1}>CAMS Inquiry</h2>
             </div>
@@ -175,8 +168,8 @@ const CamsQueryContainer = ({ formRef }) => {
                                 }}/>
                     </div>
 
-                    <div className={emailValidation ? styles.camsInquiryFormInputContainer : `${styles.camsInquiryFormInputContainer} ${styles.wrongInput}`}>
-                        <FontAwesomeIcon icon={faAt} className={emailValidation ?  styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}` }/>
+                    <div className={emailValidity ? styles.camsInquiryFormInputContainer : `${styles.camsInquiryFormInputContainer} ${styles.wrongInput}`}>
+                        <FontAwesomeIcon icon={faAt} className={emailValidity ?  styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}` }/>
                         <input type="email"
                                 className={styles.camsInquiryFormInput}
                                 placeholder="Your Email"

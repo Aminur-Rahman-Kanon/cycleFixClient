@@ -6,17 +6,26 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Spinner from "../Others/Spinner/spinner";
 import Modal from "../Others/Modal/modal";
 import Backdrop from "../Backdrop/backdrop";
+import { emailValidation } from "../Others/HelperFunction/helperFunction";
 
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
-    const [btnDisable, setBtnDisable] = useState(true);
+    const [btnDisable, setBtnDisable] = useState(false);
     const [userNotFound, setUserNotFound] = useState(false);
     const [spinner, setSpinner] = useState(false);
     const [modal, setModal] = useState(false);
     const [backdrop, setBackdrop] = useState(false);
     const [status, setStatus] = useState('');
+    
+    //this hook validate email from user inputs
+    useEffect(() => {
+        const timer = emailValidation(email, setBtnDisable)
+        
+        return () => clearTimeout(timer);
+    }, [email]);
 
+    //form submit handler
     const submitFormHandler = async (e) => {
         e.preventDefault();
         setSpinner(true);
@@ -41,29 +50,7 @@ const ForgotPassword = () => {
         })
     }
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (email){
-                const check1 = email.includes('@');
-                const check2 = email.includes('.com');
-                if (check1 && check2) {
-                    const domain = email.slice(email.indexOf('@') + 1, email.indexOf('.com'));
-                    if (domain.length > 0){
-                        setBtnDisable(false);
-                    }
-                }
-                else {
-                    setBtnDisable(true);
-                }
-            }
-            else {
-                setBtnDisable(true);
-            }
-        }, 1200)
-
-        return () => clearTimeout(timer);
-    }, [email])
-
+    //display status message handler
     let displayStatus = null;
 
     if (status === 'success'){
@@ -107,7 +94,7 @@ const ForgotPassword = () => {
                         <p className={styles.user} style={userNotFound ? {display: 'block'} : {display: 'none'}}>User not found</p>
                 </div>
 
-                <button disabled={btnDisable}
+                <button disabled={!btnDisable}
                         className={styles.submitBtn}
                         onClick={ submitFormHandler }
                         >Send password reset link</button>

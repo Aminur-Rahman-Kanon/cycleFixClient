@@ -5,6 +5,7 @@ import { faSignature, faAt, faPencil, faStar } from '@fortawesome/free-solid-svg
 import Spinner from "../Others/Spinner/spinner";
 import Modal from '../Others/Modal/modal';
 import Backdrop from '../Backdrop/backdrop';
+import { emailValidation } from "../Others/HelperFunction/helperFunction";
 
 const Feedback = () => {
 
@@ -13,7 +14,7 @@ const Feedback = () => {
     const [name, setName] = useState('');
 
     const [email, setEmail] = useState('');
-    const [emailValidation, setEmailValidation] = useState(true);
+    const [emailValidity, setEmailValidity] = useState(true);
 
     const [comment, setComment] = useState('');
 
@@ -27,27 +28,19 @@ const Feedback = () => {
 
     const [status, setStatus] = useState('');
 
+    //this hook scroll to the top on componentOnMount
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [])
 
+    //this hook validate email from user input
     useEffect(() => {
-        const timer = setTimeout(() => {
-            if (email){
-                const check1 = email.includes('@');
-                const check2 = email.includes('.com');
-        
-                if (check1 && check2){
-                    const checkDomain = email.slice(email.indexOf('@') + 1, email.indexOf('.com'))
-                    if (checkDomain) setEmailValidation(true);
-                }
-                else setEmailValidation(false);
-            }
-        }, 1200) 
+        const timer = emailValidation(email, setEmailValidity);
 
         return () => clearTimeout(timer);
     }, [email])
 
+    //this hook toggle the submit form button enable/disable based on form validation
     useEffect(() => {
         if (name && email && comment && rating) {
             setBtnDisable(false);
@@ -57,9 +50,9 @@ const Feedback = () => {
         }
     }, [name, email, comment, rating])
 
+    //method to display stars based on ratings
     const ratings = () => {
         const totalStar = 5 - rating;
-
         const activeStar = Array.from(Array(rating).keys()).map((item, index) => <FontAwesomeIcon key={index} icon={faStar} className={styles.activeStar} />)
         const inActiveStar = Array.from(Array(totalStar).keys()).map((item, index) => <FontAwesomeIcon key={index + 5} icon={faStar} className={styles.inActiveStar} style={{cursor: 'default'}} />)
         
@@ -71,12 +64,12 @@ const Feedback = () => {
                                                                                     className={styles.inActiveStar}
                                                                                     onClick={() => setRating(index + 1)} />)
 
-    const formHandler = (e) => {
+    //form submit handler                                                                                    
+    const formHandler = async (e) => {
         e.preventDefault();
-
         setSpinner(true);
 
-        fetch('https://cyclefixserver.onrender.com/submit-feedback', {
+        await fetch('https://cyclefixserver.onrender.com/submit-feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -99,6 +92,7 @@ const Feedback = () => {
 
     let displayStatus = null;
 
+    //status message handler
     if (status === 'success'){
         displayStatus = <div className={styles.statusMsgDisplay}>
             <h2 style={{color: '#7db2ed'}}>Feedback submitted</h2>
@@ -120,12 +114,12 @@ const Feedback = () => {
 
     return (
         <>
+        <Spinner spinner={spinner} />
         <Backdrop backdrop={backdrop} />
         <Modal switch={modal}>
             {displayStatus}
         </Modal>
         <div className={styles.feedbackMain}>
-            <Spinner spinner={spinner} />
             <div className={styles.feedbackBg}>
 
             </div>
@@ -139,7 +133,7 @@ const Feedback = () => {
                             onChange={(e) => setName(e.target.value)}/>
                     <FontAwesomeIcon icon={faSignature} className={styles.inputIcon}/>
                 </div>
-                <div className={emailValidation ? styles.formInputContainer : `${styles.formInputContainer} ${styles.wrongInput}`}>
+                <div className={emailValidity ? styles.formInputContainer : `${styles.formInputContainer} ${styles.wrongInput}`}>
                     <input type="email"
                             className={styles.input}
                             placeholder="Your email"

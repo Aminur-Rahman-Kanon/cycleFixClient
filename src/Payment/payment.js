@@ -173,7 +173,7 @@ const Payment = () => {
             { bookingStatus === 'error' && !error ? displaybookingStatus : displayMsg}
         </Modal>
         <div className={styles.paymentMain}>
-            <Spinner switch={spinner} />
+            <Spinner spinner={spinner} />
             <div className={styles.paymentFormIntro}>
                 <h1 className={styles.paymentFormIntroH1}>Enter your payment details</h1>
                 <div className={styles.paymentFormMain}>

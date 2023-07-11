@@ -39,7 +39,7 @@ const footer = () => {
                         <li className={styles.quickLinksList}><Link to="/workshop-price-list" className={styles.quickLinksLink}>Services</Link></li>
                         <li className={styles.quickLinksList}><Link to="/book-service" className={styles.quickLinksLink}>Appoinment</Link></li>
                         <li className={styles.quickLinksList}><Link to="/workshop-price-list/individual-price-lists" className={styles.quickLinksLink}>Individual Price List</Link></li>
-                        <li className={styles.quickLinksList}><Link to="/contact" className={styles.quickLinksLink}>Contact</Link></li>
+                        <li className={styles.quickLinksList}><Link to="/contact/query" className={styles.quickLinksLink}>Contact</Link></li>
                         <li className={styles.quickLinksList}><Link to="/courtesy-bike" className={styles.quickLinksLink}>Courtesy Bike</Link></li>
                     </ul>
                 </div>

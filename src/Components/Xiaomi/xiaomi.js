@@ -40,6 +40,7 @@ const Xiaomi = () => {
         Aos.init({ duration: 2500, once: true });
     }, [])
 
+    //need tp change declaration
     useEffect(() => {
         if (backdrop){
             document.body.style.position = 'sticky';

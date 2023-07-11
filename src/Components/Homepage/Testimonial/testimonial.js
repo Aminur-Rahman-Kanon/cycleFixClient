@@ -63,7 +63,7 @@ const Testimonial = () => {
 
     return (
         <div className={styles.testimonialMain}>
-            <Spinner switch={spinner} />
+            <Spinner spinner={spinner} />
             <Link to="/feedback" className={styles.addFeedBack}>
                 <p style={{margin: '5px'}}>Add feedback</p>
             </Link>

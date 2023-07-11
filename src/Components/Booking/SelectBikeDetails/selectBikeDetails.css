@@ -1,0 +1,144 @@
+.details-form-main {
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation: startUp 1.2s ease-out forwards;
+}
+
+.details-form-main-off {
+    display: none;
+}
+
+.details-form-container {
+    width: 70%;
+    max-width: 850px;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+.input-container {
+    width: 400px;
+    height: 60px;
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-container-icon {
+    width: 30px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+}
+
+.input-container-select-main {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container-select {
+    width: 390px;
+    height: 30px;
+    margin: 10px auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    appearance: none;
+    z-index: 100;
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+.input-container-select-p {
+    width: 400px;
+    text-align: left;
+}
+
+.select-div {
+    position: relative;
+    width: 400px;
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 0;
+}
+
+.input-form-btn-container {
+    width: 400px;
+    margin: 20px auto;
+}
+
+.input-form-btn {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    cursor: pointer;
+}
+
+.input-form-btn:hover {
+    background-color: #64a2e9;
+}
+
+.input-form-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.input-form-btn:disabled:hover {
+    background-color: #7db2ed;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .details-form-container {
+        width: 95%;
+    }
+
+    .input-container, .textarea-container, .select-div, .input-form-btn-container {
+        width: 100%;
+    }
+
+    .input-container-select, .input-container-select-p {
+        width: 98%;
+    }
+
+    .input-form-btn {
+        width: 100%;
+        height: 50px;
+    }
+}
