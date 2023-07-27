@@ -136,6 +136,12 @@
     background-color: #6aa5e9;
 }
 
+.expandButton {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
 @media (max-width: 950px) {
     .chooseServicesCards {
         width: 100%;

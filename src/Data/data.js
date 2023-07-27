@@ -33,7 +33,7 @@ const priceList = [
     {
         h2: 'Brompton Full Service',
         p: 'This service is specifically tailored for Brompton folding bicycles only',
-        price: '130',
+        price: '180',
         list: ['Frame & forks checked ', 'Wheels trued', 'Nuts & bolts are checked and tightened', 'Tyres are inflated to the correct pressure',
                 'Components de-greased', 'Brake service', 'Hubs serviced (If applicable)', 'Gear service', 'Headset adjusted', 'Bottom bracket adjusted/replaced',
                 'Clean & polish', 'Additional labour cost if necessary'],
@@ -49,4 +49,14 @@ const xiaomiRepairPrice = [
     {repair: 'Throttle replacement', price: '40'}, {repair: 'Rear mudguard with fitting', price: '20'}, {repair: 'Rear mudguard with fitting including brake light and wiring', price: '30'}
 ]
 
-export { priceList, xiaomiRepairPrice };
+const mockUserLoggedInData = {
+    email: 'test@test.com',
+    firstName: 'Test',
+    lastName: 'User',
+    password: 'randomPassword123',
+    user: 'Male',
+    _id: '4023nuc482u4nuioj3408'
+}
+
+export { priceList, xiaomiRepairPrice, mockUserLoggedInData };
+

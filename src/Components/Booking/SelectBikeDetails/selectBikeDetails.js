@@ -14,6 +14,7 @@ function SelectBikeDetails ({ selectedDate, disappearDetailsForm, changeMake, ch
                 <div className="input-container">
                     <FontAwesomeIcon icon={faBicycle} className="input-container-icon"/>
                     <input type="text"
+                            data-testid="make"
                             className="form-input"
                             placeholder="Bike Make"
                             onChange={(e) => changeMake(e.target.value)} />
@@ -22,6 +23,7 @@ function SelectBikeDetails ({ selectedDate, disappearDetailsForm, changeMake, ch
                 <div className="input-container">
                     <FontAwesomeIcon icon={faBicycle} className="input-container-icon"/>
                     <input type="text"
+                            data-testid="model"
                             className="form-input"
                             placeholder="Bike Model"
                             onChange={(e) => changeModel(e.target.value)} />
@@ -30,6 +32,7 @@ function SelectBikeDetails ({ selectedDate, disappearDetailsForm, changeMake, ch
                 <div className="input-container">
                     <FontAwesomeIcon icon={faPalette} className="input-container-icon"/>
                     <input type="text"
+                            data-testid="color"
                             className="form-input"
                             placeholder="Bike Colour"
                             onChange={(e) => changeColor(e.target.value)} />
@@ -38,6 +41,7 @@ function SelectBikeDetails ({ selectedDate, disappearDetailsForm, changeMake, ch
                 <div className="textarea-container">
                     <FontAwesomeIcon icon={faQuestion} className="input-container-icon"/>
                     <textarea type="text"
+                                data-testid="info"
                                 rows="10"
                                 className="form-textarea"
                                 placeholder="Additional Info"
@@ -49,6 +53,7 @@ function SelectBikeDetails ({ selectedDate, disappearDetailsForm, changeMake, ch
                     <p className="input-container-select-p">If your bike needs parts, how much extra are you willing to spend without us calling you (This is for parts only)</p>
                     <div className="select-div">
                         <select defaultValue="Please select an option"
+                                data-testid="parts-deposit"
                                 className="input-container-select"
                                 onChange={(e) => changeAdditionalCost(e.target.value)}>
                             <option disabled>Please select an option</option>

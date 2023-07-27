@@ -16,7 +16,7 @@ function WhatsApp () {
     return (
         <div className={styles.whatsappMain}>
             <div className={styles.whatsappImgContainer}>
-                <img src={ whatsapp } className={styles.whatsappImg}/>
+                <img src={ whatsapp } alt='whatsapp image' className={styles.whatsappImg} data-testid="whatsappImg"/>
             </div>
 
             <div data-aos="zoom-in-down" className={styles.whatsappHeaderContainer}>
@@ -24,7 +24,7 @@ function WhatsApp () {
                 <h3 className={styles.whatsappH2}>Lets chat</h3>
                 <div className={styles.whatsappContainer}>
                     <ReactWhatsapp number="004402078200028" message="Hello Cycle fix..." className={styles.whatsapp}>
-                        <img src={whatsappBtn} className={styles.whatsappBtn}/>
+                        <img src={whatsappBtn} alt="whatsapp logo" className={styles.whatsappBtn} data-testid="whatsappLogo"/>
                     </ReactWhatsapp>
                 </div>
             </div>

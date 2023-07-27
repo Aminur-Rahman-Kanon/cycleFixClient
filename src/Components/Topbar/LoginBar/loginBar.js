@@ -13,6 +13,7 @@ const LoginBar = () => {
 
     const context = useContext(AuthContext);
 
+    //logout handler
     const logout = () => {
         sessionStorage.removeItem('loggedInUser');
         window.location.assign('/');
@@ -21,14 +22,14 @@ const LoginBar = () => {
     let displayContainer = <div className={styles.loginBarMain}>
         <div className={styles.loginBarItems}>
             <a href="/login" className={location === '/login' ? styles.active : styles.inActive}>
-                <FontAwesomeIcon icon={faCircleUser} className={styles.loginBarIcon}/>
+                <FontAwesomeIcon icon={faCircleUser} className={styles.loginBarIcon} data-testid="login-icon" />
                 <p className={styles.loginBarItemsP}>Login</p>
             </a>
         </div>
 
         <div className={styles.loginBarItems}>
             <a href="/register" className={location === '/register' ? styles.active : styles.inActive}>
-                <FontAwesomeIcon icon={faUserPlus} className={styles.loginBarIcon}/>
+                <FontAwesomeIcon icon={faUserPlus} className={styles.loginBarIcon} data-testid="register-icon" />
                 <p className={styles.loginBarItemsP}>Register</p>
             </a>
         </div>
@@ -38,7 +39,10 @@ const LoginBar = () => {
         if (context.loggedInUser.hasOwnProperty('_id')) {
             displayContainer = <div className={styles.loginBarMain}>
                 <div className={styles.profileMain}>
-                    <img src={context.loggedInUser.user === 'Male' ? male : female} alt="cycle fix user" className={styles.avatar}/>
+                    <img src={context.loggedInUser.user === 'Male' ? male : female}
+                         alt={context.loggedInUser.user === 'Male' ? 'male user' : 'female user'}
+                         className={styles.avatar}/>
+                         
                     <div className={styles.logoutContainer}>
                         <p style={{margin: '2px'}}>{context.loggedInUser.firstName} {context.loggedInUser.lastName}</p>
                         <button className={styles.logoutBtn} onClick={logout}>Logout</button>

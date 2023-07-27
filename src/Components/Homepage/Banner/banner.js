@@ -4,7 +4,7 @@ import shimano from '../../../Assets/shimano.png';
 import sram from '../../../Assets/sram.png';
 import trek from '../../../Assets/trek.png';
 import specialized from '../../../Assets/specialized.png';
-import banner from '../../../Assets/test3.png';
+import banner from '../../../Assets/test5.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
@@ -28,7 +28,7 @@ function Banner () {
                     <p className={styles.headerIntro1P}>No matter how complex the repair job, our passionate team have the engineering know-how to find the best solution. We are proud of our service to the community as your local bike shop.</p>
                     <div className={styles.headerContainer1Links}>
                         <Link to="/book-service/booking" className={styles.headerContainer1Link}>
-                            <p className={styles.linkP}>Book now</p>
+                            <p className={styles.linkP}>Book Now</p>
                             <FontAwesomeIcon icon={faScrewdriverWrench} className={styles.linkIcon}/>
                         </Link>
                         <Link to="/workshop-price-list/services" className={styles.headerContainer1Link}>Services</Link>

@@ -33,7 +33,7 @@ const Accident = () => {
                 <div className={styles.accidentIntroContainer}>
                     <h1 className={styles.accidentIntroContainerH1}>Had a cycling accident that wasn’t your fault?</h1>
                     <p className={styles.accidentIntroContainerP}>If you have had a cycling accident and you believe you have a valid claim, knowing how to proceed can be difficult. To help you, we have teamed up with CAMS (Cycling Accident Management Services), a specialist cycling road traffic accident company that offer a best-in-class service to get you back on your bike as soon as possible. Best of all you do not need to be insured to use this service and their costs are recovered from the drivers insurance company.</p>
-                    <button className={styles.accidentIntroContainerBtn} onClick={() => formRef.current.scrollIntoView(true)}>Enqury Now</button>
+                    <button className={styles.accidentIntroContainerBtn} onClick={() => formRef.current.scrollIntoView(true)}>Enquiry Now</button>
                 </div>
             </div>
 

@@ -4,10 +4,10 @@ import LoginBar from "../Topbar/LoginBar/loginBar";
 import styles from './sideDrawer.module.css';
 import logo from '../../Assets/logo.png';
 
-const SideDrawer = (props) => {
+const SideDrawer = ({ sideDrawer }) => {
 
     return (
-        <div className={props.sideDrawer ? `${styles.sideDrawer} ${styles.on}` : `${styles.sideDrawer} ${styles.off}`}>
+        <div data-testid="sidedrawer" className={sideDrawer ? `${styles.sideDrawer} ${styles.on}` : `${styles.sideDrawer} ${styles.off}`}>
             <div className={styles.logoContainer}>
                 <img src={logo} className={styles.sideDrawerLogo}/>
                 <div className={styles.loginBarSidedrawer}>

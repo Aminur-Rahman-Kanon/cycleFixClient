@@ -1,77 +1,75 @@
 .aboutUsMain {
     width: 100%;
-    height: 1000px;
+    margin: 15px auto;
     padding: 50px 0;
-    background-image: url('../../../Assets/aboutUs.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: rgb(53, 53, 53);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .aboutUsContainer {
-    position: relative;
     width: 100%;
+    margin-top: 25px;
     display: flex;
-    flex-flow: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.aboutUsImgContainer {
+    width: 40%;
 }
 
 .aboutUsImg {
-    width: 70%;
-    border-radius: 10px;
-    z-index: 1;
-    box-shadow: 8px 8px 12px 5px #7db2ed;
+    width: 100%;
 }
 
-.aboutUsDetails {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 80%);
-    background-color: white;
-    width: 95%;
-    padding: 100px 15px 15px;
-    border-radius: 10px;
-    box-sizing: border-box;
+.aboutUsDetailsContainer {
+    width: 40%;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
-    z-index: 0;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .aboutUsH {
-    font-size: 35px;
-    color: #5d96d8;
-    letter-spacing: 1px;
+    font-size: 30px;
+    color: #7db2ed;
+    margin: 0 0 10px 0;
 }
 
 .aboutUsP {
-    text-align: left;
-    color: #242323;
-    line-height: 20px;
+    font-size: 15px;
+    color: lightgray;
+    margin: 5px 0;
 }
 
-@media (max-width: 932px) {
+@media (max-width: 1025px) {
     .aboutUsMain {
-        background-attachment: scroll;
+        padding: 30px 0;
     }
-}
-
-@media (max-width: 679px) {
-    .aboutUsImg {
-        width: 80%;
+    .aboutUsContainer {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .aboutUsDetails {
-        width: 100%;
-        transform: translate(-50%, 90%);
+    .aboutUsImgContainer {
+        width: 95%;
     }
-}
 
-@media (max-width: 500px) {
-    .aboutUsMain {
-        height: 900px;
+    .aboutUsDetailsContainer {
+        width: 95%;
+    }
+
+    .aboutUsH {
+        margin: 20px auto;
+    }
+
+    .aboutUsP {
+        margin: 10px 0;
+        font-size: 14px;
     }
 }

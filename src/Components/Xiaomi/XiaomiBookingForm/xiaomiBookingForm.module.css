@@ -1,0 +1,106 @@
+.bookingFormMain {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.bookingFormContainer {
+    width: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.bookingFormHeader {
+    letter-spacing: 1px;
+    color: #7db2ed;
+    text-align: center;
+}
+
+.bookingInputContainer {
+    height: 45px;
+    width: 290px;
+    margin: 10px;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookingInput {
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #7db2ed;
+}
+
+.bookingInputIcon {
+    color: #7db2ed;
+}
+
+.bookingBtns {
+    width: 300px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.requestBtn {
+    height: 40px;
+    width: 290px;
+    margin: 20px;
+    border: 1px solid #65a2e9;
+    outline: none;
+    border-radius: 5px;
+    background-color: #65a2e9;
+    opacity: 0.8;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.requestBtn:hover {
+    opacity: 1;
+}
+
+.requestBtn:disabled {
+    cursor: default;
+    background-color:#65a2e9;
+    opacity: 0.6;
+}
+
+@media (max-width: 550px) {
+    .bookingFormContainer {
+        width: 100%;
+        min-width: none;
+    }
+
+    .bookingInputContainer {
+        width: 100%;
+    }
+
+    .bookingBtns {
+        width: 95%;
+    }
+    
+    .requestBtn {
+        width: 100%;
+    }
+}

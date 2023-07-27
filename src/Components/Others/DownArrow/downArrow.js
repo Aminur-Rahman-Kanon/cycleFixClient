@@ -3,16 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleDown } from '@fortawesome/free-solid-svg-icons';
 import styles from './downArrow.module.css';
 
-const downArrow = ({ clickHandler, h3 }) => {
+const DownArrow = ({ clickHandler, h3 }) => {
 
     return (
         <div className={styles.downArrowContainer}>
             <h2>{h3}</h2>
             <div className={styles.downArrowMain} onClick={ clickHandler }>
-                <FontAwesomeIcon icon={faCircleDown} className={styles.downArrow}/>
+                <FontAwesomeIcon icon={faCircleDown} className={styles.downArrow} data-testid="circle-icon"/>
             </div>
         </div>
     )
 }
 
-export default downArrow;
+export default DownArrow;

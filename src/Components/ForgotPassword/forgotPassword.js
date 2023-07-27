@@ -11,7 +11,7 @@ import { emailValidation } from "../Others/HelperFunction/helperFunction";
 const ForgotPassword = () => {
 
     const [email, setEmail] = useState('');
-    const [btnDisable, setBtnDisable] = useState(false);
+    const [btnDisable, setBtnDisable] = useState(true);
     const [userNotFound, setUserNotFound] = useState(false);
     const [spinner, setSpinner] = useState(false);
     const [modal, setModal] = useState(false);
@@ -20,8 +20,20 @@ const ForgotPassword = () => {
     
     //this hook validate email from user inputs
     useEffect(() => {
-        const timer = emailValidation(email, setBtnDisable)
-        
+        const timer = setTimeout(() => {
+            if (email.length){
+                const check1 = email.includes('@');
+                const check2 = email.includes('.com');
+                if (check1 && check2){
+                    const domain = email.slice(email.indexOf('@')+1, email.indexOf('.com'))
+                    domain ? setBtnDisable(false) : setBtnDisable(true);
+                }
+                else {
+                    setBtnDisable(true);
+                }
+            }
+        }, 1200)
+
         return () => clearTimeout(timer);
     }, [email]);
 
@@ -77,7 +89,7 @@ const ForgotPassword = () => {
         <>
         <Spinner spinner={spinner}/>
         <Backdrop backdrop={backdrop}/>
-        <Modal switch={modal}>
+        <Modal modal={modal}>
             {displayStatus}
         </Modal>
 
@@ -87,6 +99,7 @@ const ForgotPassword = () => {
                 <p className={styles.instruction}>Enter the email address associated with your account and we’ll send you a link to reset your password.</p>
                 <div className={styles.inputContainer}>
                         <input type="email"
+                            data-testid="email"
                             className={styles.input}
                             placeholder="Enter your email address"
                             onChange={(e) => setEmail(e.target.value)}/>
@@ -94,7 +107,7 @@ const ForgotPassword = () => {
                         <p className={styles.user} style={userNotFound ? {display: 'block'} : {display: 'none'}}>User not found</p>
                 </div>
 
-                <button disabled={!btnDisable}
+                <button disabled={btnDisable}
                         className={styles.submitBtn}
                         onClick={ submitFormHandler }
                         >Send password reset link</button>

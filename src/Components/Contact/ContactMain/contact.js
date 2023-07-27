@@ -60,7 +60,7 @@ const Contact = () => {
             <link rel="canonical" href="/contact"/>
         </Helmet>
         <Spinner spinner={spinner} />
-        <Modal switch={modal}>
+        <Modal modal={modal}>
             {displayMsg}
         </Modal>
         <div className={styles.contactBgMain}>            

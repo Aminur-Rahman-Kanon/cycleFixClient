@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from './homepage.module.css';
 import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/banner";
-import HeaderContainer1 from "../HeaderContainer1/headerContainer1";
-import HeaderContainer2 from "../HeaderContainer2/headerContainer2";
+import HeaderContainer2 from "../OurServices/ourServices";
 import Xiaomi from "../Xiaomi/xiaomi";
 import Testimonial from "../Testimonial/testimonial";
 import ProfessionalContainer from "../ProfessionalContainer/professionalContainer";
 import AboutContainer from "../AboutContainer/aboutContainer";
+import OurServices from "../OurServices/ourServices";
 
 const Homepage = () => {
 
@@ -27,8 +27,7 @@ const Homepage = () => {
         </Helmet>
         <div className={styles.homepageMain}>
             <Banner />
-            <HeaderContainer1 aboutUsRef={aboutUs}/>
-            <HeaderContainer2 />
+            <OurServices />
             <Xiaomi />
             <Testimonial />
             <ProfessionalContainer />

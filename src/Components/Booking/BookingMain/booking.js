@@ -9,7 +9,6 @@ import SelectUserInformation from "../SelectUserInfomation/selectUserInformation
 import { emailValidation } from "../../Others/HelperFunction/helperFunction";
 
 const Booking = () => {
-
     const params = useParams();
     const context = useContext(AuthContext);
 
@@ -37,10 +36,7 @@ const Booking = () => {
         Aos.init({ duration: 1500 })
 
         fetch('https://cyclefixserver.onrender.com/query-available-date').then(res => res.json()).then(data => setBookedDate(data.data)).catch(err => console.log(err));
-    }, [])
 
-    //set the names and email from logged in user information
-    useEffect(() => {
         if (context.loggedInUser){
             if (context.loggedInUser.hasOwnProperty('_id') && !firstName && !lastName && !email){
                 setFirstName(context.loggedInUser.firstName);
@@ -53,17 +49,16 @@ const Booking = () => {
                 setEmail(context.loggedInUser.email);
             }
         }
-    }, [context.loggedInUser, firstName, lastName, email])
+    }, []);
 
     //this hook scrool to the top when selecting date
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [selectedDate])
+    }, [selectedDate, selectedDate, disappearDetailsForm])
 
     //this hook validate email from user input
     useEffect(() => {
         const timer = emailValidation(email, setEmailValidity);
-
         return () => clearTimeout(timer)
     }, [ email ])
 
@@ -86,11 +81,6 @@ const Booking = () => {
             setFormFinalValidationBtn(true);
         }
     }, [firstName, lastName, emailValidity, phone])
-
-    //this hook scroll to the top when selecting date
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [selectedDate, disappearDetailsForm])
 
     //first form submit handler
     const handleSubmit = (e) => {

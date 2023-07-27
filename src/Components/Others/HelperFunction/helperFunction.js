@@ -4,7 +4,6 @@ export const emailValidation = ( data, setValidity ) => {
             const check1 = data.indexOf('@');
             const check2 = data.indexOf('.com');
             if (check1 > 0 && check2 > 0){
-                console.log(data.slice(check1+1, check2));
                 data.slice(check1+1, check2) ? setValidity(true) : setValidity(false);
             }
             else {
@@ -12,4 +11,10 @@ export const emailValidation = ( data, setValidity ) => {
             }
         }
     }, 1200);
+}
+
+export const disableScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    window.onscroll = () => window.scrollTo(scrollLeft, scrollTop)
 }

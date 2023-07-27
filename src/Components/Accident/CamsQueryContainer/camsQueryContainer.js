@@ -7,8 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignature, faAt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { emailValidation } from "../../Others/HelperFunction/helperFunction";
 
-let target = null;
-
 const CamsQueryContainer = ({ formRef }) => {
 
     const context = useContext(AuthContext);
@@ -32,6 +30,8 @@ const CamsQueryContainer = ({ formRef }) => {
     const [finalValidation, setFinalValidation] = useState(false);
 
     const [submitStatus, setSubmitStatus] = useState(null);
+
+    const [target, setTarget] = useState('');
 
     //set the name and email variable from logged in user information
     useEffect(() => {
@@ -67,8 +67,6 @@ const CamsQueryContainer = ({ formRef }) => {
         }
     }, [name, message, phoneNumber])
 
-    console.log(emailValidity);
-
     //this hook validate email from user inputs
     useEffect(() => {
         const timer = emailValidation(email, setEmailValidity);
@@ -99,7 +97,6 @@ const CamsQueryContainer = ({ formRef }) => {
                 name, email, message, phoneNumber
             })
         }).then(res => res.json()).then(data => {
-            console.log(data.status);
             setSpinner(false);
             setSubmitStatus(data.status);
             context.setBackdrop(true);
@@ -141,7 +138,7 @@ const CamsQueryContainer = ({ formRef }) => {
 
     return (
         <div className={styles.camsInquiryMain} id="camsInquiry">
-            <Modal switch={modal}>
+            <Modal modal={modal}>
                 {submitMsg}
             </Modal>
             
@@ -160,11 +157,12 @@ const CamsQueryContainer = ({ formRef }) => {
                         <FontAwesomeIcon icon={faSignature} className={nameValidation ? styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}`} />
                         <input type="text"
                                 className={styles.camsInquiryFormInput}
+                                data-testid="name-input"
                                 placeholder="Your Name"
                                 value={name ? name : ''}
                                 onChange={(e) => {
                                     setName(e.target.value);
-                                    target = 'name'
+                                    setTarget('name')
                                 }}/>
                     </div>
 
@@ -172,11 +170,11 @@ const CamsQueryContainer = ({ formRef }) => {
                         <FontAwesomeIcon icon={faAt} className={emailValidity ?  styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}` }/>
                         <input type="email"
                                 className={styles.camsInquiryFormInput}
+                                data-testid="email-input"
                                 placeholder="Your Email"
                                 value={email ? email : ''}
                                 onChange={(e) => {
                                     setEmail(e.target.value)
-                                    target = 'email'
                                 }}/>
                     </div>
 
@@ -184,10 +182,11 @@ const CamsQueryContainer = ({ formRef }) => {
                         <FontAwesomeIcon icon={faEnvelope} className={messageValidation ? styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}`} />
                         <textarea type="text"
                                 className={styles.camsInquiryFormMsgInput}
+                                data-testid="message-input"
                                 placeholder="Message"
                                 onChange={(e) => {
                                     setMessage(e.target.value);
-                                    target = 'message';
+                                    setTarget('message')
                                 }}/>
                     </div>
 
@@ -195,10 +194,11 @@ const CamsQueryContainer = ({ formRef }) => {
                         <FontAwesomeIcon icon={faPhone} className={phoneNumberValidation ? styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}`} />
                         <input type="number"
                                 className={styles.camsInquiryFormInput}
+                                data-testid="phone-number-input"
                                 placeholder="Your Phone Number"
                                 onChange={(e) => {
                                     setPhoneNumber(e.target.value);
-                                    target = 'phoneNumber';
+                                    setTarget('phoneNumber');
                                 }}
                                 />
                     </div>

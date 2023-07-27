@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignature } from '@fortawesome/free-solid-svg-icons';
 import styles from './payment.module.css';
@@ -81,8 +80,6 @@ const Payment = () => {
             type: 'card',
             card: elements.getElement(CardElement)
         })
-
-        console.log(paymentMethod);
 
         if (!error) {
             try {
@@ -169,7 +166,7 @@ const Payment = () => {
     return (
         <>
         <Backdrop backdrop={backdrop} toogleBackdrop={() => {/*Does nothing*/}}/>
-        <Modal switch={modal}>
+        <Modal modal={modal}>
             { bookingStatus === 'error' && !error ? displaybookingStatus : displayMsg}
         </Modal>
         <div className={styles.paymentMain}>
@@ -227,6 +224,7 @@ const Payment = () => {
                         <div className={styles.fieldSet}>
                             <FontAwesomeIcon icon={ faSignature } className={styles.formIcon}/>
                             <input type="text"
+                                data-testid="name"
                                 className={styles.formInput}
                                 placeholder="Name on Card"
                                 onChange={(e) => setName(e.target.value)}

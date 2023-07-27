@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&display=swap');
-
 .homepageMain {
     width: 100%;
     overflow: hidden;
 }
-
 
 #extText {
     color: #7db2ed!important;
@@ -15,7 +12,6 @@
     border-radius: 10px;
     box-shadow: 1px 1px 12px 1px lightgrey;
 }
-
 
 @media (max-width: 768px) {
     .headerContainer1 {

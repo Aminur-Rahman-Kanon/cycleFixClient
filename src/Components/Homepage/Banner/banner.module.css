@@ -4,7 +4,7 @@
     height: 100vh;
     display: flex;
     flex-flow: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -17,9 +17,8 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: brightness(0.8);
-    z-index: -1;
+    filter: brightness(0.6);
+    z-index: 0;
 }
 
 .headerContainerBanner {
@@ -28,6 +27,7 @@
     flex-flow: row-reverse;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 1;
 }
 
 .headerContainer1Items {
@@ -35,28 +35,28 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 .headerContainer1H1 {
     color: #ffffff;
-    font-size: 40px;
-    text-align: left;
+    font-size: 33px;
 }
 
 .headerContainer1Links {
     width: 100%;
-    margin-top: 30px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 20px;
 }
 
 .headerContainer1Link {
     text-decoration: none;
     height: 45px;
     width: 180px;
-    margin: 10px;
     border-radius: 30px;
     font-size: 15px;
     display: flex;
@@ -68,6 +68,7 @@
 .headerContainer1Link:nth-child(1){
     border: 1px solid #8ebcf0;
     background-color: #8ebcf0;
+    margin-right: 20px;
 }
 
 .headerContainer1Link:nth-child(1):hover {
@@ -79,6 +80,7 @@
 .headerContainer1Link:nth-child(2){
     border: 1px solid lightgray;
     background-color: transparent;
+    margin-left: 20px;
 }
 
 .headerContainer1Link:nth-child(2):hover {
@@ -92,52 +94,51 @@
 }
 
 .headerContainer1Banner {
-    width: 70%;
-    margin: 25px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 450px;
 }
 
 .brandsMain {
     width: 100%;
+    margin-top: 50px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 1;
 }
 
 .brandContainer {
-    width: 200px;
-    height: 100px;
-    padding: 20px;
+    width: 18%;
+    min-width: 90px;
+    height: 60px;
+    padding: 5px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.342);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .brand {
-    width: 100%;
+    width: 50%;
 }
 
 .headerIntro1P {
     color: white;
     font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    margin: 10px 0;
 }
 
 @media (max-width: 932px) {
-    .headerContainer {
-        height: auto;
-    }
-
-    .bgImage{
-        background-attachment: scroll;
-    }
-
     .headerContainer1Items {
-        width: 100%;
+        width: 90%;
+        padding: 20px;
+    }
+
+    .brandsMain {
+        width: 90%;
     }
 }
 
@@ -197,6 +198,14 @@
     .headerContainer1Banner {
         width: 320px;
     }
+
+    .brandsMain {
+        width: 100%;
+    }
+
+    .brand {
+        width: 70%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -209,5 +218,21 @@
 @media (max-width: 432px) {
     .headerIntro1P {
         margin: 0;
+    }
+
+    .brandContainer {
+        min-width: unset;
+    }
+
+    .brand {
+        width: 100%;
+    }
+
+    .headerContainer1Link:nth-child(1){
+        margin-right: unset;
+    }
+
+    .headerContainer1Link:nth-child(1) {
+        margin-left: unset;
     }
 }

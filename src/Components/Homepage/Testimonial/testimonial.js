@@ -16,17 +16,19 @@ const Testimonial = () => {
     //fetching testimonial data from the server
     useEffect(() => {
         fetch('https://cyclefixserver.onrender.com/testimonial').then(res => res.json()).then(data => {
-            setSpinner(false);
-            setTestimonial(data.data);
+            if (data.status === 'success'){
+                setSpinner(false);
+                setTestimonial(data.data);
+            }
         }).catch(err => {
             setSpinner(false);
-            console.log(err);
         })
     }, []);
 
     //calculating stars based on ratings
     //and pagination system
-    let displayRatings = null;
+    let displayRatings = <p className={styles.testimonialP} style={{color: 'lightgray'}}>No comments yet</p>
+
     const itemToView = 3;
     const totalPage = Math.ceil(testimonial.length / itemToView);
 
@@ -45,12 +47,12 @@ const Testimonial = () => {
     }
 
     //if there is data in testimonial variable then display it
-    if (testimonial !== null) {
+    if (testimonial.length) {
         displayRatings = testimonial.slice(testimonialIndex*itemToView, (testimonialIndex*itemToView) + itemToView).map(ratings => {
             return <div key={ratings.comment} className={styles.testimonialCard}>
             <p style={{color: 'lightgray'}}>{ratings.comment}</p>       
             <div className={styles.testimonialStars}>
-                <h2>{ratings.name}</h2>
+                <h4 className={styles.testimonialH4}>{ratings.name}</h4>
                 {Number(ratings.rating) === 5 ? Array.from(Array(Number(ratings.rating)).keys()).map((star, index) => {
                     return <FontAwesomeIcon key={index + 12} icon={faStar} className={styles.testimonialStar}/>
                 })
@@ -72,11 +74,7 @@ const Testimonial = () => {
             </div>
 
             <div className={styles.testimonialContainer}>
-                <div className={styles.testimonialHeader}>
-                    <h2>Testomonials</h2>
-                    <h3>What our client say</h3>
-                </div>
-
+                <h3 className={styles.testimonialH3}>What our client say</h3>
                 <div className={styles.testimonialCards}>
                     { displayRatings }
                 </div>

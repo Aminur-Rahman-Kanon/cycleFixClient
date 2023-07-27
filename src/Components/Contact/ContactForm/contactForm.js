@@ -118,6 +118,7 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
                             <div className={styles.formInputContainer}>
                                 <FontAwesomeIcon icon={ faSignature } className={styles.addressIcon}/>
                                 <input type="text"
+                                    data-testid="name"
                                     className={styles.formInput}
                                     placeholder="Your Name"
                                     value={name ? name : ''}
@@ -126,6 +127,7 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
                             <div className={styles.formInputContainer}>
                                 <FontAwesomeIcon icon={ faPhone } className={styles.addressIcon}/>
                                 <input type="number"
+                                    data-testid="phone"
                                     className={styles.formInput}
                                     placeholder="Your Phone"
                                     onChange={(e) => setPhone(e.target.value)} />
@@ -133,6 +135,7 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
                             <div className={ emailValidity ? styles.formInputContainer : `${styles.formInputContainer} ${styles.wrongInput}`}>
                                 <FontAwesomeIcon icon={ faAt } className={styles.addressIcon}/>
                                 <input type="email"
+                                    data-testid="email"
                                     className={styles.formInput}
                                     placeholder="Your Email"
                                     value={email ? email : ''}
@@ -141,6 +144,7 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
                             <div className={styles.formTextAreaContainer}>
                                 <FontAwesomeIcon icon={ faEnvelope } className={styles.addressIcon}/>
                                 <textarea className={styles.formInputTextarea}
+                                            data-testid="message"
                                             rows="10"
                                             placeholder="Message"
                                             onChange={(e) => setMessage(e.target.value)} />

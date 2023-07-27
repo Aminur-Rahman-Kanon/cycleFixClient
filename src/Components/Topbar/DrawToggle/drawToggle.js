@@ -4,7 +4,7 @@ import styles from './drawToggle.module.css';
 const drawToggle = (props) => {
 
     return (
-        <div className={styles.drawToggleMain} onClick={() => props.toggleSidedrawer()}>
+        <div data-testid="drawToggle" className={styles.drawToggleMain} onClick={() => props.toggleSidedrawer()}>
             <div className={styles.drawToggleBar}></div>
             <div className={styles.drawToggleBar}></div>
             <div className={styles.drawToggleBar}></div>

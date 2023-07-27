@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './backdrop.module.css';
 
-const backdrop = (props) => {
+const backdrop = ({ backdrop, toggleBackdrop }) => {
 
     return (
-        <div className={styles.backdropMain}
-             style={props.backdrop ? {display: 'block'} : {display: 'none'}}
-             onClick={() => props.toggleBackdrop()}>
+        <div data-testid="backdrop" className={styles.backdropMain}
+             style={backdrop ? {display: 'block'} : {display: 'none'}}
+             onClick={() => toggleBackdrop()}>
         </div>
     )
 }

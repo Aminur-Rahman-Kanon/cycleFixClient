@@ -206,38 +206,6 @@
     }
 }
 
-.submitMsgMain {
-    width: 100%;
-    margin: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'PT Serif', serif;
-    text-align: center;
-    color: #63a0c8;
-}
-
-.submitMsgBtn {
-    height: 40px;
-    width: 100%;
-    margin: 20px;
-    border: 1px solid #569fcf;
-    border-radius: 10px;
-    background-color: white;
-    color: #569fcf;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-
-.submitMsgBtn:hover {
-    background-color: #569fcf;
-    color: white;
-    /* border: ; */
-}
-
 @media (max-width: 1000px) {
     .camsMain {
         flex-flow: column;

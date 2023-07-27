@@ -42,6 +42,7 @@ function SelectUserInformation({ selectedDate, disappearDetailsForm, make, model
                 <div className="user-input-container">
                     <FontAwesomeIcon icon={faSignature} className="user-input-icon"/>
                     <input type="text"
+                            data-testid="first-name"
                             className="user-input"
                             placeholder="First name"
                             value={firstName ? firstName : ''}
@@ -51,6 +52,7 @@ function SelectUserInformation({ selectedDate, disappearDetailsForm, make, model
                 <div className="user-input-container">
                     <FontAwesomeIcon icon={faSignature} className="user-input-icon"/>
                     <input type="text"
+                            data-testid="last-name"
                             className="user-input"
                             placeholder="Last name"
                             value={lastName ? lastName : ''}
@@ -60,6 +62,7 @@ function SelectUserInformation({ selectedDate, disappearDetailsForm, make, model
                 <div className="user-input-container" style={!emailValidity ? {backgroundColor: '#ff00004f', border: '1px solid #ff00004f'} : null}>
                     <FontAwesomeIcon icon={faAt} className="user-input-icon"/>
                     <input type="email"
+                            data-testid="email"
                             className="user-input"
                             placeholder="Email"
                             value={email ? email : ''}
@@ -69,13 +72,19 @@ function SelectUserInformation({ selectedDate, disappearDetailsForm, make, model
                 <div className="user-input-container">
                     <FontAwesomeIcon icon={faPhone} className="user-input-icon"/>
                     <input type="number"
+                            data-testid="phone"
                             className="user-input"
                             placeholder="Phone number"
                             onChange={(e) => changePhoneNumber(e.target.value)}
                             />
                 </div>
                 <div className="user-input-container-btn">
-                    <input disabled={finalValidation} type="button" onClick={ submitHandler } value="Go to payment" className="user-input-submit-btn"/>
+                    <input disabled={finalValidation}
+                           type="button"
+                           onClick={ submitHandler }
+                           value="Go to payment"
+                           className="user-input-submit-btn"
+                           data-testid="submit-btn"/>
                 </div>
             </form>
         </div>

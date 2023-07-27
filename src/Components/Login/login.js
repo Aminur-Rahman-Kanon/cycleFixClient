@@ -45,19 +45,19 @@ const Login = () => {
             return navigate('/');
         }
         /* global google */
-        google.accounts.id.initialize({
-            client_id: "257327674926-u5bnbok1l36c70662j162rk5044krqsu.apps.googleusercontent.com",
-            callback: handleGoogleLogin
-        })
+        // google.accounts.id.initialize({
+        //     client_id: "257327674926-u5bnbok1l36c70662j162rk5044krqsu.apps.googleusercontent.com",
+        //     callback: handleGoogleLogin
+        // })
 
-        google.accounts.id.renderButton(
-            document.getElementById('google-btn'),
-            {
-                theme: 'outline', size: 'large'
-            }
-        );
+        // google.accounts.id.renderButton(
+        //     document.getElementById('google-btn'),
+        //     {
+        //         theme: 'outline', size: 'large'
+        //     }
+        // );
 
-        google.accounts.id.prompt();
+        // google.accounts.id.prompt();
     }, [])
 
     //this hooik validate email from user inputs
@@ -117,7 +117,12 @@ const Login = () => {
             else {
                 setErrorMsg(data.status);
             }
-        }).catch(err => setError(true));
+        }).catch(err => {
+            setSpinner(false);
+            setError(true);
+            setModal(true);
+            setBackdrop(true);
+        });
     }
 
     //google login submit handler
@@ -126,7 +131,7 @@ const Login = () => {
         sessionStorage.setItem('loggedInUser', JSON.stringify(user));
         return navigate('/');
     }
-    
+
     return (
         <>
         <Helmet>
@@ -135,7 +140,7 @@ const Login = () => {
             <link rel="canonical" href="/login"/>
         </Helmet>
         <Backdrop backdrop={backdrop} />
-        <Modal switch={modal}>
+        <Modal modal={modal}>
             {displayMsg}
         </Modal>
         <div className={styles.loginMain}>
@@ -150,6 +155,7 @@ const Login = () => {
                     <div className={ emailValidity ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
                         <FontAwesomeIcon icon={faUser} className={emailValidity ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`}/>
                         <input type="text"
+                            data-testid="email"
                             className={styles.loginInput}
                             placeholder="email"
                             onChange={(e) => {
@@ -162,6 +168,7 @@ const Login = () => {
                     <div className={ passwordValidation ? styles.loginInputContainer : `${styles.loginInputContainer} ${styles.wrongInput}`}>
                         <FontAwesomeIcon icon={faLock} className={ passwordValidation ? styles.loginInputIcon : `${styles.loginInputIcon} ${styles.wrongInputIcon}`} />
                         <input type="password"
+                            data-testid="password"
                             className={styles.loginInput}
                             placeholder="Password"
                             onChange={(e) => {

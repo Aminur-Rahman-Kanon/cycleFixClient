@@ -29,8 +29,7 @@ function SelectDate ({ selectedDate, serviceId, bookedDate, changeSelectedDate }
                             }}
                             onClickDay={(value) => {
                                 changeSelectedDate(value.toDateString());
-                            }}
-                        />
+                            }}/>
             </div>
         </div>
     )

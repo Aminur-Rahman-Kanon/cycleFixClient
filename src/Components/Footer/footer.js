@@ -6,27 +6,27 @@ import logo from '../../Assets/logo.png';
 import { Link } from 'react-router-dom';
 import styles from './footer.module.css';
 
-const footer = () => {
+const Footer = () => {
 
     return (
         <div className={styles.footerMain}>
             <div className={styles.footerContainer}>
                 <div className={styles.footerContainerItem}>
                     <div className={styles.logoContainer}>
-                        <img src={logo} className={styles.logo} />
+                        <img src={logo} alt="cycle fix logo" className={styles.logo} />
                     </div>
                     <h3 className={styles.cycleFixP}>Cycle Fix</h3>
                     <div className={styles.socialLinks}>
-                        <a href="https://www.facebook.com/cyclefixlondon/?locale=en_GB" target="_blank" className={styles.socialLink}>
+                        <a data-testid="facebook" href="https://www.facebook.com/cyclefixlondon/?locale=en_GB" target="_blank" className={styles.socialLink}>
                             <FontAwesomeIcon icon={faFacebook} className={styles.socialLinkIcon}/>
                         </a>
-                        <a href="https://mobile.twitter.com/cyclefixlondon" target="_blank" className={styles.socialLink}>
+                        <a data-testid="twitter" href="https://mobile.twitter.com/cyclefixlondon" target="_blank" className={styles.socialLink}>
                             <FontAwesomeIcon icon={faTwitter} className={styles.socialLinkIcon}/>
                         </a>
-                        <a href="https://www.instagram.com/cyclefixlondon/?hl=en" target="_blank" className={styles.socialLink}>
+                        <a data-testid="instagram" href="https://www.instagram.com/cyclefixlondon/?hl=en" target="_blank" className={styles.socialLink}>
                             <FontAwesomeIcon icon={faInstagram} className={styles.socialLinkIcon}/>
                         </a>
-                        <a href="#" className={styles.socialLink}>
+                        <a data-testid="youtube" href="#" className={styles.socialLink}>
                             <FontAwesomeIcon icon={faYoutube} className={styles.socialLinkIcon}/>
                         </a>
                     </div>
@@ -60,14 +60,14 @@ const footer = () => {
                         <h2 className={styles.footerHeader}>Stay Connected</h2>
                         <ul className={styles.stayConnectedLists}>
                             <li className={styles.stayConnectedList}>
-                                <a href="https://google.com/maps/place/Cycle+Fix+London/@51.4865153,-0.1115455,15z/data=!4m5!3m4!1s0x0:0xb267680d2f781652!8m2!3d51.4865153!4d-0.1115455" className={styles.stayConnectedLink} target="_blank">
+                                <a data-testid="location-logo" href="https://google.com/maps/place/Cycle+Fix+London/@51.4865153,-0.1115455,15z/data=!4m5!3m4!1s0x0:0xb267680d2f781652!8m2!3d51.4865153!4d-0.1115455" className={styles.stayConnectedLink} target="_blank">
                                     <FontAwesomeIcon icon={ faLocationDot } className={styles.stayConnectedIcon}/>
                                     <p>338 Kennington Road, London, SE11 4LD</p>
                                 </a>
                             </li>
                             <li className={styles.openingTimesContainer}>
                                 <h3>Opening Times</h3>
-                                <ul className={styles.openingTimes}>
+                                <ul data-testid="opening-times" className={styles.openingTimes}>
                                     <li className={styles.openingTime}>Monday - Friday: 8AM - 8PM</li>
                                     <li className={styles.openingTime}>Saturday: 9AM - 6PM</li>
                                     <li className={styles.openingTime}>Sunday: Closed</li>
@@ -80,10 +80,10 @@ const footer = () => {
             </div>
 
             <div className={styles.copyright}>
-                <h3 className={styles.footerHeader}>Copyright &copy; 2021. All rights reserved</h3>
+                <h3 data-testid="copyright" className={styles.footerHeader}>Copyright &copy; 2021. All rights reserved</h3>
             </div>
         </div>
     )
 }
 
-export default footer;
+export default Footer;

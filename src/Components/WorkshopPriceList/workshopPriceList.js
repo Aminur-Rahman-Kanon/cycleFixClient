@@ -16,11 +16,13 @@ const WorkshopPriceList = () => {
 
     const individualPriceListRef = useRef(null);
 
+    //scroll to the top on componentOnMount
     useEffect(() => {
         window.scrollTo(0, 0);
         Aos.init({duration: 1000, once: true});
     }, [])
 
+    //handling services and individual price lists container scolling to the top
     useEffect(() => {
         if (Object.keys(params).length > 0 && params.hasOwnProperty('services')){
             if (params.services === 'services'){
@@ -35,15 +37,15 @@ const WorkshopPriceList = () => {
         }
     }, [params])
 
-    let displayList = Object.values(priceList).map(lists => {
+    let displayList = priceList.map(lists => {
         return <div data-aos = "zoom-in" key={lists.h2} className={styles.priceListMain}>
             <div className={styles.priceListBg}>
                 <img src={lists.img} alt="Bike repair services" className={styles.priceListBgImg} />
             </div>
             <h2 className={styles.priceListMainH2}>{lists.h2}</h2>
             <div className={styles.poundSignMain}>
-                <FontAwesomeIcon icon={ faSterlingSign } className={styles.poundSign}/>
-                <p className={styles.price}>{lists.price}</p>
+                {/* <FontAwesomeIcon icon={ faSterlingSign } className={styles.poundSign}/> */}
+                <p className={styles.price}>&pound;{lists.price}</p>
             </div>
             <div className={styles.priceListsContainer}>
                 <div className={styles.priceListsContainer1}>

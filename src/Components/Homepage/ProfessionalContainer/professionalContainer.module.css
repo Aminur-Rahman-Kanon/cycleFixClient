@@ -1,12 +1,21 @@
 .professionalsMain {
     width: 100%;
-    margin: 50px auto;
-    padding: 10px;
+    margin: 20px auto;
+    padding: 50px 10px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    background: hsla(0, 0%, 0%, 1);
+
+background: linear-gradient(135deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 31%, 1) 100%);
+
+background: -moz-linear-gradient(135deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 31%, 1) 100%);
+
+background: -webkit-linear-gradient(135deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 31%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#4E4E4E", GradientType=1 );
 }
 
 .professionalsHeader {
@@ -21,39 +30,55 @@
     width: 100%;
     margin: 20px auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;;
     justify-content: center;
     align-items: center;
 }
 
 .professionalsImgContainer {
-    width: 350px;
+    width: 30%;
+    min-width: 280px;
     margin: 15px;
 }
 
 .professionalsContainerImg {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.professionalsH1, .professionalsH2 {
-    font-family: 'Archivo Black', sans-serif;
+.professionalsH2 {
     color: #63a2eb;
-    letter-spacing: 2px;
+    font-size: 28px;
 }
 
 .professionalsP {
-    font-size: 19px;
+    font-size: 16px;
+    color: lightgray;
 }
 
-@media (max-width: 900px) {
-    .professionalsMain {
-        margin: 50px auto;
-    }
+.professionalsDetails {
+    width: 100%;
+    padding-left: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.professionalsDetailsP {
+    margin: 2px 0;
+    font-size: 13px;
+    color: lightgray;
 }
 
 @media (max-width: 759px) {
     .professionalsContainerImg {
         height: unset;
+    }
+}
+
+@media (max-width: 639px) {
+    .professionalsImgContainer {
+        width: 95%;
     }
 }

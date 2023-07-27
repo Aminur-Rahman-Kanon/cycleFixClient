@@ -1,0 +1,10 @@
+.activeStar {
+    color: #7db2ed;
+    margin: 5px;
+}
+
+.inActiveStar {
+    color: lightgray;
+    margin: 5px;
+    cursor: pointer;
+}

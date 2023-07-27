@@ -83,7 +83,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
                 firstName, lastName, email, user, password
             })
         }).then(res => res.json()).then(data => {
-            if (data.status === 'user created') {
+            if (data.status === 'success') {
                 toggleSpinner(false);
                 setStatus(data.status);
                 context.setBackdrop(true);
@@ -104,7 +104,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
     //display message handler
     let displayMsg = null;
 
-    if (status === 'user created'){
+    if (status === 'success'){
         displayMsg = <div className={styles.displayMsgMain}>
             <h2>User created</h2>
             <p>Thank you !</p>
@@ -131,7 +131,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
 
     return (
         <>
-        <Modal switch={modal} >
+        <Modal modal={modal} >
             {displayMsg}
         </Modal>
         <form className={styles.registrationForm}>
@@ -139,6 +139,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
                 <div className={styles.registrationFormName}>
                     <FontAwesomeIcon icon={faSignature} className={styles.registrationFormIcon} />
                     <input type="text"
+                            data-testid="first-name"
                             className={styles.registrationFormInput}
                             placeholder="First Name"
                             onChange={(e) => {
@@ -148,6 +149,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
                 <div className={styles.registrationFormName}>
                     <FontAwesomeIcon icon={faSignature} className={styles.registrationFormIcon} />
                     <input type="text"
+                            data-testid="last-name"
                             className={styles.registrationFormInput}
                             placeholder="Last Name"
                             onChange={(e) => {
@@ -159,6 +161,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
             <div className={emailValidity ? styles.registrationFormInputContainer : `${styles.registrationFormInputContainer} ${styles.wrongInput}`} style={userExist ? {backgroundColor: '#f82c2c73'}: null}>
                 <FontAwesomeIcon icon={ faAt } className={styles.registrationFormIcon}/>
                 <input type="Email"
+                        data-testid="email"
                         className={styles.registrationFormInput}
                         placeholder="Email address"
                         onChange={(e) => {
@@ -171,6 +174,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
                 <FontAwesomeIcon icon={faUser} className={styles.registrationFormIcon}/>
 
                 <select className={styles.registrationFormSelect}
+                        data-testid="gender"
                         defaultValue="Please Select"
                         onChange={(e) => {
                             setUser(e.target.value);
@@ -184,6 +188,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
             <div className={styles.registrationFormInputContainer}>
                 <FontAwesomeIcon icon={faLock} className={styles.registrationFormIcon} />
                 <input type="password"
+                        data-testid="password"
                         className={styles.registrationFormInput}
                         placeholder="Password"
                         onChange={(e) => {
@@ -195,6 +200,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
                     style={{margin: '25px'}}>
                 <FontAwesomeIcon icon={faLock} className={styles.registrationFormIcon} />
                 <input type="password"
+                        data-testid="retype-password"
                         className={styles.registrationFormInput}
                         placeholder=" Retype Password"
                         onChange={(e) => {
@@ -205,10 +211,11 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
 
             <div className={styles.registrationFormRadioContainer}>
                 <input type="radio"
+                        data-testid="terms-condition"
                         id='terms'
                         className={styles.registrationRadioBtn}
-                        value={true}
-                        onClick={(e) => setTermsCondition(e.target.value)} />
+                        value={termsCondition}
+                        onClick={(e) => setTermsCondition(true)} />
                 <label htmlFor='terms' className={styles.registrationFormP}>I agree all statements in Terms of Service</label>
             </div>
 

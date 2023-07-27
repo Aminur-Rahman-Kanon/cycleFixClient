@@ -1,32 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './Components/Homepage/HomepageMain/homepage';
-import Topbar from './Components/Topbar/topbar';
+import Topbar from './Components/Topbar/TopbarMain/topbar';
 import SideDrawer from './Components/SideDrawer/sideDrawer';
 import Backdrop from './Components/Backdrop/backdrop';
 import Footer from './Components/Footer/footer';
 import Login from './Components/Login/login';
 import Registration from './Components/Registration/RegistrationMain/registration';
 import Accident from './Components/Accident/AccidentMain/accident';
-import DefaultRoute from './Components/Others/DefaultRoute/defaultRoute';
+import NotFoundRoute from './Components/NotFoundRoute/notFoundRoute';
 import WorkshopPriceList from './Components/WorkshopPriceList/workshopPriceList';
-import Xiaomi from './Components/Xiaomi/xiaomi';
+import Xiaomi from './Components/Xiaomi/XiaomiMain/xiaomi';
 import CourtesyBike from './Components/CourtesyBike/courtesyBike';
 import Contact from './Components/Contact/ContactMain/contact';
 import Booking from './Components/Booking/BookingMain/booking';
 import BookAservice from './Components/BookAservice/BookAServiceMain/bookAservice';
 import PaymentContainer from './Payment/paymentContainer';
-import Feedback from './Components/Feedback/feedback';
+import Feedback from './Components/Feedback/FeedbackMain/feedback';
 import ForgotPassword from './Components/ForgotPassword/forgotPassword';
 import AuthContext from './Components/Others/AuthContext/authContext';
+import { disableScroll } from './Components/Others/HelperFunction/helperFunction';
 
 function App() {
-
   //states to manipulate bacdrop and sideDrawer components
   const [sideDrawer, setSideDrawer] = useState(false);
   const [backdrop, setBackdrop] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    if (backdrop){
+      disableScroll();
+    }
+    else {
+      window.onscroll = () => {}
+    }
+  }, [backdrop])
 
   // if user logged in then save user information in a local variable
   if (!loggedInUser && sessionStorage.getItem('loggedInUser')){
@@ -47,7 +56,7 @@ function App() {
   }
 
   return (
-    <div className="App" style={backdrop ? {overflow: 'hidden', position: 'fixed', width: '100%'} : {overflow: 'hidden', position: 'relative', width: 'auto'}}>
+    <div className="App">
       <AuthContext.Provider value={{loggedInUser, setBackdrop}}>
         <Backdrop backdrop={backdrop} toggleBackdrop={ closeSideDrawer } />
         <Topbar toggleSideDrawer={ openSideDrawer } />
@@ -69,10 +78,10 @@ function App() {
           <Route path='/book-service/:serviceId/:packagePrice' element={<Booking />} />
           <Route path='/payment' element={<PaymentContainer />}/>
           <Route path='/feedback' element={<Feedback />}/>
-          <Route path='*' element={<DefaultRoute />}/>
+          <Route path='*' element={<NotFoundRoute />}/>
         </Routes>
         <Footer />
-        </AuthContext.Provider>
+      </AuthContext.Provider>
     </div>
   );
 }

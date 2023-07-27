@@ -1,0 +1,171 @@
+.feedbackMain {
+    position: relative;
+    width: 100%;
+}
+
+.feedbackBg {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../../Assets/feedback.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: brightness(0.5);
+}
+
+.feedbackFromContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.685);
+    padding: 30px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.formHeader {
+    color: #7db2ed;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+
+.formInputContainer {
+    width: 350px;
+    height: 45px;
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formInputContainer.wrongInput {
+    border: 1px solid darkred;
+    background-color: #8b000047;
+    
+}
+
+.formTextAreaContainer {
+    width: 350px;
+    /* height: 45px; */
+    margin: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.formStarContainer {
+    width: 350px;
+    margin: 10px;
+}
+
+.input {
+    width: 80%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: lightgray;
+}
+
+.textarea {
+    width: 80%;
+    padding: 15px 0 0 25px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: lightgray;
+}
+
+.textarea::placeholder {
+    color: lightgray;
+}
+
+.input::placeholder {
+    color: lightgray;
+}
+
+.inputIcon {
+    color: #b1cdee;
+    font-size: 18px;
+}
+
+.submitBtn {
+    height: 40px;
+    width: 300px;
+    margin: 20px;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: #66a1e6;
+}
+
+.submitBtn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.submitBtn:disabled:hover {
+    background-color: #7db2ed;
+}
+
+.statusMsgDisplay {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.statusMsgBtn {
+    height: 40px;
+    width: 200px;
+    margin: 20px;
+    border: 1px solid #7db2ed;
+    border-radius: 5px;
+    background-color: #7db2ed;
+    color: white;
+    cursor: pointer;
+}
+
+.statusMsgBtn:hover {
+    background-color: #66a1e6;
+}
+
+@media (max-width: 932px) {
+    .feedbackBg {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 700px) {
+    .feedbackFromContainer {
+        width: 90%;
+    }
+
+    .formInputContainer, .formTextAreaContainer {
+        width: 90%;
+    }
+
+    .submitBtn {
+        width: 90%;
+    }
+}
