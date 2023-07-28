@@ -89,7 +89,7 @@ const WorkshopPriceList = () => {
                 </div>
 
                 <div className={styles.workshopHeaderContainer}>
-                    <h1>Cycle Fix Workshop Price List</h1>
+                    <h1>Workshop Price List</h1>
                     <p className={styles.headerContainerP}>Here at Cycle Fix London our experienced mechanics are keen to help get you back on the road. We specialise in on-the-spot repairs as well as servicing for all makes and models of bicycle. Below you will find our workshop price list for all repairs and servicing. Please note these costs are for labour only unless otherwise stated.</p>
                     <DownArrow clickHandler={() => arrowRef.current.scrollIntoView(true)}
                     h3="Check the prices below"/>

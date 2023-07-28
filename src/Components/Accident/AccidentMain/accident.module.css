@@ -1,10 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
-
-
 .accidentMain {
     position: relative;
     width: 100%;
-    font-family: 'PT Serif', serif;
 }
 
 .accidentIntroMain {
@@ -40,39 +36,40 @@
 }
 
 .accidentIntroContainerH1 {
-    font-size: 40px;
-    color: #7db2ed;;
+    font-size: 30px;
+    color: #7db2ed;
 }
 
 .accidentIntroContainerP {
-    font-size: 20px;
+    font-size: 16px;
     width: 95%;
     text-align: left;
+    line-height: 25px;
 }
 
 .accidentIntroContainerBtn {
     height: 45px;
     width: 300px;
     margin-top: 20px;
-    background-color: transparent;
+    background-color: #7db2ed;
     color: white;
-    border: 1px solid white;
+    border: 1px solid #7db2ed;
     border-radius: 10px;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .accidentIntroContainerBtn:hover {
-    background-color: white;
-    color: #7db2ed;
-    border: 1px solid white;
+    opacity: 1;
 }
 
 .camsMain {
     width: 100%;
-    margin: 90px auto;
-    padding: 20px 10px;
+    margin: 20px auto;
+    padding: 30px 10px;
     box-sizing: border-box;
     display: flex;
+    background-color: rgb(53, 53, 53);
     justify-content: center;
     align-items: center;
 }
@@ -106,34 +103,36 @@
 
 .camsP {
     text-align: left;
+    color: lightgray;
+    font-size: 15px;
 }
 
 .camsLink {
     text-decoration: none;
     border: 2px solid #8ebff7;
-    background-color: white;
-    color: #76b0f3;
+    background-color: #8ebff7;
+    color: white;
     height: 40px;
     width: 200px;
     margin: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    opacity: 0.8;
 }
 
 .camsLink:hover {
-    background-color: #8ebff7;
-    color: rgb(255, 255, 255);
-    border: 2px solid #8ebff7;
+    opacity: 1;
 }
 
 .whatWeDoMain {
     width: 100%;
-    margin: 90px auto;
-    padding: 10px;
+    margin: 20px auto;
+    padding: 30px 10px;
     box-sizing: border-box;
+    background-color: rgb(53, 53, 53);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +140,7 @@
 
 .whatWeDoIntro, .whatWeDoImgContainer {
     width: 50%;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -157,7 +156,7 @@
 }
 
 .whatWeDoServices{
-    width: 80%;
+    width: 100%;
     margin: 15px auto;
     list-style: none;
     padding: 0;
@@ -167,17 +166,20 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .whatWeDoH2 {
-    color: #63a0c8;
+    color: #7db2ed;
     letter-spacing: 1px;
+    text-align: left;
 }
 
 .whatWeDoP {
     text-align: left;
     margin: 5px;
+    font-size: 15px;
+    color: lightgray
 }
 
 .whatWeDoIcon {
@@ -219,12 +221,12 @@
         flex-flow: column-reverse;
     }
 
-    .whatWeDoIntro, .whatWeDoImgContainer {
-        width: 100%;
+    .whatWeDoListContainer {
+        justify-content: flex-start;
     }
 
-    .whatWeDoServices {
-        width: 50%;
+    .whatWeDoIntro, .whatWeDoImgContainer {
+        width: 100%;
     }
 }
 
@@ -235,18 +237,8 @@
 }
 
 @media (max-width: 768px) {
-    .whatWeDoServices {
-        width: 90%;
-    }
-    .camsMain {
-        margin: 50px auto;
-    }
     .camsImgContainer {
         padding: 0px;
-    }
-
-    .whatWeDoMain {
-        margin: 50px auto;
     }
 }
 

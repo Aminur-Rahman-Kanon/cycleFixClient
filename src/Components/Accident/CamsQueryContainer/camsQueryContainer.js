@@ -120,7 +120,7 @@ const CamsQueryContainer = ({ formRef }) => {
     if (submitStatus === 'success') {
         submitMsg = <div className={styles.submitMsgMain}>
             <h2 className={styles.submitMsgH1}>Thank you</h2>
-            <p className={styles.submitMsgH2}>Your query has been sent successfully</p>
+            <p className={styles.submitMsgP}>Your query has been sent successfully</p>
             <button className={styles.submitMsgBtn} onClick={() => window.location.reload()}>
                 You are welcome !
             </button>
@@ -143,15 +143,13 @@ const CamsQueryContainer = ({ formRef }) => {
             </Modal>
             
             <Spinner spinner={spinner} />
-            <div className={styles.camsInquiryHeader}>
-                <h2 className={styles.camsInquiryH1}>CAMS Inquiry</h2>
-            </div>
 
             <div className={styles.camsInquiryBg}>
 
             </div>
 
             <div className={styles.camsInquiryFormContainer} ref={formRef}>
+                <h2 className={styles.camsInquiryH1}>CAMS Inquiry</h2>
                 <form className={styles.camsInquiryForm}>
                     <div className={nameValidation ? styles.camsInquiryFormInputContainer : `${styles.camsInquiryFormInputContainer} ${styles.wrongInput}`}>
                         <FontAwesomeIcon icon={faSignature} className={nameValidation ? styles.camsInquiryFormInputIcon : `${styles.camsInquiryFormInputIcon} ${styles.wrongInputIcon}`} />

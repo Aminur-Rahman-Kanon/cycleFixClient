@@ -54,7 +54,7 @@ const Accident = () => {
 
             <div className={styles.whatWeDoMain}>
                 <div className={styles.whatWeDoIntro}>
-                    <h2 className={styles.whatWeDoH2}>To help you, we have put together a service where we handle all the main tasks for you including:</h2>
+                    <h2 className={styles.whatWeDoH2}>We handle all the main tasks:</h2>
 
                     <div className={styles.whatWeDoListContainer}>
                         <ul className={styles.whatWeDoServices}>
