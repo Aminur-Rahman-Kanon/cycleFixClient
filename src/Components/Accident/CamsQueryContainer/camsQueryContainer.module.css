@@ -14,7 +14,7 @@
 }
 
 .camsInquiryH1 {
-    color: #63a0c8;
+    color: #7db2ed;
     letter-spacing: 1px;
 }
 
@@ -37,7 +37,7 @@
     width: 75%;
     margin: 0 auto;
     background-color: rgb(53 53 53 / 89%);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .camsInquiryForm{
@@ -137,8 +137,8 @@
     animation: enable 0.6s ease-out forwards;
 }
 
-.camsInquiryFormBtn.wrongBtn {
-    cursor: not-allowed;
+.camsInquiryFormBtn:disabled {
+    cursor: default;
     opacity: 0.5;
     animation: disable 0.6s ease-out forwards;
 }
@@ -182,6 +182,12 @@
     color: white;
 }
 
+@media (max-width: 932px) {
+    .camsInquiryFormContainer, .camsInquiryFormInputContainer, .camsInquiryFormMsgInputContainer, .camsInquiryFormBtn {
+        width: 90%;
+    }
+}
+
 @media (max-width: 768px) {
     .camsInquiryFormContainer {
         width: 90%;
@@ -201,5 +207,11 @@
     .camsInquiryFormBtn {
         width: 90%;
         min-width: unset;
+    }
+}
+
+@media (max-width: 450px) {
+    .camsInquiryFormContainer, .camsInquiryFormInputContainer, .camsInquiryFormMsgInputContainer, .camsInquiryFormBtn {
+        width: 95%;
     }
 }

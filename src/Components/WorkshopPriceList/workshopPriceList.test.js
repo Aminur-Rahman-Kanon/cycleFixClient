@@ -19,8 +19,8 @@ describe('<WorkshopPriceList />', () => {
         );
     
         //initial assertion
-        expect(screen.getByRole('heading', { name: 'Cycle Fix Workshop Price List' })).toBeInTheDocument();
         expect(screen.getByRole('heading', { name: 'Workshop Price List' })).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: 'Select a service from below' })).toBeInTheDocument();
         expect(screen.getByRole('heading', { name: 'Individual Repairs Price List'})).toBeInTheDocument();
         expect(screen.getByRole('heading', { name: 'Punctures (Excluding inner tube)'})).toBeInTheDocument();
         expect(screen.getByRole('heading', { name: 'Brakes'})).toBeInTheDocument();
@@ -45,7 +45,7 @@ describe('<WorkshopPriceList />', () => {
         for (let i=0; i<priceList.length; i++){
             expect(screen.getByRole('heading', { name: `${priceList[i].h2}` })).toBeInTheDocument();
             expect(screen.getByText(`£${priceList[i].price}`));
-            expect(screen.getAllByRole('link', { name: 'Book Now' })[i]).toHaveAttribute('href', `/book-service/${priceList[i].h2.toLowerCase()}/${priceList[i].price}`)
+            expect(screen.getByRole('link', { name: `Select ${priceList[i].h2}` })).toHaveAttribute('href', `/book-service/${priceList[i].h2}/${priceList[i].price}`)
         }
     })
 

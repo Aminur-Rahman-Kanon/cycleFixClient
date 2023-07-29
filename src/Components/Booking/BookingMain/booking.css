@@ -255,15 +255,6 @@ abbr {
     align-items: center;
 }
 
-/* .textarea-container {
-    width: 400px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-} */
-
 .form-textarea {
     width: 80%;
     padding-top: 15px;
@@ -384,6 +375,13 @@ input::-webkit-inner-spin-button {
 @media (max-width: 550px) {
     .react-calendar__navigation__arrow {
         margin: 5px;
+    }
+}
+
+@media (max-width: 450px) {
+    .go-back-btn-container {
+        height: 25px;
+        left: -28px;
     }
 }
 

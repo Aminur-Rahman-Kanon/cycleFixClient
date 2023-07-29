@@ -64,9 +64,11 @@
     min-height: 280px;
     padding: 20px;
     box-sizing: border-box;
-    border: 1px solid #4a4a4a;
+    /* border: 1px solid #4a4a4a; */
+    border: 1px solid #666565;
     border-radius: 10px;
-    background-color: #4a4a4a;
+    /* background-color: #4a4a4a; */
+    background-color: #666565;
     display: flex;
     flex-flow: column;
     justify-content: flex-start;

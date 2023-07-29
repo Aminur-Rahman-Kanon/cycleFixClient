@@ -6,6 +6,7 @@ import mechanic from '../../../Assets/mechanic.jpg';
 import styles from './accident.module.css';
 import { Helmet } from 'react-helmet-async';
 import CamsQueryContainer from '../CamsQueryContainer/camsQueryContainer';
+import bg from '../../../Assets/accident.jpg';
 
 const Accident = () => {
 
@@ -27,7 +28,7 @@ const Accident = () => {
         <div className={styles.accidentMain}>
             <div className={styles.accidentIntroMain}>
                 <div className={styles.accidentIntroBg}>
-
+                    <img src={bg} alt="bike accient" className={styles.accidentIntroBgImg}/>
                 </div>
 
                 <div className={styles.accidentIntroContainer}>
@@ -54,7 +55,7 @@ const Accident = () => {
 
             <div className={styles.whatWeDoMain}>
                 <div className={styles.whatWeDoIntro}>
-                    <h2 className={styles.whatWeDoH2}>We handle all the main tasks:</h2>
+                    <h2 className={styles.whatWeDoH2}>What we do</h2>
 
                     <div className={styles.whatWeDoListContainer}>
                         <ul className={styles.whatWeDoServices}>

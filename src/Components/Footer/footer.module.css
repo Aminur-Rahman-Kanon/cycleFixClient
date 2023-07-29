@@ -39,7 +39,7 @@
 .cycleFixHeader {
     font-size: 22px;
     margin: 10px 0;
-    color: #63a2eb;
+    color: #7db2ed;
 }
 
 .openingTimes {
@@ -55,6 +55,7 @@
 .openingTime {
     margin: 10px;
     font-size: 14px;
+    color: lightgray;
 }
 
 .quickLinksList, .usefulLinksList {
@@ -99,7 +100,7 @@
 }
 
 .footerHeader {
-    color: #63a2eb;
+    color: #7db2ed;
     margin: 0 0 10px 0;
     font-size: 22px;
 }
@@ -120,6 +121,6 @@
 
 .footerTrailerHeader {
     font-size: 15px;
-    color: #63a2eb;
+    color: #7db2ed;
     font-weight: 400;
 }

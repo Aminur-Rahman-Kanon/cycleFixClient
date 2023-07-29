@@ -51,6 +51,7 @@
 .booking-information-details-h2 {
     color: #9ccafd;
     margin: 5px 0;
+    font-size: 18px;
 }
 
 .user-input-container {
@@ -140,11 +141,11 @@
         width: 100%
     }
 
-    /* .booking-information-details {
-        text-align: left;
-    } */
+    .booking-details-p {
+        font-size: 13px;
+    }
 
     .booking-information-details-h2 {
-        margin: 5px;
+        margin: 5px 0;
     }
 }

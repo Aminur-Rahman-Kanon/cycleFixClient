@@ -7,18 +7,16 @@ test('<HeaderContainer />', () => {
     //initial assertion
     expect(screen.getByRole('heading', { name: 'Our Services' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Your Reliable Local Bicycle Repair Shop' })).toBeInTheDocument();
-    expect(screen.getByTestId('clock')).toBeInTheDocument();
+    expect(screen.getByAltText('walk in ride out')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Walk in Ride out' })).toBeInTheDocument();
-    expect(screen.getByTestId('wrench')).toBeInTheDocument();
+    expect(screen.getByAltText('wide range of bike item')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Wide range of stocks' })).toBeInTheDocument();
-    expect(screen.getByTestId('tie')).toBeInTheDocument();
+    expect(screen.getByAltText('experienced bike mechanic')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Experienced professional' })).toBeInTheDocument();
-    expect(screen.getByTestId('charging-station')).toBeInTheDocument();
+    expect(screen.getByAltText('bike accessories')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Accessories' })).toBeInTheDocument();
-    expect(screen.getByTestId('biking')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Walk in Ride out' })).toBeInTheDocument();
-    expect(screen.getByTestId('motorcycle')).toBeInTheDocument();
+    expect(screen.getByAltText('courtesy bike')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Courtesy bike' })).toBeInTheDocument();
-    expect(screen.getByTestId('clock')).toBeInTheDocument();
+    expect(screen.getByAltText('xiaomi e scooter')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Xiaomi E-scooter' })).toBeInTheDocument();
 })

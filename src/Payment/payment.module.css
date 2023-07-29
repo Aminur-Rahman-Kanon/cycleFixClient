@@ -28,7 +28,7 @@
     width: 90%;
     padding: 15px;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 5px 5px 12px 2px rgba(255, 255, 255, 0.459);
     display: flex;
     justify-content: space-around;
@@ -61,14 +61,14 @@
 
 .userInformationMain {
     width: 48%;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.623);
-    border-radius: 15px;
+    border-radius: 5px;
     color: white;
 }
 
@@ -84,7 +84,7 @@
 .userInformationH2 {
     color: #9ccafd;
     margin: 5px 0;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .userInformationH3, .userInformationP {
@@ -104,7 +104,7 @@
 
 .fieldSet {
     width: 90%;
-    height: 45px;
+    height: 40px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -225,7 +225,7 @@
     margin: 5px 10px 5px 0;
     text-align: left;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .innerDetailsDeposit {
@@ -242,28 +242,12 @@
         flex-flow: column;
     }
 
-    .logoContainer {
-        justify-content: center;
-    }
-
     .userInformationMain {
         width: 100%;
     }
 
-    .userInformationContainer {
-        align-items: center;
-    }
-
-    .innerDetailsH4 {
-        margin: 10px;
-    }
-
-    .innerDetailsDeposit {
-        align-items: center;
-    }
-
-    .paymentFormContainer {
-        width: 80%;
+    .paymentFormContainer, .fieldSet, .paymentCardContainer, .btnContainer {
+        width: 100%;
     }
 }
 
@@ -272,11 +256,12 @@
         width: 100%;
     }
 
-    .fieldSet, .paymentCardContainer, .btnContainer {
-        width: 100%;
+    .paymentFormMain {
+        width: 95%;
+        padding: 10px;
     }
 
-    .innerDetailsH4 {
-        text-align: center;
+    .fieldSet, .paymentCardContainer, .btnContainer {
+        width: 100%;
     }
 }

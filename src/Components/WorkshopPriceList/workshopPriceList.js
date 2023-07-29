@@ -38,44 +38,6 @@ const WorkshopPriceList = () => {
         }
     }, [params])
 
-    let displayList = priceList.map(lists => {
-        return <div data-aos = "zoom-in" key={lists.h2} className={styles.priceListMain}>
-            <div className={styles.priceListBg}>
-                <img src={lists.img} alt="Bike repair services" className={styles.priceListBgImg} />
-            </div>
-            <h2 className={styles.priceListMainH2}>{lists.h2}</h2>
-            <div className={styles.poundSignMain}>
-                {/* <FontAwesomeIcon icon={ faSterlingSign } className={styles.poundSign}/> */}
-                <p className={styles.price}>&pound;{lists.price}</p>
-            </div>
-            <div className={styles.priceListsContainer}>
-                <div className={styles.priceListsContainer1}>
-                    <div className={styles.priceLists}>
-                        {lists.list.map((list, index) => {
-                            if (index === 0){
-                                return <div key={index} className={styles.priceList}>
-                                    <FontAwesomeIcon icon={ faMagnifyingGlass } className={styles.priceListIcon} />
-                                    <p className={styles.priceListP}>{list}</p>
-                                </div>
-                            }
-                            else {
-                                return <div key={index+16} className={styles.priceList}>
-                                    <FontAwesomeIcon icon={ faScrewdriverWrench } className={styles.priceListIcon} />
-                                    <p className={styles.priceListP}>{list}</p>
-                                </div>
-                            }
-                        })}
-                    </div>
-                </div>
-
-                <div className={styles.priceListsContainer2}>
-                    <h3 className={styles.bookNowH3}>Book For This Service !</h3>
-                    <Link to={`/book-service/${lists.h2.toLowerCase()}/${lists.price}`} className={styles.bookNowBtn}>Book Now</Link>
-                </div>
-            </div>
-        </div>
-    })
-
     return (
         <>
         <Helmet>
@@ -98,7 +60,7 @@ const WorkshopPriceList = () => {
             </div>
 
             <div className={styles.priceListMainContainer} ref={arrowRef}>
-                <h2 className={styles.priceListH1}>Workshop Price List</h2>
+                <h2 className={styles.priceListH1}>Select a service from below</h2>
                 <ServicesContainer />
             </div>
 

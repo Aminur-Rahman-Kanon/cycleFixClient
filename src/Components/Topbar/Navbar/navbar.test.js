@@ -15,6 +15,5 @@ test('<Navbar />', () => {
     expect(screen.getByRole('link', { name: 'Book A Service' })).toHaveAttribute('href', '/book-service');
     expect(screen.getByRole('link', { name: 'Workshop Price List' })).toHaveAttribute('href', '/workshop-price-list');
     expect(screen.getByRole('link', { name: 'Xiaomi E-Scooter' })).toHaveAttribute('href', '/xiaomi-e-scooter');
-    expect(screen.getByRole('link', { name: 'Courtesy Bike' })).toHaveAttribute('href', '/courtesy-bike');
     expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '/contact');
 })

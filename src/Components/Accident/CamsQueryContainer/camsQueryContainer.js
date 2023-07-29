@@ -201,7 +201,7 @@ const CamsQueryContainer = ({ formRef }) => {
                                 />
                     </div>
 
-                    <button className={finalValidation ? styles.camsInquiryFormBtn : `${styles.camsInquiryFormBtn} ${styles.wrongBtn}`}
+                    <button className={styles.camsInquiryFormBtn}
                             disabled={!finalValidation}
                             onClick={(event) => handleSubmission(event)}
                             >Submit</button>

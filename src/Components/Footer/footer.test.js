@@ -26,7 +26,6 @@ describe('<Footer />', () => {
         expect(screen.getByRole('link', { name: 'Appoinment' })).toHaveAttribute('href', '/book-service');
         expect(screen.getByRole('link', { name: 'Individual Price List' })).toHaveAttribute('href', '/workshop-price-list/individual-price-lists');
         expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '/contact/query');
-        expect(screen.getByRole('link', { name: 'Courtesy Bike' })).toHaveAttribute('href', '/courtesy-bike');
 
         //asserting usefull links container
         expect(screen.getByRole('heading', { name: 'Useful Links' })).toBeInTheDocument();
