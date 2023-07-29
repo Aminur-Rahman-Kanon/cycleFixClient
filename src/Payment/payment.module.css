@@ -26,12 +26,12 @@
 
 .paymentFormMain {
     width: 90%;
-    padding: 45px;
+    padding: 15px;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 5px 5px 12px 2px rgba(255, 255, 255, 0.459);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.322);
     animation: startUp 1.2s ease-out forwards
@@ -60,8 +60,8 @@
 }
 
 .userInformationMain {
-    width: 50%;
-    padding: 20px;
+    width: 48%;
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
@@ -82,16 +82,18 @@
 }
 
 .userInformationH2 {
-    color: #7db2ed;
-    margin: 10px 10px 10px 0px;
+    color: #9ccafd;
+    margin: 5px 0;
+    font-size: 22px;
 }
 
 .userInformationH3, .userInformationP {
-    margin: 10px 0;
+    margin: 5px 0;
+    font-size: 14px;
 }
 
 .paymentFormContainer {
-    width: 50%;
+    width: 48%;
     padding: 10px;
     box-sizing: border-box;
     display: flex;
@@ -102,33 +104,33 @@
 
 .fieldSet {
     width: 90%;
-    height: 50px;
+    height: 45px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     background-color: transparent;
     border: 1px solid lightgray;
     border-radius: 5px;
-    margin: 20px;
+    margin: 5px;
 }
 
 .formIcon {
-    width: 20px;
-    padding: 10px;
+    width: 15px;
+    padding: 5px;
     margin: 10px;
     background-color: #7db2ed;
     color: white;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .formInput {
     width: 80%;
     height: 30px;
-    margin-left: 5px;
     border: none;
     outline: none;
     background-color: transparent;
     color: white;
+    font-size: 16px;
 }
 
 .formInput::placeholder {
@@ -137,7 +139,7 @@
 
 .paymentCardContainer {
     width: 90%;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid lightgray;
@@ -153,7 +155,7 @@
 
 .btnContainer {
     width: 90%;
-    margin: 20px auto;
+    margin: 5px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,11 +190,25 @@
     align-items: center;
     background-color: #ededed;
     border-radius: 10px;
+    text-align: center;
+}
+
+.displayMsgHeader {
+    font-size: 25px;
+    color: #619ee4;
+    margin: 10px 0;
+}
+
+.displayMsgP {
+    font-size: 15px;
+    margin: 5px 0;
+    color: #262626;
 }
 
 .displayMsgBtn {
     height: 40px;
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
     margin: 20px auto;
     border: 1px solid #7db2ed;
     border-radius: 5px;
@@ -206,8 +222,10 @@
 }
 
 .innerDetailsH4 {
-    margin: 10px 10px 10px 0px;
+    margin: 5px 10px 5px 0;
     text-align: left;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .innerDetailsDeposit {

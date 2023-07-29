@@ -7,8 +7,9 @@
 }
 
 .registrationFormNames {
-    width: 450px;
-    margin: 15px;
+    width: 95%;
+    max-width: 450px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,12 +49,13 @@
 }
 
 .registrationFormInput::placeholder {
-    color: white;
+    color: lightgray;
 }
 
 .registrationFormInputContainer {
     position: relative;
-    width: 450px;
+    width: 95%;
+    max-width: 450px;
     height: 45px;
     margin: 15px;
     padding: 10px;
@@ -70,7 +72,8 @@
 }
 
 .registrationFormLoginContainer {
-    width: 350px;
+    width: 95%;
+    max-width: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +84,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 70%);
+    transform: translate(-50%, 40%);
     width: 100%;
     color: rgb(248, 120, 120);
     font-size: 15px;
@@ -93,7 +96,7 @@
     border: none;
     outline: none;
     padding: 10px;
-    color: white;
+    color: lightgray;
 }
 
 .registrationFormOption {
@@ -105,15 +108,17 @@
     position: absolute;
     bottom: 50%;
     left: 50%;
-    transform: translate(-50%, 280%);
+    transform: translate(-50%, 225%);
+    width: 100%;
     color: rgb(248, 120, 120);
     margin: 0;
 }
 
 .registrationFormRadioContainer {
-    width: 350px;
+    width: 95%;
+    max-width: 450px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     margin: 15px;
     color: white;
@@ -125,12 +130,19 @@ input[type='radio']:checked {
 
 .registrationFormP {
     margin: 0 5px;
+    font-size: 14px;
+}
+
+.loginPromptP {
+    margin: 5px;
+    font-size: 14px;
 }
 
 .registrationBtn {
     height: 40px;
-    width: 350px;
-    margin: 10px;
+    width: 95%;
+    max-width: 450px;
+    margin: 20px auto;
     border: 1px solid transparent;
     border-radius: 5px;
     background-color: #6da8ec;
@@ -150,7 +162,7 @@ input[type='radio']:checked {
 
 .registrationLink {
     height: 30px;
-    width: 80px;
+    width: 150px;
     text-decoration: none;
     background-color: rgba(211, 211, 211, 0);
     color:#7db2ed;
@@ -202,7 +214,29 @@ input[type='radio']:checked {
     color: white;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
+    .registrationFormNames, .registrationFormInputContainer, .registrationFormRadioContainer, .registrationBtn, .registrationFormLoginContainer {
+        max-width: unset;
+    }
+}
+
+@media (max-width: 400px) {
+    .registrationLink {
+        width: 80px;
+    }
+}
+
+@media (max-width: 340px) {
+    .registrationFormRadioContainer {
+        align-items: flex-start;
+    }
+
+    .registrationFormP {
+        text-align: left;
+    }
+}
+
+/* @media (max-width: 600px) {
     .registrationFormNames {
         width: 90%;
         margin: 10px;
@@ -233,4 +267,4 @@ input[type='radio']:checked {
     input[type='radio'] {
         margin: 5px;
     }
-}
+} */

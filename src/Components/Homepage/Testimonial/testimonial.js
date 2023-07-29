@@ -50,7 +50,7 @@ const Testimonial = () => {
     if (testimonial.length) {
         displayRatings = testimonial.slice(testimonialIndex*itemToView, (testimonialIndex*itemToView) + itemToView).map(ratings => {
             return <div key={ratings.comment} className={styles.testimonialCard}>
-            <p style={{color: 'lightgray'}}>{ratings.comment}</p>       
+            <p className={styles.rattingsP}>{ratings.comment}</p>       
             <div className={styles.testimonialStars}>
                 <h4 className={styles.testimonialH4}>{ratings.name}</h4>
                 {Number(ratings.rating) === 5 ? Array.from(Array(Number(ratings.rating)).keys()).map((star, index) => {

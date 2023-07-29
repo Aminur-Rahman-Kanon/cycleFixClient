@@ -224,7 +224,7 @@ const RegistrationForm = ({ context, toggleSpinner }) => {
             </button>
 
             <div className={styles.registrationFormLoginContainer}>
-                <p>Have already an account ?</p> <Link to="/login" className={styles.registrationLink}>Login</Link>
+                <p className={styles.loginPromptP}>Have already an account ?</p> <Link to="/login" className={styles.registrationLink}>Login</Link>
             </div>
         </form>
         </>

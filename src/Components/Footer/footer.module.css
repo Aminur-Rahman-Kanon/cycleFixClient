@@ -1,6 +1,6 @@
 .footerMain {
     width: 100%;
-    padding: 30px;
+    padding: 20px 10px;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
@@ -21,6 +21,7 @@
     width: 250px;
     margin: 10px;
     color: white;
+    flex-grow: 1;
 }
 
 .quickLinksContainer, .usefulLinksContainer, .stayConnectedLists {
@@ -35,6 +36,12 @@
     align-items: center;
 }
 
+.cycleFixHeader {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #63a2eb;
+}
+
 .openingTimes {
     list-style: none;
     padding: 0;
@@ -47,23 +54,24 @@
 
 .openingTime {
     margin: 10px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .quickLinksList, .usefulLinksList {
     list-style: none;
-    margin: 10px;
+    margin: 5px 0;
 }
 
 .socialLinks {
     width: 100%;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .socialLinkIcon {
-    font-size: 35px;
+    font-size: 25px;
     margin: 10px;
     color: lightgray;
     cursor: pointer;
@@ -75,7 +83,9 @@
 
 .quickLinksLink, .usefulLinksLink, .stayConnectedLink {
     text-decoration: none;
+    display: block;
     color: rgb(218, 217, 217);
+    font-size: 14px;
 }
 
 .quickLinksLink:hover, .usefulLinksLink:hover, .stayConnectedLink:hover {
@@ -90,10 +100,26 @@
 
 .footerHeader {
     color: #63a2eb;
-    margin: 30px;
+    margin: 0 0 10px 0;
+    font-size: 22px;
 }
 
 .stayConnectedIcon {
     font-size: 30px;
     color: red;
+}
+
+.stayConnectedP {
+    margin: 5px 0;
+}
+
+.openingTimesHeader {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.footerTrailerHeader {
+    font-size: 15px;
+    color: #63a2eb;
+    font-weight: 400;
 }

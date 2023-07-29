@@ -136,27 +136,27 @@ const Payment = () => {
     let displayMsg = null;
 
     let displaybookingStatus = <div className={styles.displayMsgMain}>
-        <h1 style={{color: '#7db2ed'}}>Technical difficulties</h1>
-        <p style={{textAlign: 'center'}}>Extremely sorry for the inconvenience</p>
-        <p style={{textAlign: 'center'}}>The payment gone through but something wrong with the booking</p>
-        <p style={{textAlign: 'center'}}>Please contact cycle fix on 02078200028</p>
+        <h2 className={styles.displayMsgHeader}>Technical difficulties</h2>
+        <p className={styles.displayMsgP}>Extremely sorry for the inconvenience</p>
+        <p className={styles.displayMsgP}>The payment gone through but something wrong with the booking</p>
+        <p className={styles.displayMsgP}>Please contact cycle fix on 02078200028</p>
         <button className={styles.displayMsgBtn} onClick={closePopupMsg}>Ok</button>
     </div>
 
     if (success) {
         displayMsg = <div className={styles.displayMsgMain}>
-            <h1 style={{color: '#7db2ed'}}>Payment received</h1>
-            <p style={{textAlign: 'center'}}>{`${userData.service} service has been booked on ${userData.date} at 9.00 AM`}</p>
-            <p>Your authorization code: {authCode}</p>
-            <p>See you soon!</p>
+            <h1 className={styles.displayMsgHeader}>Payment received</h1>
+            <p className={styles.displayMsgP}>{`${userData.service} service has been booked on ${userData.date} at 9.00 AM`}</p>
+            <p className={styles.displayMsgP}>Your authorization code: {authCode}</p>
+            <p className={styles.displayMsgP}>See you soon!</p>
             <button className={styles.displayMsgBtn} onClick={() => window.location.assign('/')}>Finish</button>
         </div>
     }
     else if (error){
         displayMsg = <div className={styles.displayMsgMain}>
-            <h1>Something went wrong</h1>
-            <p style={{textAlign: 'center'}}>The payment didn't go through</p>
-            <p style={{textAlign: 'center'}}>Please check the credentials and try again</p>
+            <h1 className={styles.displayMsgHeader}>Something went wrong</h1>
+            <p className={styles.displayMsgP}>The payment didn't go through</p>
+            <p className={styles.displayMsgP}>Please check the credentials and try again</p>
             <button className={styles.displayMsgBtn} onClick={closePopupMsg}>Try again</button>
         </div>
     }

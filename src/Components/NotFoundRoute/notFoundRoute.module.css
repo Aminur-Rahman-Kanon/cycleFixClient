@@ -43,10 +43,6 @@
 }
 
 @media (max-height: 750px) {
-    .defaultRouteMain {
-        height: 500px;
-    }
-
     .notFound {
         width: 55%;
     }

@@ -80,18 +80,18 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
         <div className={styles.contactFormMain} ref={ formRef }>
             <div className={styles.contactForm}>
                 <h1 className={styles.contactFormH1}>Contact Cycle Fix London</h1>
+                <div className={styles.contactFormHeader}>
+                    <h3 className={styles.contactFormH3}>If you have any questions or queries please get in touch on 0207 820 0028 or send us a message below. We’ll get back to you as soon as possible.</h3>
+                </div>
                 <div className={styles.contactFormHeaderMain}>
                     <div className={styles.contactFormHeaderContainer}>
-                        <div className={styles.contactFormHeader}>
-                            <h3>If you have any questions or queries please get in touch on 0207 820 0028 or send us a message below. We’ll get back to you as soon as possible.</h3>
-                        </div>
                         <div className={styles.contactFormHeaderItemContainer}>
                             <div className={styles.contactFormHeaderItems}>
                                 <a href="https://www.google.com/maps/dir/51.5047424,-0.1245184/51.4865153,-0.1115455/@51.4958316,-0.1274317,15z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0" className={styles.contactFormHeaderItem} target="_blank">
                                     <FontAwesomeIcon icon={faMapPin} className={styles.contactFormHeaderItemIcon} />
                                     <div className={styles.contactFormHeaderP}>
-                                        <p style={{margin: '2px'}}>338 Kennington Road, London</p>
-                                        <p style={{margin: '2px'}}>SE11 4LD</p>
+                                        <p className={styles.contactFromHeaderP}>338 Kennington Road, London</p>
+                                        <p className={styles.contactFromHeaderP}>SE11 4LD</p>
                                     </div>
                                 </a>
                             </div>
@@ -99,7 +99,7 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
                                 <a href="mailto:info@cyclefixlondon.co.uk" className={styles.contactFormHeaderItem}>
                                     <FontAwesomeIcon icon={faAt} className={styles.contactFormHeaderItemIcon} />
                                     <div className={styles.contactFormHeaderP}>
-                                        <p>info@cyclefixlondon.co.uk</p>
+                                        <p className={styles.contactFromHeaderP}>info@cyclefixlondon.co.uk</p>
                                     </div>
                                 </a>
                             </div>
@@ -107,7 +107,7 @@ function ContactForm ({ formRef, loggedInUser, changeStatusMessage, toggleBackdr
                                 <a href="tel:+442078200028" className={styles.contactFormHeaderItem}>
                                     <FontAwesomeIcon icon={faPhone} className={styles.contactFormHeaderItemIcon} />
                                     <div className={styles.contactFormHeaderP}>
-                                        <p>0207 820 0028</p>
+                                        <p className={styles.contactFromHeaderP}>0207 820 0028</p>
                                     </div>
                                 </a>
                             </div>

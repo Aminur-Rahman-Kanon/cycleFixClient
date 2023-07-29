@@ -15,19 +15,21 @@
 .go-back-btn-container {
     position: fixed;
     top: 50%;
-    left: 5px;
+    left: -25px;
     z-index: 300;
     width: 80px;
-    height: 40px;
+    height: 30px;
     background-color: #7db2ed;
     color: white;
     display: flex;
     border: 1px solid #7db2ed;
-    border-radius: 5px;
+    border-radius: 0 0 2px 2px;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transform: rotate(270deg);
+    font-size: 13px;
 }
 
 .go-back-btn-container:hover {
@@ -253,18 +255,18 @@ abbr {
     align-items: center;
 }
 
-.textarea-container {
+/* .textarea-container {
     width: 400px;
     border: 1px solid lightgray;
     border-radius: 5px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-}
+} */
 
 .form-textarea {
     width: 80%;
-    padding-top: 20px;
+    padding-top: 15px;
     background-color: transparent;
     color: white;
     border: none;
@@ -333,117 +335,6 @@ option {
     background-color: #222;
 }
 
-.user-input-main {
-    width: 90%;
-    max-width: 1100px;
-    margin: 100px auto;
-    padding: 40px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.233);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: startUp 1.2s ease-out forwards;
-}
-
-.user-input-main-off {
-    display: none;
-}
-
-.booking-information-main {
-    width: 50%;
-    padding: 25px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: #383737e0;
-    border-radius: 10px;
-    color: white;
-}
-
-.booking-information-details {
-    text-align: left;
-}
-
-.booking-information-details-h2 {
-    color: #9ccafd;
-}
-
-.user-input-form {
-    width: 50%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.user-input-container {
-    width: 90%;
-    height: 50px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    background-color: transparent;
-    margin: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.user-input-icon {
-    width: 30px;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #7db2ed;
-    color: white;
-}
-
-.user-input {
-    width: 75%;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-}
-
-.user-input::placeholder {
-    color: lightgray;
-}
-
-.user-input-container-btn {
-    width: 90%;
-    margin: 10px auto;
-}
-
-.user-input-submit-btn {
-    width: 100%;
-    height: 40px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    background-color: #7db2ed;
-    color: white;
-    cursor: pointer;
-}
-
-.user-input-submit-btn:hover {
-    background-color: #64a2e9;
-}
-
-.user-input-submit-btn:disabled {
-    opacity: 0.5;
-    cursor: default;
-}
-
-.user-input-submit-btn:disabled:hover {
-    background-color: #7db2ed;
-    opacity: 0.5;
-}
-
 input[type='number'] {
     -moz-appearance:textfield;
 }
@@ -451,35 +342,6 @@ input[type='number'] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-}
-
-@media (max-width: 850px) {
-    .user-input-main {
-        width: 95%;
-        padding: 10px;
-        flex-flow: column;
-    }
-    
-    .booking-information-main, .user-input-form {
-        align-items: center;
-        width: 100%
-    }
-    .booking-information-details {
-        text-align: center;
-    }
-
-    .booking-information-details-h2 {
-        margin: 5px;
-    }
-
-    .go-back-btn-container {
-        transform: rotate(90deg);
-        left: -20px;
-    }
-
-    .user-input-container, .user-input-container-btn {
-        width: 100%;
-    }
 }
 
 @media (max-width: 794px) {

@@ -50,7 +50,7 @@ function SelectBikeDetails ({ selectedDate, disappearDetailsForm, changeMake, ch
                 </div>
 
                 <div className="input-container-select-main">
-                    <p className="input-container-select-p">If your bike needs parts, how much extra are you willing to spend without us calling you (This is for parts only)</p>
+                    <p className="input-container-select-p">If your bike needs parts, how much extra are you willing to spend without us calling you This is for parts only.</p>
                     <div className="select-div">
                         <select defaultValue="Please select an option"
                                 data-testid="parts-deposit"

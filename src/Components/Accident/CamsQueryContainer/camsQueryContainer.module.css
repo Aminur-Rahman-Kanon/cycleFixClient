@@ -1,7 +1,7 @@
 .camsInquiryMain {
     position: relative;
     width: 100%;
-    margin: 20px auto;
+    margin: 50px auto;
     box-sizing: border-box;
     display: flex;
     flex-flow: column;
@@ -12,10 +12,6 @@
 .camsInquiryMain:target {
     scroll-margin-top: 5rem;
 }
-
-/* .camsInquiryHeader {
-    margin: 20px auto;
-} */
 
 .camsInquiryH1 {
     color: #63a0c8;
@@ -41,7 +37,6 @@
     width: 75%;
     margin: 0 auto;
     background-color: rgb(53 53 53 / 89%);
-    /* background-color: rgba(255, 255, 255, 0.767); */
     border-radius: 15px;
 }
 
@@ -76,7 +71,6 @@
 .camsInquiryFormInputIcon {
     font-size: 20px;
     color: #96c0db;
-    /* color: lightgray; */
     margin: 5px;
 }
 
@@ -88,7 +82,6 @@
     outline: none;
     background-color: transparent;
     color: #96c0db;
-    font-weight: bold;
 }
 
 .camsInquiryFormInput::placeholder {
@@ -187,7 +180,6 @@
 .submitMsgBtn:hover {
     background-color: #569fcf;
     color: white;
-    /* border: ; */
 }
 
 @media (max-width: 768px) {

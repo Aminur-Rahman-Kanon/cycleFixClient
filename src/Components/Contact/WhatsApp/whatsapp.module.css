@@ -1,6 +1,8 @@
 .whatsappMain {
     width: 100%;
+    margin: 20px 0 50px 0;
     padding: 50px 0;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +11,7 @@
 
 .whatsappImgContainer {
     width: 50%;
-    padding: 10px;
+    padding: 0 45px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -33,10 +35,16 @@
     align-items: center;
 }
 
-.whatsappH1, .whatsappH2 {
+.whatsappH1 {
     color: lightgray;
     letter-spacing: 1px;
-    font-size: 25px;
+    font-size: 22px;
+}
+
+.whatsappH2 {
+    color: lightgray;
+    font-size: 18px;
+    margin: 0;
 }
 
 .whatsappContainer {
@@ -56,8 +64,7 @@
 }
 
 .whatsappBtn {
-    width: 100px;
-    margin: 20px;
+    width: 80px;
 }
 
 .whatsappBtn:hover {
@@ -81,7 +88,8 @@
     }
 
     .whatsappImgContainer {
-        width: 75%;
+        width: 85%;
+        padding: 0;
     }
 
     .whatsappHeaderContainer {
@@ -90,6 +98,10 @@
 }
 
 @media (max-width: 550px) {
+    .whatsappMain {
+        padding: 10px;
+    }
+
     .whatsappImgContainer {
         width: 100%;
     }

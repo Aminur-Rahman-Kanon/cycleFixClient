@@ -17,7 +17,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    filter: brightness(0.4);
+    filter: brightness(0.3);
 }
 
 .accidentIntroContainer {
@@ -41,7 +41,7 @@
 }
 
 .accidentIntroContainerP {
-    font-size: 16px;
+    font-size: 14px;
     width: 95%;
     text-align: left;
     line-height: 25px;
@@ -65,7 +65,7 @@
 
 .camsMain {
     width: 100%;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 30px 10px;
     box-sizing: border-box;
     display: flex;
@@ -104,7 +104,7 @@
 .camsP {
     text-align: left;
     color: lightgray;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .camsLink {
@@ -121,6 +121,7 @@
     align-items: center;
     cursor: pointer;
     opacity: 0.8;
+    font-size: 14px;
 }
 
 .camsLink:hover {
@@ -129,7 +130,7 @@
 
 .whatWeDoMain {
     width: 100%;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 30px 10px;
     box-sizing: border-box;
     background-color: rgb(53, 53, 53);
@@ -178,7 +179,7 @@
 .whatWeDoP {
     text-align: left;
     margin: 5px;
-    font-size: 15px;
+    font-size: 14px;
     color: lightgray
 }
 

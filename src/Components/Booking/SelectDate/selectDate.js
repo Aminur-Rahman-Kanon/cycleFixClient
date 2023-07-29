@@ -6,7 +6,7 @@ function SelectDate ({ selectedDate, serviceId, bookedDate, changeSelectedDate }
     return (
         <div className="calender-main-container" style={selectedDate ? {display: 'none'} : {display: 'flex'}}>
             <h1 className="calender-main-h1">{serviceId || 'Not Available'}</h1>
-            <h1 className="calender-main-h1">Please Select An Available Date Below</h1>
+            <h4 className="calender-main-h4">Please Select An Available Date Below</h4>
             <div className="calender-container">
                 <Calendar minDate={new Date()}
                             maxDate={new Date(2030, 12, 31)} 

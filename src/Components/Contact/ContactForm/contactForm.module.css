@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     color: white;
+    margin: 50px auto;
 }
 
 .contactFormHeaderItemContainer {
@@ -18,7 +19,7 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .contactFormHeaderItems {
@@ -36,11 +37,11 @@
 
 .contactFormHeaderItemIcon {
     width: 15px;
-    margin: 15px;
-    padding: 20px;
+    margin: 10px;
+    padding: 15px;
     background-color: #e69b10;
     color: white;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .contactFormHeaderP {
@@ -48,8 +49,15 @@
     margin-left: 5px;
 }
 
-.contactFormHeader {
-    margin-bottom: 30px;
+.contactFormH3 {
+    font-size: 14px;
+    color: lightgray;
+}
+
+.contactFromHeaderP {
+    font-size: 14px;
+    margin: 2px 0;
+    color: lightgray;
 }
 
 .contactForm {
@@ -64,7 +72,6 @@
 }
 
 .contactFormH1 {
-    margin-bottom: 50px;
     letter-spacing: 5px;
 }
 
@@ -99,11 +106,11 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .formInputContainer {
-    width: 350px;
+    width: 65%;
     display: flex;
     height: 45px;
     justify-content: flex-start;
@@ -119,13 +126,13 @@
 }
 
 .formTextAreaContainer {
-    width: 350px;
+    width: 65%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     margin: 15px;
     border: 1px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .addressIcon {
@@ -158,12 +165,12 @@
 
 .formBtn {
     height: 40px;
-    width: 200px;
+    width: 65%;
     margin: 15px;
     background-color: #e69b10;
     color: white;
     border: 1px solid transparent;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -177,6 +184,10 @@
 
 }
 
+.contactFormHeader {
+    width: 70%;
+}
+
 @media (max-width: 932px) {
     .contactFormMain {
         background-attachment: scroll;
@@ -186,8 +197,17 @@
         flex-flow: column;
     }
 
+    .formMain {
+        align-items: center;
+    }
+
     .contactFormHeaderContainer, .contactFormContainer {
         width: 100%;
+    }
+
+    .contactFormHeaderItemContainer {
+        width: 73%;
+        align-items: flex-start;
     }
 
     .formInputContainer, .formTextAreaContainer {
@@ -197,10 +217,33 @@
     .formInput, .formInputTextarea {
         width: 85%;
     }
+
+    .formBtn {
+        width: 70%;
+    }
 }
 
+@media (max-width: 786px) {
+    .contactFormHeader {
+        text-align: left;
+    }
+}
+
+
 @media (max-width: 550px) {
+    .contactFormHeader {
+        width: 90%;
+    }
+    .contactFormHeaderItemContainer {
+        width: 100%;
+        align-items: flex-start;
+    }
+
     .formInputContainer, .formTextAreaContainer {
+        width: 95%;
+    }
+
+    .formBtn {
         width: 95%;
     }
 }

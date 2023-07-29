@@ -13,27 +13,27 @@ function SelectUserInformation({ selectedDate, disappearDetailsForm, make, model
     return (
         <div className={selectedDate && disappearDetailsForm ? "user-input-main" : "user-input-main-off"}>
             <div className="booking-information-main">
-                <div className="logo-container">
+                <div className="booking-information-details">
                     <img src={logo} className="logo" alt="cycle fix logo"/>
                 </div>
                 <div className="booking-information-details">
                     <h2 className="booking-information-details-h2">Date</h2>
-                    <p>{selectedDate}</p>
+                    <p className='booking-details-p'>{selectedDate}</p>
                 </div>
                 <div className="booking-information-details">
                     <h2 className="booking-information-details-h2">Time</h2>
-                    <p>Please bring your bike in the shop around 9 AM</p>
+                    <p className='booking-details-p'>Please bring your bike in the shop around 9 AM</p>
                 </div>
                 <div className="booking-information-details">
                     <h2 className="booking-information-details-h2">Descrption</h2>
                     <div className="booking-details">
-                        <p>Make: {make}</p>
-                        <p>Model: {model}</p>
-                        <p>Color: {color}</p>
-                        <p>additional info: {additionalInfo}</p>
-                        <p>Total price: £{parseInt(additionalCost) + parseInt(packagePrice)}</p>
-                        <p>Deposit: £25</p>
-                        <p>You need to pay just the deposit to make a booking</p>
+                        <p className='booking-details-p'>Make: {make}</p>
+                        <p className='booking-details-p'>Model: {model}</p>
+                        <p className='booking-details-p'>Color: {color}</p>
+                        <p className='booking-details-p'>additional info: {additionalInfo}</p>
+                        <p className='booking-details-p'>Total price: £{parseInt(additionalCost) + parseInt(packagePrice)}</p>
+                        <p className='booking-details-p'>Deposit: £25</p>
+                        <p className='booking-details-p'>You need to pay just the deposit to make a booking</p>
                     </div>
                 </div>
             </div>

@@ -46,7 +46,7 @@ const xiaomiRepairPrice = [
     {repair: 'Front wheel new inner tube replacement with fitting', price: '28'}, {repair: 'Rear wheel new inner tube replacement with fitting', price: '28'},
     {repair: 'Front wheel new inner tube & standard tyre', price: '43'}, {repair: 'Rear wheel new inner tube & standard tyre', price: '43'},
     {repair: 'Front wheel new solid tyre replacement', price: '40'}, {repair: 'Rear wheel new solid tyre replacement', price: '40'},
-    {repair: 'Throttle replacement', price: '40'}, {repair: 'Rear mudguard with fitting', price: '20'}, {repair: 'Rear mudguard with fitting including brake light and wiring', price: '30'}
+    {repair: 'Throttle replacement', price: '40'}, {repair: 'Rear mudguard with fitting', price: '20'}, {repair: 'Rear mudguard fitting including brake light and wiring', price: '30'}
 ]
 
 const mockUserLoggedInData = {

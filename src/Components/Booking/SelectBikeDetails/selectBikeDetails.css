@@ -13,10 +13,15 @@
     display: none;
 }
 
+.details-form-h1 {
+    color: lightgray;
+    font-size: 30px;
+}
+
 .details-form-container {
     width: 70%;
     max-width: 850px;
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
     border-radius: 10px;
     display: flex;
@@ -27,9 +32,9 @@
 }
 
 .input-container {
-    width: 400px;
-    height: 60px;
-    margin: 10px;
+    width: 90%;
+    height: 45px;
+    margin: 10px auto;
     border: 1px solid lightgray;
     border-radius: 5px;
     display: flex;
@@ -37,28 +42,38 @@
     align-items: center;
 }
 
-.input-container-icon {
-    width: 30px;
-    padding: 10px;
-    margin: 10px;
+.textarea-container {
+    width: 90%;
+    margin: 10px auto;
+    border: 1px solid lightgray;
     border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.input-container-icon {
+    width: 20px;
+    padding: 7px;
+    margin: 7px;
+    border-radius: 2px;
     background-color: #7db2ed;
     color: white;
 }
 
 .input-container-select-main {
-    width: 100%;
-    margin: 20px auto;
+    width: 90%;
+    margin: 0;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .input-container-select {
     width: 390px;
     height: 30px;
-    margin: 10px auto;
+    margin: 10px 0;
     background-color: transparent;
     border: none;
     outline: none;
@@ -72,14 +87,17 @@
 }
 
 .input-container-select-p {
-    width: 400px;
+    width: 100%;
     text-align: left;
+    font-size: 14px;
+    margin: 5px 0;
 }
 
 .select-div {
     position: relative;
-    width: 400px;
+    width: 100%;
     height: 40px;
+    margin: 5px auto;
     border: 1px solid lightgray;
     border-radius: 5px;
     display: flex;
@@ -96,12 +114,12 @@
 }
 
 .input-form-btn-container {
-    width: 400px;
+    width: 90%;
     margin: 20px auto;
 }
 
 .input-form-btn {
-    height: 40px;
+    height: 45px;
     width: 100%;
     border: 1px solid #7db2ed;
     border-radius: 5px;
@@ -129,7 +147,7 @@
         width: 95%;
     }
 
-    .input-container, .textarea-container, .select-div, .input-form-btn-container {
+    .input-container, .textarea-container, .select-div, .input-form-btn-container, .input-container-select-main {
         width: 100%;
     }
 

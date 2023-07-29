@@ -17,19 +17,16 @@
     text-decoration: none;
     color: lightgray;
     margin: 10px;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .navItem:hover {
     color: #7db2ed;
 }
 
-.navActive {
-    text-decoration: none;
+.navItem.navActive {
     color: #7db2ed;
-    margin: 10px;
-    font-weight: bold;
 }
 
 @media (max-width: 1060px) {

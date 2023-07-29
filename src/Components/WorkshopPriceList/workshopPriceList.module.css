@@ -40,8 +40,8 @@
 
 .priceListMainContainer {
     width: 100%;
-    /* margin: 50px auto; */
-    padding: 50px 0;
+    margin: 50px auto;
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -73,7 +73,7 @@
 
 .priceListH1 {
     color: #cde9fa;
-    margin: 35px;
+    /* margin: 35px; */
     letter-spacing: 2px;
 }
 
@@ -88,7 +88,9 @@
 }
 
 .headerContainerP {
+    font-size: 14px;
     text-align: left;
+    color: white;
 }
 
 .poundSignMain{
@@ -183,8 +185,9 @@
 .individualPriceMain {
     width: 100%;
     margin: 50px auto;
-    padding: 50px 0;
-    background: linear-gradient(100deg, #626060, #1c1c1c);
+    padding: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(100deg, #222222, #383636);
 }
 
 .individualHeader {
@@ -213,10 +216,17 @@
 .individualPriceRow > h3 {
     letter-spacing: 1px;
     color: #7db2ed;
+    margin: 10px 0;
 }
 
-.individualPrices {
+/* .individualPrices {
     color: white;
+} */
+
+.individualPriceP {
+    font-size: 14px;
+    margin: 5px 0;
+    color: lightgray;
 }
 
 .notListedJob {
@@ -227,7 +237,8 @@
 
 .notListedJobP {
     color: white;
-    font-size: 18px;
+    font-size: 14px;
+    margin: 0;
 }
 
 .contact {
